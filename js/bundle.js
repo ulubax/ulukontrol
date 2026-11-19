@@ -9150,11 +9150,11 @@ ${ekspertizText}
           <div class="pt-2 max-w-md mx-auto space-y-2.5">
             <button id="btn-empty-add-vehicle" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-sm sm:text-base shadow-xl shadow-emerald-600/25 transition active:scale-95 flex items-center justify-center gap-2.5">
               ${Icons.plus('w-5 h-5')}
-              <span>+ Aracınızı Ekleyin ve Hemen Başlayın</span>
+              <span>Aracınızı Ekleyin ve Hemen Başlayın</span>
             </button>
             <div class="flex items-center justify-center gap-4 text-[11px] font-semibold text-slate-500">
               <span class="flex items-center gap-1">✓ Üyelik Gerekmez</span>
-              <span class="flex items-center gap-1">✓ 25 Marka Kataloğu</span>
+              <span class="flex items-center gap-1">✓ ${BRANDS.length} Marka & 450+ Model</span>
               <span class="flex items-center gap-1">✓ Ücretsiz & Reklamsız</span>
             </div>
           </div>
@@ -9261,7 +9261,7 @@ ${ekspertizText}
               <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-black text-xs flex items-center justify-center shrink-0">1</div>
               <div>
                 <h5 class="text-xs font-black text-slate-900">Aracınızı Seçin</h5>
-                <p class="text-[11px] text-slate-500 mt-0.5 leading-relaxed">25 otomotiv markası ve yüzlerce gerçek donanım paketi arasından aracınızı belirleyin.</p>
+                <p class="text-[11px] text-slate-500 mt-0.5 leading-relaxed">${BRANDS.length} otomotiv markası ve 450'den fazla gerçek donanım paketi arasından aracınızı belirleyin.</p>
               </div>
             </div>
 
@@ -11853,7 +11853,7 @@ ${ekspertizText}
               <div class="flex items-center justify-between mb-2">
                 <label class="text-xs font-black uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
                   <span class="w-5 h-5 rounded-full ${selectedBrandId ? 'bg-emerald-600' : 'bg-slate-700'} text-white text-[11px] font-black inline-flex items-center justify-center">2</span>
-                  Marka
+                  Marka <span class="text-[10px] text-slate-400 font-bold lowercase">(${brandsForType.length} Marka)</span>
                 </label>
                 ${selectedBrandId ? `
                   <span class="text-[11px] text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
@@ -11865,7 +11865,7 @@ ${ekspertizText}
                   </span>
                 `}
               </div>
-              <div id="wizard-brands-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 max-h-44 sm:max-h-48 overflow-y-auto p-1.5 bg-slate-50 rounded-2xl border border-slate-200">
+              <div id="wizard-brands-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 max-h-56 sm:max-h-64 overflow-y-auto p-2 bg-slate-50 rounded-2xl border border-slate-200">
                 ${brandsForType.map(b => {
                   const isSelected = selectedBrandId === b.id;
                   return `
