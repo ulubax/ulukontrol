@@ -3528,9 +3528,6 @@ ${ekspertizText}
               <div>
                 <div class="flex items-center gap-2">
                   <span class="text-base sm:text-lg font-black tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors">UluKontrol</span>
-                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
-                    Web & Mobil
-                  </span>
                 </div>
                 <p class="text-[11px] font-medium text-slate-500 hidden sm:block">Akıllı Araç & Garaj Yönetim Portalı</p>
               </div>
