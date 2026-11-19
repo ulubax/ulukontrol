@@ -1,4 +1,4 @@
-﻿// UluKontrol - Kapsamlı Türkiye Araç Kataloğu (Tüm Markalar, Modeller ve Gerçek Donanım Paketleri)
+// UluKontrol - Kapsamlı Türkiye Araç Kataloğu (Tüm Markalar, Modeller ve Gerçek Donanım Paketleri)
 // Temiz Garaj Başlangıcı + Gerçek Motor & Paket Seçimi + Doğru Bakım/Piyasa Hesaplayıcı
 (function() {
   'use strict';
