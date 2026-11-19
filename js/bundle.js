@@ -1,4 +1,4 @@
-// UluKontrol - Kapsamlı Türkiye Araç Kataloğu (Tüm Markalar, Modeller ve Gerçek Donanım Paketleri)
+﻿// UluKontrol - Kapsamlı Türkiye Araç Kataloğu (Tüm Markalar, Modeller ve Gerçek Donanım Paketleri)
 // Temiz Garaj Başlangıcı + Gerçek Motor & Paket Seçimi + Doğru Bakım/Piyasa Hesaplayıcı
 (function() {
   'use strict';
@@ -450,6 +450,69 @@
           '1.3 TCe Icon (130 HP)'
         ],
         chronic: 'AdBlue enjektörü temizliği ve arka torsiyon burçları kontrol edilmelidir.'
+      },
+      {
+        name: 'Megane E-Tech',
+        interval: 30000,
+        baseVal: 1850000,
+        engines: [
+          'EV60 220 HP Techno (60 kWh Batarya)',
+          'EV60 220 HP Iconic (60 kWh Batarya)'
+        ],
+        chronic: 'Batarya soğutma sıvısı seviyesi ve OpenR Link ekran yazılımı yetkili serviste güncellenmelidir.'
+      },
+      {
+        name: 'Kadjar',
+        interval: 20000,
+        baseVal: 1350000,
+        engines: [
+          '1.3 TCe Touch EDC (140 HP)',
+          '1.5 Blue dCi Icon EDC (115 HP)',
+          '1.2 TCe Touch (130 HP)',
+          '1.5 dCi Touch EDC (110 HP)'
+        ],
+        chronic: 'EDC çift kavrama kalibrasyonu ve ön amortisör kule bilyaları kontrol edilmelidir.'
+      },
+      {
+        name: 'Koleos',
+        interval: 20000,
+        baseVal: 1850000,
+        engines: [
+          '1.3 TCe Icon EDC (160 HP)',
+          '2.0 dCi 4x4 X-Tronic (175 HP)',
+          '1.6 dCi X-Tronic (130 HP)'
+        ],
+        chronic: 'X-Tronic CVT şanzıman yağı her 60.000 km’de bir orijinal NS-3 spesifikasyonu ile yenilenmelidir.'
+      },
+      {
+        name: 'Rafale',
+        interval: 15000,
+        baseVal: 2900000,
+        engines: [
+          'E-Tech Full Hybrid 200 HP Esprit Alpine',
+          'E-Tech 4x4 300 HP Atelier Alpine (Plug-in)'
+        ],
+        chronic: '4Control 4 tekerlekten yönlendirme açı kalibrasyonu ve hibrit batarya yönetim ünitesi.'
+      },
+      {
+        name: 'Trafic',
+        interval: 20000,
+        baseVal: 1550000,
+        engines: [
+          '2.0 Blue dCi Grand Confort EDC (150/170 HP)',
+          '2.0 Blue dCi Grand Confort Manuel (150 HP)'
+        ],
+        chronic: 'EGR valfi kurum birikimi ve debriyaj rulmanı aşınması kontrol edilmelidir.'
+      },
+      {
+        name: 'Master',
+        interval: 20000,
+        baseVal: 1650000,
+        engines: [
+          '2.3 dCi Panelvan / Kamyonet (150/165 HP)',
+          '2.0 Blue dCi Yeni Kasa (150/170 HP)'
+        ],
+        chronic: 'Arka makas burçları ve turbo basınç regülatörü periyodik incelenmelidir.'
       }
     ],
 
@@ -564,6 +627,59 @@
           '2.0 TDI 110 HP Manuel'
         ],
         chronic: 'EGR soğutucusu ve turbo basınç hortumları km sınırına göre incelenmelidir.'
+      },
+      {
+        name: 'Arteon',
+        interval: 15000,
+        baseVal: 3100000,
+        engines: [
+          '2.0 TDI Elegance 4Motion DSG (200 HP)',
+          '2.0 TDI R-Line 4Motion DSG (200 HP)',
+          '1.5 TSI Elegance DSG (150 HP)'
+        ],
+        chronic: 'DCC adaptif süspansiyon sensörleri ve çerçevesiz cam krikoları periyodik kontrol edilmelidir.'
+      },
+      {
+        name: 'Touareg',
+        interval: 15000,
+        baseVal: 5400000,
+        engines: [
+          '3.0 V6 TDI Elegance 4Motion Tiptronic (286 HP)',
+          '3.0 V6 TDI R-Line 4Motion Tiptronic (286 HP)'
+        ],
+        chronic: 'Havalı süspansiyon kompresör rölesi ve 4Motion diferansiyel yağı 60.000 km’de kontrol edilmelidir.'
+      },
+      {
+        name: 'Jetta',
+        interval: 15000,
+        baseVal: 950000,
+        engines: [
+          '1.6 TDI Comfortline / Highline DSG (105 HP)',
+          '1.2 TSI Comfortline DSG (105 HP)',
+          '1.4 TSI Highline DSG (122/150 HP)'
+        ],
+        chronic: 'DQ200 kuru kavrama DSG mekatronik basınç tüpü ve şanzıman yağı kontrol edilmelidir.'
+      },
+      {
+        name: 'Amarok',
+        interval: 15000,
+        baseVal: 2450000,
+        engines: [
+          '3.0 V6 TDI Aventura 10AT (240 HP)',
+          '3.0 V6 TDI Style 10AT (240 HP)',
+          '2.0 BiTDI 4Motion 8AT (205 HP)'
+        ],
+        chronic: 'Ağır arazi şartları sonrası şaft askı bilyası ve diferansiyel keçeleri incelenmelidir.'
+      },
+      {
+        name: 'Crafter',
+        interval: 20000,
+        baseVal: 1950000,
+        engines: [
+          '2.0 TDI Panelvan 8AT (177 HP)',
+          '2.0 TDI Panelvan Manuel (140 HP)'
+        ],
+        chronic: 'DPF doluluk seviyesi ve AdBlue ısıtıcı rezistansı kontrol edilmelidir.'
       }
     ],
 
@@ -627,6 +743,83 @@
           '1.3 MultiJet Safeline (Dizel, 95 HP)'
         ],
         chronic: 'Arka makas burçları ve AdBlue SCR sistemi takip edilmelidir.'
+      },
+      {
+        name: 'Egea Hatchback',
+        interval: 10000,
+        baseVal: 840000,
+        engines: [
+          '1.4 Fire Urban / Lounge Manuel (95 HP)',
+          '1.6 MultiJet Urban / Lounge DCT (120/130 HP)',
+          '1.3 MultiJet Easy / Urban (95 HP)',
+          '1.5 T4 Hibrit Lounge AT (130 HP)'
+        ],
+        chronic: '1.4 Fire motorlarda yağ eksiltme kontrolü düzenli yapılmalıdır. DCT çift kavrama kalibrasyonu kontrol edilmelidir.'
+      },
+      {
+        name: '500',
+        interval: 15000,
+        baseVal: 950000,
+        engines: [
+          '1.0 Hybrid Dolcevita / Cult Manuel (70 HP)',
+          '1.2 Lounge Dualogic (69 HP Otomatik)'
+        ],
+        chronic: 'Dualogic robotik şanzıman hidrolik yağı ve basınç tüpü 40.000 km’de kontrol edilmelidir.'
+      },
+      {
+        name: '500X',
+        interval: 15000,
+        baseVal: 1450000,
+        engines: [
+          '1.3 FireFly Cross Plus DCT (150 HP)',
+          '1.6 MultiJet Cross Plus DCT (120 HP)',
+          '1.5 Hibrit e-Auto Cross Plus (130 HP)'
+        ],
+        chronic: 'DCT şanzıman kavrama boşluğu ve elektronik el freni kaliper motorları kontrol edilmelidir.'
+      },
+      {
+        name: 'Punto',
+        interval: 10000,
+        baseVal: 580000,
+        engines: [
+          '1.4 Fire Pop / Lounge (77 HP)',
+          '1.3 MultiJet Pop / Lounge (75/95 HP)',
+          '1.2 Pop (69 HP)'
+        ],
+        chronic: 'City direksiyon motoru rölesi ve triger zincir seti gergi boşluğu takip edilmelidir.'
+      },
+      {
+        name: 'Panda',
+        interval: 15000,
+        baseVal: 820000,
+        engines: [
+          '1.0 Hybrid City / Cross (70 HP)',
+          '1.2 Pop (69 HP)',
+          '0.9 TwinAir 4x4 Cross (85 HP)'
+        ],
+        chronic: 'Ön amortisör kule takozları ve start-stop akü şarj dengesi periyodik ölçülmelidir.'
+      },
+      {
+        name: 'Linea',
+        interval: 10000,
+        baseVal: 520000,
+        engines: [
+          '1.3 MultiJet Pop / Actual (95 HP)',
+          '1.6 MultiJet Lounge (105 HP)',
+          '1.4 Fire Actual (77 HP)'
+        ],
+        chronic: 'Triger zincir kiti 120.000 km’de yenilenmeli; alt tabla ve z-rot boşlukları kontrol edilmelidir.'
+      },
+      {
+        name: 'Ducato',
+        interval: 20000,
+        baseVal: 1750000,
+        engines: [
+          '2.2 MultiJet3 140 HP Panelvan Manuel/Otomatik',
+          '2.2 MultiJet3 160/180 HP Maxi Panelvan',
+          '2.3 MultiJet 130/150 HP'
+        ],
+        chronic: 'AdBlue dozaj enjektörü ve debriyaj üst merkezi hidrolik seviyesi takip edilmelidir.'
       }
     ],
 
@@ -697,6 +890,62 @@
           '2.8 D-4D Invincible 4x4 AT (204 HP)'
         ],
         chronic: '4x4 şaft istavroz yağlaması ve diferansiyel yağı her bakımda gözden geçirilmelidir.'
+      },
+      {
+        name: 'Yaris Cross',
+        interval: 10000,
+        baseVal: 1650000,
+        engines: [
+          '1.5 Hybrid Dream e-CVT (116 HP)',
+          '1.5 Hybrid Flame X-Pack e-CVT (116 HP)',
+          '1.5 Hybrid Passion X-Pack e-CVT (116/130 HP)'
+        ],
+        chronic: 'Hibrit batarya soğutma kanalı temiz tutulmalı ve 0W-16 motor yağı spesifikasyonu kullanılmalıdır.'
+      },
+      {
+        name: 'RAV4',
+        interval: 10000,
+        baseVal: 2950000,
+        engines: [
+          '2.5 Hybrid Passion X-Pack AWD-i e-CVT (222 HP)',
+          '2.5 Hybrid Flame AWD-i e-CVT (222 HP)',
+          '2.0 D-4D 4x4 Manuel / Multidrive S (143/150 HP)'
+        ],
+        chronic: 'E-Four arka elektrik motoru kablo soketi korozyon kontrolü ve hibrit şanzıman yağı.'
+      },
+      {
+        name: 'Auris',
+        interval: 10000,
+        baseVal: 950000,
+        engines: [
+          '1.6 Advance / Premium Multidrive S (132 HP)',
+          '1.4 D-4D Touch / Advance (90 HP)',
+          '1.33 Life Manuel (99 HP)',
+          '1.8 Hybrid Advance e-CVT (136 HP)'
+        ],
+        chronic: '1.33 motorlarda yağ eksiltme gözlenmeli; 1.4 D-4D modellerde vakum pompası ve turbo kontrol edilmelidir.'
+      },
+      {
+        name: 'Avensis',
+        interval: 10000,
+        baseVal: 1100000,
+        engines: [
+          '1.6 D-4D Premium / Elegant (112 HP)',
+          '1.6 Valvematic Elegant (132 HP)',
+          '2.0 D-4D Executive (126/143 HP)'
+        ],
+        chronic: 'Elektronik el freni modülü ve 1.6 D-4D motorlarda alternatör kasnağı kontrol edilmelidir.'
+      },
+      {
+        name: 'Proace City',
+        interval: 15000,
+        baseVal: 1450000,
+        engines: [
+          '1.5 D-4D Passion X-Pack EAT8 (130 HP)',
+          '1.5 D-4D Flame EAT8 (130 HP)',
+          '1.5 D-4D Dream Manuel (100 HP)'
+        ],
+        chronic: 'EAT8 tam otomatik şanzıman ve AdBlue pompası periyodik teyit edilmelidir.'
       }
     ],
 
@@ -754,6 +1003,72 @@
           '1.6 TDCi Titanium (95 HP)'
         ],
         chronic: 'Triger kayışı km ve yıl limitine (4 yıl/100.000 km) titizlikle uyulmalıdır.'
+      },
+      {
+        name: 'Fiesta',
+        interval: 15000,
+        baseVal: 1050000,
+        engines: [
+          '1.0 EcoBoost Titanium 7AT (100/125 HP)',
+          '1.0 EcoBoost ST-Line 7AT (125/155 HP)',
+          '1.1 Trend Manuel (75/85 HP)',
+          '1.5 TDCi Titanium (85/120 HP)'
+        ],
+        chronic: 'EcoBoost triger kayışı yağ içi çalıştığı için yağ değişim aralığı ve orijinal Castrol Ford yağı şarttır.'
+      },
+      {
+        name: 'Mondeo',
+        interval: 15000,
+        baseVal: 1450000,
+        engines: [
+          '1.5 EcoBoost Titanium Otomatik (160 HP)',
+          '2.0 TDCi Titanium Powershift (150/180 HP)',
+          '2.0 Hybrid Titanium e-CVT (187 HP)'
+        ],
+        chronic: 'Powershift şanzıman yağı ve filtresi her 60.000 km’de bir orijinal yağ ile yenilenmelidir.'
+      },
+      {
+        name: 'Tourneo Connect',
+        interval: 15000,
+        baseVal: 1750000,
+        engines: [
+          '2.0 EcoBlue Titanium 7AT (122 HP)',
+          '2.0 EcoBlue Active 7AT (122 HP)',
+          '1.5 EcoBoost Active 7AT (114 HP)'
+        ],
+        chronic: 'Çift kavrama DSG/7AT şanzıman mekatronik basıncı ve AdBlue SCR sistemi takip edilmelidir.'
+      },
+      {
+        name: 'Transit Custom',
+        interval: 20000,
+        baseVal: 1850000,
+        engines: [
+          '2.0 EcoBlue Trend / Titanium (136/170 HP Otomatik)',
+          '2.0 EcoBlue Trend Manuel (136 HP)',
+          '2.0 EcoBlue Hibrit (150 HP)'
+        ],
+        chronic: 'EcoBlue ıslak triger kayışı 120.000 km sınırına riayet edilmeli, yağ kalitesi korunmalıdır.'
+      },
+      {
+        name: 'Transit',
+        interval: 20000,
+        baseVal: 1950000,
+        engines: [
+          '2.0 EcoBlue 350L / 350M Panelvan (170/185 HP)',
+          '2.0 EcoBlue Kamyonet Çift Kabin (170 HP)'
+        ],
+        chronic: 'Arka diferansiyel yağı ve şaft askı bilyası ağır yük kullanımında periyodik yağlanmalıdır.'
+      },
+      {
+        name: 'Ranger',
+        interval: 15000,
+        baseVal: 2800000,
+        engines: [
+          '2.0 EcoBlue 4x4 XLT / Wildtrak 10AT (205 HP)',
+          '3.0 V6 EcoBlue Wildtrak / Platinum 10AT (240 HP)',
+          '3.0 V6 EcoBoost Twin-Turbo Raptor (292 HP)'
+        ],
+        chronic: '4x4 arazi şanzımanı (Transfer Case) yağı ve ön aks körükleri ağır arazi sonrası kontrol edilmelidir.'
       }
     ],
 
@@ -822,6 +1137,70 @@
           '58 kWh Advance RWD 170 HP'
         ],
         chronic: 'ICCU şarj kontrol ünitesi servis güncellemesi kontrol edilmelidir.'
+      },
+      {
+        name: 'i10',
+        interval: 15000,
+        baseVal: 900000,
+        engines: [
+          '1.0 MPI Jump / Style AMT (67 HP)',
+          '1.2 MPI Elite AMT (84 HP)'
+        ],
+        chronic: 'AMT tek kavrama robotik şanzıman baskı balata kalibrasyonu takip edilmelidir.'
+      },
+      {
+        name: 'i30',
+        interval: 15000,
+        baseVal: 1150000,
+        engines: [
+          '1.4 T-GDI Elite DCT (140 HP)',
+          '1.6 CRDi Elite DCT (136 HP)',
+          '1.0 T-GDI Style (120 HP)'
+        ],
+        chronic: '7 ileri kuru DCT kavrama boşluğu ve direksiyon mafsal tıkırtısı kontrol edilmelidir.'
+      },
+      {
+        name: 'Kona',
+        interval: 15000,
+        baseVal: 1750000,
+        engines: [
+          '1.6 T-GDI N Line 4x4 DCT (198 HP)',
+          '1.6 Hibrit Prime / Elite (141 HP)',
+          '1.0 T-GDI Style DCT (120 HP)',
+          'Kona Elektrikli 65.4 kWh (218 HP)'
+        ],
+        chronic: '1.6 T-GDI modellerde buji ve bobin ömrü; hibrit modellerde 12V akü reset butonu kontrol edilmelidir.'
+      },
+      {
+        name: 'Santa Fe',
+        interval: 15000,
+        baseVal: 3600000,
+        engines: [
+          '1.6 T-GDI Hibrit 4x4 Progressive (230 HP)',
+          '2.2 CRDi 4x4 Elite (200 HP)'
+        ],
+        chronic: 'HTRAC 4x4 kavrama ünitesi yağı ve 3. sıra klima tahliye hortumları kontrol edilmelidir.'
+      },
+      {
+        name: 'Accent Blue',
+        interval: 10000,
+        baseVal: 650000,
+        engines: [
+          '1.6 CRDi Mode Plus / Prime DCT (136 HP)',
+          '1.6 CRDi Mode Plus 6 İleri Manuel (128/136 HP)',
+          '1.4 D-CVVT Manuel (100 HP)'
+        ],
+        chronic: 'Triger zincir sesi ve 7 ileri DCT modellerde kalkış titremesi kontrol edilmelidir.'
+      },
+      {
+        name: 'Staria',
+        interval: 15000,
+        baseVal: 2100000,
+        engines: [
+          '2.2 CRDi Prime 8AT (177 HP)',
+          '2.2 CRDi Elite 4x4 8AT (177 HP)'
+        ],
+        chronic: '8 ileri tork konvertörlü şanzıman sıvısı ve elektrikli kayar kapı mekanizmaları yağlanmalıdır.'
       }
     ],
 
@@ -891,6 +1270,49 @@
           '1.5 BlueHDi Allure Manuel (100 HP)'
         ],
         chronic: 'Arka torsiyon ve süspansiyon burçları kontrol edilmelidir.'
+      },
+      {
+        name: '308',
+        interval: 15000,
+        baseVal: 1650000,
+        engines: [
+          '1.2 PureTech Allure / GT EAT8 (130 HP)',
+          '1.5 BlueHDi GT EAT8 (130 HP)',
+          '1.2 Hybrid 136 e-DCS6'
+        ],
+        chronic: 'i-Cockpit multimedya yazılımı ve 1.2 PureTech triger genişlik kontrolü.'
+      },
+      {
+        name: '508',
+        interval: 15000,
+        baseVal: 2150000,
+        engines: [
+          '1.5 BlueHDi GT EAT8 (130 HP)',
+          '1.6 PureTech GT EAT8 (225 HP)',
+          '1.6 PureTech Allure EAT8 (180 HP)'
+        ],
+        chronic: 'Çerçevesiz kapı fitilleri ve arka kamera açılma mekanizması kontrol edilmelidir.'
+      },
+      {
+        name: '5008',
+        interval: 15000,
+        baseVal: 2650000,
+        engines: [
+          '1.5 BlueHDi Allure / GT EAT8 (130 HP, 7 Kişilik)',
+          '1.2 Hybrid 136 e-DCS6 (136 HP)',
+          '1.6 PureTech GT EAT8 (180 HP)'
+        ],
+        chronic: '3. sıra koltuk kilit mekanizmaları ve AdBlue seviye kontrolü.'
+      },
+      {
+        name: 'Partner',
+        interval: 15000,
+        baseVal: 1150000,
+        engines: [
+          '1.5 BlueHDi Van Manuel (100 HP)',
+          '1.5 BlueHDi Van EAT8 (130 HP)'
+        ],
+        chronic: 'Arka torsiyon burçları ve partikül filtre basınç sensörü temiz tutulmalıdır.'
       }
     ],
 
@@ -932,6 +1354,49 @@
           '1.6 Hybrid Extreme (140 HP)'
         ],
         chronic: '7 koltuklu modellerde arka süspansiyon yük ayarı takip edilmelidir.'
+      },
+      {
+        name: 'Sandero',
+        interval: 15000,
+        baseVal: 920000,
+        engines: [
+          '1.0 TCe Comfort X-Tronic (90 HP)',
+          '1.0 TCe Prestige X-Tronic (90 HP)',
+          '1.0 SCe Manuel (65 HP)',
+          '0.9 TCe Manuel (90 HP)',
+          '1.5 dCi Ambiance (75/90 HP)'
+        ],
+        chronic: 'X-Tronic CVT şanzıman yağı 60.000 km’de yenilenmeli; ön salıncak burçları kontrol edilmelidir.'
+      },
+      {
+        name: 'Lodgy',
+        interval: 15000,
+        baseVal: 850000,
+        engines: [
+          '1.5 Blue dCi Stepway 7 Koltuk (115 HP)',
+          '1.5 dCi Laureate 7 Koltuk (90/110 HP)',
+          '1.3 TCe Stepway (130 HP)'
+        ],
+        chronic: '7 kişilik kullanımda arka helezon yaylar ve klima arka üfleme menfezleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Dokker',
+        interval: 15000,
+        baseVal: 780000,
+        engines: [
+          '1.5 dCi Stepway / Ambiance (75/90 HP)',
+          '1.5 Blue dCi Stepway (95 HP)'
+        ],
+        chronic: 'Sürgülü yan kapı makaraları ve kilit karşılıkları periyodik temizlenmelidir.'
+      },
+      {
+        name: 'Spring',
+        interval: 30000,
+        baseVal: 890000,
+        engines: [
+          'Extreme 65 HP (26.8 kWh Batarya)'
+        ],
+        chronic: '12V akü kutup başları ve şarj soketi kilitleme pimi kontrol edilmelidir.'
       }
     ],
 
@@ -987,10 +1452,90 @@
           '1.5 Dizel Ultimate AT8 (130 HP)'
         ],
         chronic: 'AdBlue ısıtıcı modülü kış aylarında kontrol edilmelidir.'
+      },
+      {
+        name: 'Insignia',
+        interval: 15000,
+        baseVal: 1650000,
+        engines: [
+          '1.5 Turbo Grand Sport AT6 (165 HP)',
+          '1.6 CDTI Grand Sport AT6 (136 HP)',
+          '2.0 CDTI 4x4 AT8 (174/210 HP)',
+          '1.6 Turbo Edition/Cosmo (180 HP)'
+        ],
+        chronic: '1.6 CDTI motorlarda triger zinciri gergi sesi ve otomatik şanzıman tork konvertörü kontrol edilmelidir.'
+      },
+      {
+        name: 'Crossland',
+        interval: 15000,
+        baseVal: 1220000,
+        engines: [
+          '1.2 Turbo Edition Manuel (110 HP)',
+          '1.2 Turbo Elegance AT6 (130 HP)',
+          '1.2 Turbo Ultimate AT6 (130 HP)',
+          '1.5 Dizel Elegance AT6 (120 HP)'
+        ],
+        chronic: '1.2 PureTech triger kayışı aşınması yağ değişiminde karterden kontrol edilmelidir.'
+      },
+      {
+        name: 'Combo',
+        interval: 15000,
+        baseVal: 1050000,
+        engines: [
+          '1.5 CDTI Edition Manuel (102 HP)',
+          '1.5 CDTI Elegance AT8 (130 HP)',
+          '1.5 CDTI Ultimate AT8 (130 HP)',
+          '1.2 Turbo Benzin AT8 (130 HP)'
+        ],
+        chronic: '1.5 BlueHDi eksantrik zinciri (8mm revize) ve AdBlue deposu kontrol edilmelidir.'
       }
     ],
 
     skoda: [
+      {
+        name: 'Kodiaq',
+        interval: 15000,
+        baseVal: 2750000,
+        engines: [
+          '1.5 TSI e-TEC Premium DSG (150 HP Hibrit)',
+          '1.5 TSI e-TEC Prestige DSG (150 HP Hibrit)',
+          '1.5 TSI e-TEC Sportline DSG (150 HP Hibrit)',
+          '2.0 TDI Prestige 4x4 DSG (193/200 HP)',
+          '2.0 TDI Sportline 4x4 DSG (200 HP)',
+          '1.5 TSI ACT Elite DSG (150 HP)',
+          '1.5 TSI ACT Premium DSG (150 HP)',
+          '1.5 TSI ACT Prestige DSG (150 HP)',
+          '1.4 TSI ACT Style / Prestige DSG (150 HP)',
+          '2.0 TSI RS 4x4 DSG (245 HP)'
+        ],
+        chronic: 'DQ381/DQ500 ıslak kavrama DSG şanzıman yağı 60.000 km’de yetkili serviste yenilenmelidir. 7 kişilik modellerde arka süspansiyon ve DCC amortisör burçları kontrol edilmelidir.'
+      },
+      {
+        name: 'Karoq',
+        interval: 15000,
+        baseVal: 1880000,
+        engines: [
+          '1.5 TSI Premium DSG (150 HP)',
+          '1.5 TSI Prestige DSG (150 HP)',
+          '1.5 TSI Sportline DSG (150 HP)',
+          '1.6 TDI Prestige DSG (115 HP)',
+          '1.0 TSI Ambition DSG (110 HP)'
+        ],
+        chronic: 'Elektronik el freni motorları ve arka fren balataları kontrol edilmelidir.'
+      },
+      {
+        name: 'Kamiq',
+        interval: 15000,
+        baseVal: 1480000,
+        engines: [
+          '1.0 TSI Elite DSG (110/115 HP)',
+          '1.0 TSI Premium DSG (110/115 HP)',
+          '1.5 TSI Monte Carlo DSG (150 HP)',
+          '1.5 TSI Premium DSG (150 HP)',
+          '1.6 TDI Premium DSG (115 HP)'
+        ],
+        chronic: 'DQ200 kuru kavrama DSG kalkış titreşimi takip edilmelidir.'
+      },
       {
         name: 'Octavia',
         interval: 15000,
@@ -1001,6 +1546,7 @@
           '1.5 e-TEC Premium DSG (150 HP)',
           '1.5 e-TEC Sportline DSG (150 HP)',
           '1.6 TDI Style DSG (115 HP)',
+          '1.4 TSI Ambition/Style DSG (150 HP)',
           '2.0 TDI RS DSG (200 HP)'
         ],
         chronic: 'Infotainment ekranı ses ve menü yazılımı yetkili serviste güncellenmelidir.'
@@ -1021,28 +1567,30 @@
         chronic: 'DCC adaptif süspansiyon kalibrasyonu ve DSG mekatronik kontrol edilmelidir.'
       },
       {
-        name: 'Kamiq',
+        name: 'Scala',
         interval: 15000,
-        baseVal: 1480000,
+        baseVal: 1420000,
         engines: [
-          '1.0 TSI Elite DSG (110 HP)',
-          '1.0 TSI Premium DSG (110 HP)',
+          '1.0 TSI Elite DSG (110/115 HP)',
+          '1.0 TSI Premium DSG (110/115 HP)',
           '1.5 TSI Monte Carlo DSG (150 HP)',
+          '1.5 TSI Premium DSG (150 HP)',
           '1.6 TDI Premium DSG (115 HP)'
         ],
-        chronic: 'DQ200 kuru kavrama DSG kalkış titreşimi takip edilmelidir.'
+        chronic: 'Arka torsiyon burçları ve multimedya dokunmatik tepkisi yetkili servis yazılımıyla kontrol edilmelidir.'
       },
       {
-        name: 'Karoq',
+        name: 'Fabia',
         interval: 15000,
-        baseVal: 1880000,
+        baseVal: 1250000,
         engines: [
-          '1.5 TSI Premium DSG (150 HP)',
-          '1.5 TSI Prestige DSG (150 HP)',
-          '1.5 TSI Sportline DSG (150 HP)',
-          '1.6 TDI Prestige DSG (115 HP)'
+          '1.0 TSI Elite DSG (110/115 HP)',
+          '1.0 TSI Premium DSG (110/115 HP)',
+          '1.5 TSI Monte Carlo DSG (150 HP)',
+          '1.0 MPI Elite Manuel (80 HP)',
+          '1.2 TSI Style DSG (90/110 HP)'
         ],
-        chronic: 'Elektronik el freni motorları ve arka fren balataları kontrol edilmelidir.'
+        chronic: 'Kuru kavrama DSG aşınma parametreleri ve start-stop AGM akü şarj seviyesi kontrol edilmelidir.'
       }
     ],
 
@@ -1081,6 +1629,48 @@
           '2.0 e:HEV Advance AWD (Hibrit, 184 HP)'
         ],
         chronic: 'Hibrit çift elektrik motoru invertör sıvısı kontrol edilmelidir.'
+      },
+      {
+        name: 'HR-V',
+        interval: 10000,
+        baseVal: 1750000,
+        engines: [
+          '1.5 e:HEV Elegance E-CVT (131 HP Hibrit)',
+          '1.5 e:HEV Advance E-CVT (131 HP Hibrit)',
+          '1.5 e:HEV Style E-CVT (131 HP Hibrit)',
+          '1.5 i-VTEC Executive CVT (130 HP)'
+        ],
+        chronic: 'e:HEV hibrit batarya filtre temizliği ve şanzıman yağı periyodik yenilenmelidir.'
+      },
+      {
+        name: 'Jazz',
+        interval: 10000,
+        baseVal: 1390000,
+        engines: [
+          '1.5 e:HEV Elegance E-CVT (109/122 HP Hibrit)',
+          '1.5 e:HEV Crosstar E-CVT (122 HP Hibrit)',
+          '1.3 i-VTEC Elegance CVT (102 HP)'
+        ],
+        chronic: 'CVT şanzıman yağı 40.000 km’de orijinal Honda HCF-2 ile değiştirilmelidir.'
+      },
+      {
+        name: 'Accord',
+        interval: 10000,
+        baseVal: 2350000,
+        engines: [
+          '1.5 VTEC Turbo Executive Plus CVT (190 HP)',
+          '2.0 i-VTEC Executive Otomatik (156 HP)'
+        ],
+        chronic: 'Direksiyon kutusu ve süspansiyon rotilleri kontrol edilmelidir.'
+      },
+      {
+        name: 'ZR-V',
+        interval: 10000,
+        baseVal: 2750000,
+        engines: [
+          '2.0 e:HEV Advance E-CVT (184 HP Hibrit)'
+        ],
+        chronic: 'Gelişmiş Honda Sensing kamera kalibrasyonu ve hibrit batarya soğutması takip edilmelidir.'
       }
     ],
 
@@ -1119,6 +1709,61 @@
           '1.5 BlueHDi Feel Bold EAT8 (130 HP)'
         ],
         chronic: 'Arka amortisör toz körükleri kontrol edilmelidir.'
+      },
+      {
+        name: 'C3',
+        interval: 15000,
+        baseVal: 980000,
+        engines: [
+          '1.2 PureTech Feel Manuel (83 HP)',
+          '1.2 PureTech Feel Bold EAT6 (110 HP)',
+          '1.2 PureTech Shine EAT6 (110 HP)',
+          '1.5 BlueHDi Feel Bold Manuel (100 HP)',
+          'e-C3 Elektrikli (113 HP)'
+        ],
+        chronic: '1.2 PureTech ıslak triger kayış aşınması ve yağ basıncı kontrol edilmelidir.'
+      },
+      {
+        name: 'C3 Aircross',
+        interval: 15000,
+        baseVal: 1250000,
+        engines: [
+          '1.2 PureTech Feel Bold EAT6 (130 HP)',
+          '1.2 PureTech Shine EAT6 (130 HP)',
+          '1.5 BlueHDi Shine EAT6 (120 HP)'
+        ],
+        chronic: 'Karter yağ süzgeci ve triger kayışı düzenli kontrol edilmelidir.'
+      },
+      {
+        name: 'C-Elysee',
+        interval: 15000,
+        baseVal: 720000,
+        engines: [
+          '1.5 BlueHDi Feel Manuel (100 HP)',
+          '1.6 HDi Attraction / Confort Manuel (92 HP)',
+          '1.2 VTi Manuel (72/82 HP)'
+        ],
+        chronic: 'Arka torsiyon burçları ve debriyaj seti periyodik incelenmelidir.'
+      },
+      {
+        name: 'C5 X',
+        interval: 15000,
+        baseVal: 1950000,
+        engines: [
+          '1.2 PureTech Shine EAT8 (130 HP)',
+          '1.6 PureTech Shine Bold EAT8 (180 HP)',
+          '1.6 PHEV Plug-in Hybrid E-EAT8 (225 HP)'
+        ],
+        chronic: 'Progressive Hydraulic Cushions süspansiyon takozları kontrol edilmelidir.'
+      },
+      {
+        name: 'Ami',
+        interval: 10000,
+        baseVal: 450000,
+        engines: [
+          '5.5 kWh Elektrikli Şehir Aracı (8 HP / 45 km/s)'
+        ],
+        chronic: 'Şehir içi mikro mobilite, 12V akü ve fren balata aşınması kontrol edilmelidir.'
       }
     ],
 
@@ -1171,6 +1816,55 @@
           'iX1 xDrive30 M Sport (313 HP Elektrik)'
         ],
         chronic: 'Çift kavramalı 7 ileri şanzımanda kalkış kalibrasyonu tavsiye edilir.'
+      },
+      {
+        name: '2 Serisi Gran Coupe',
+        interval: 15000,
+        baseVal: 2450000,
+        engines: [
+          '218i Gran Coupe M Sport Steptronic (136/140 HP)',
+          '216d Gran Coupe M Sport Steptronic (116 HP)',
+          '220i Gran Coupe M Sport Steptronic (178 HP)',
+          'M235i xDrive Gran Coupe (306 HP)'
+        ],
+        chronic: 'Çift kavrama şanzıman yağı ve motor üst takozu kontrol edilmelidir.'
+      },
+      {
+        name: '4 Serisi Gran Coupe',
+        interval: 15000,
+        baseVal: 3650000,
+        engines: [
+          '420i Gran Coupe M Sport Steptronic (170 HP)',
+          '430i xDrive Gran Coupe M Sport (245 HP)',
+          '420d xDrive Gran Coupe M Sport (190 HP)',
+          'i4 eDrive40 M Sport Elektrikli (340 HP)',
+          'i4 M50 xDrive Elektrikli (544 HP)'
+        ],
+        chronic: 'Arka havalı süspansiyon (i4) ve fren diskleri kontrol edilmelidir.'
+      },
+      {
+        name: 'X3',
+        interval: 15000,
+        baseVal: 3850000,
+        engines: [
+          'sDrive20i xLine / M Sport Steptronic (170 HP)',
+          'xDrive20d M Sport Steptronic (190 HP)',
+          'iX3 M Sport Tam Elektrikli (286 HP)',
+          'xDrive30i M Sport (252 HP)'
+        ],
+        chronic: 'xDrive transfer kutusu (VTG) yağı 80.000 km’de bir yenilenmelidir.'
+      },
+      {
+        name: 'X5',
+        interval: 15000,
+        baseVal: 6850000,
+        engines: [
+          'xDrive30d M Sport Steptronic (286/298 HP Mild Hybrid)',
+          'xDrive40i M Sport Steptronic (333/381 HP)',
+          'xDrive45e / xDrive50e Plug-in Hybrid (394/489 HP)',
+          'xDrive25d M Sport (231 HP)'
+        ],
+        chronic: 'Hava süspansiyon körükleri ve kompresörü periyodik kontrol edilmelidir.'
       }
     ],
 
@@ -1224,6 +1918,54 @@
           'GLB 200 AMG 7 Kişilik (163 HP)'
         ],
         chronic: 'Arka teker porya bilyaları kontrol edilmelidir.'
+      },
+      {
+        name: 'CLA',
+        interval: 15000,
+        baseVal: 2650000,
+        engines: [
+          'CLA 200 AMG 7G-DCT (163 HP)',
+          'CLA 200 Progressive 7G-DCT (163 HP)',
+          'CLA 180 d AMG 7G-DCT (116 HP)',
+          'CLA 200 4MATIC AMG (163 HP)',
+          'AMG CLA 45 S 4MATIC+ (421 HP)'
+        ],
+        chronic: 'MBUX çift ekran yazılımı ve 7G-DCT şanzıman adaptasyonu takip edilmelidir.'
+      },
+      {
+        name: 'GLC',
+        interval: 15000,
+        baseVal: 4850000,
+        engines: [
+          'GLC 220 d 4MATIC AMG (197/220 HP Mild Hybrid)',
+          'GLC 300 d 4MATIC AMG (245/269 HP)',
+          'GLC 200 4MATIC Edition 1 / AMG (204 HP)',
+          'GLC 300 e 4MATIC Plug-in Hybrid (313 HP)'
+        ],
+        chronic: '9G-Tronic şanzıman yağı ve 4MATIC şaft askı bilyası kontrol edilmelidir.'
+      },
+      {
+        name: 'B-Serisi',
+        interval: 15000,
+        baseVal: 1980000,
+        engines: [
+          'B 180 Progressive 7G-DCT (136 HP)',
+          'B 200 AMG 7G-DCT (163 HP)',
+          'B 180 d Style / Progressive 7G-DCT (116 HP)'
+        ],
+        chronic: 'Ön aks körükleri ve çift kavrama kavrama diski kontrol edilmelidir.'
+      },
+      {
+        name: 'Vito',
+        interval: 15000,
+        baseVal: 1850000,
+        engines: [
+          '114 CDI Pro / Select 9G-Tronic (136 HP)',
+          '116 CDI Pro / Select 9G-Tronic (163 HP)',
+          '119 CDI Select / Exclusive 9G-Tronic (190 HP)',
+          '124 CDI Exclusive 4x4 (237 HP)'
+        ],
+        chronic: 'Arka diferansiyel yağı ve sürgülü kapı kilit mekanizmaları kontrol edilmelidir.'
       }
     ],
 
@@ -1262,6 +2004,52 @@
           '35 TFSI Sportback S line (150 HP)'
         ],
         chronic: 'Ön süspansiyon salıncak burçları kontrol edilmelidir.'
+      },
+      {
+        name: 'A5 Sportback',
+        interval: 15000,
+        baseVal: 3200000,
+        engines: [
+          '40 TDI Advanced / S Line S tronic (204 HP)',
+          '40 TFSI S Line S tronic (204 HP)',
+          '45 TFSI quattro S Line S tronic (265 HP)',
+          '2.0 TDI Sport S tronic (190 HP)'
+        ],
+        chronic: 'S tronic 7 ileri ıslak kavrama şanzıman yağı 60.000 km’de değişmelidir.'
+      },
+      {
+        name: 'A6 Sedan',
+        interval: 15000,
+        baseVal: 4950000,
+        engines: [
+          '40 TDI quattro Design / Sport S tronic (204 HP)',
+          '45 TFSI quattro Design / Sport S tronic (265 HP)',
+          '50 TDI quattro S Line tiptronic (286 HP)',
+          '2.0 TDI S tronic (190 HP)'
+        ],
+        chronic: 'Mild-hybrid 48V marş jeneratörü ve hava süspansiyon kontrol edilmelidir.'
+      },
+      {
+        name: 'Q2',
+        interval: 15000,
+        baseVal: 1850000,
+        engines: [
+          '35 TFSI Advanced S tronic (150 HP)',
+          '35 TFSI S line S tronic (150 HP)',
+          '30 TDI Dynamic S tronic (116 HP)'
+        ],
+        chronic: 'DQ200 kuru kavrama DSG/S tronic kalkış titreşimi takip edilmelidir.'
+      },
+      {
+        name: 'Q5',
+        interval: 15000,
+        baseVal: 4200000,
+        engines: [
+          '40 TDI quattro Advanced / S line S tronic (204 HP)',
+          '45 TFSI quattro Advanced / S line S tronic (265 HP)',
+          '2.0 TDI quattro S tronic (190 HP)'
+        ],
+        chronic: 'quattro ultra kavrama yağı ve ön çok kollu süspansiyon burçları kontrol edilmelidir.'
       }
     ],
 
@@ -1310,6 +2098,51 @@
           '1.4 e-Hybrid VZ DSG (245 HP)'
         ],
         chronic: 'Direksiyon dokunmatik buton yazılımı ve DCC adaptif süspansiyon kalibrasyonu kontrol edilmelidir.'
+      },
+      {
+        name: 'Ateca',
+        interval: 15000,
+        baseVal: 1750000,
+        engines: [
+          '1.5 TSI ACT Xperience DSG (150 HP)',
+          '1.5 TSI ACT FR DSG (150 HP)',
+          '1.6 TDI Xcellence DSG (115 HP)',
+          '1.0 TSI Reference Manuel (110 HP)'
+        ],
+        chronic: 'DQ200 kavrama durumu ve arka kampana/fren kaliperleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Tarraco',
+        interval: 15000,
+        baseVal: 2250000,
+        engines: [
+          '1.5 TSI ACT Xcellence DSG (150 HP)',
+          '1.5 TSI ACT FR DSG (150 HP)',
+          '2.0 TDI 4Drive DSG (190 HP)'
+        ],
+        chronic: 'DQ381 ıslak kavrama şanzıman yağı 60.000 km’de yenilenmelidir.'
+      },
+      {
+        name: 'Toledo',
+        interval: 15000,
+        baseVal: 680000,
+        engines: [
+          '1.4 TDI Style DSG (90 HP)',
+          '1.2 TSI Reference Manuel (105 HP)',
+          '1.4 TSI Style DSG (122/125 HP)',
+          '1.6 TDI Reference/Style Manuel (105 HP)'
+        ],
+        chronic: 'DSG mekatronik ve arka torsiyon burçları periyodik kontrol edilmelidir.'
+      },
+      {
+        name: 'Cupra Born',
+        interval: 15000,
+        baseVal: 1950000,
+        engines: [
+          '58 kWh Elektrikli e-Boost (231 HP)',
+          '77 kWh Elektrikli (231 HP)'
+        ],
+        chronic: 'Yüksek voltaj batarya kondisyonu ve rejeneratif fren balataları kontrol edilmelidir.'
       }
     ],
 
@@ -1347,6 +2180,57 @@
           '1.6 CRDi Mild Hybrid DCT (136 HP)'
         ],
         chronic: 'DCT kavrama balatası kontrol edilmelidir.'
+      },
+      {
+        name: 'Picanto',
+        interval: 15000,
+        baseVal: 890000,
+        engines: [
+          '1.0 D-CVVT Feel AMT (67 HP)',
+          '1.2 D-CVVT Cool AMT (84 HP)'
+        ],
+        chronic: 'Tek kavrama AMT robotize şanzıman kalibrasyonu ve baskı balata kontrol edilmelidir.'
+      },
+      {
+        name: 'Rio',
+        interval: 15000,
+        baseVal: 950000,
+        engines: [
+          '1.4 MPI Cool / Elegance Otomatik (100 HP)',
+          '1.0 T-GDI DCT (100/120 HP Mild Hybrid)',
+          '1.2 D-CVVT Manuel (84 HP)'
+        ],
+        chronic: '1.4 atmosferik motor subap ayarları ve 6 ileri tork konvertörlü şanzıman yağı kontrol edilmelidir.'
+      },
+      {
+        name: 'Cerato',
+        interval: 15000,
+        baseVal: 1250000,
+        engines: [
+          '1.6 MPI Elegance / Prestige Otomatik (128 HP)',
+          '1.6 CRDi Concept Plus DCT (136 HP)'
+        ],
+        chronic: 'Direksiyon tork sensörü ve DCT kavrama kontrol edilmelidir.'
+      },
+      {
+        name: 'Niro',
+        interval: 15000,
+        baseVal: 1850000,
+        engines: [
+          '1.6 GDI Hibrit Prestige DCT (141 HP)',
+          'Niro EV Tam Elektrikli (204 HP)'
+        ],
+        chronic: 'Hibrit soğutma sıvısı ve çift kavrama hibrit aktarma organı kontrol edilmelidir.'
+      },
+      {
+        name: 'Sorento',
+        interval: 15000,
+        baseVal: 3650000,
+        engines: [
+          '1.6 T-GDI Hibrit Prestige 4x4 Otomatik (230 HP)',
+          '2.2 CRDi Prestige 4x4 DCT (202 HP)'
+        ],
+        chronic: '4x4 diferansiyel yağı ve hibrit şarj yönetim modülü kontrol edilmelidir.'
       }
     ],
 
@@ -1388,6 +2272,27 @@
           '1.3 DIG-T Designpack DCT (158 HP)'
         ],
         chronic: 'e-POWER jeneratör motoru ve batarya soğutma sıvısı kontrol edilmelidir.'
+      },
+      {
+        name: 'Micra',
+        interval: 15000,
+        baseVal: 890000,
+        engines: [
+          '1.0 IG-T Tekna X-Tronic CVT (92/100 HP)',
+          '1.0 IG-T Platinum X-Tronic CVT (100 HP)',
+          '1.2 Match CVT (80 HP)'
+        ],
+        chronic: 'X-Tronic CVT şanzıman yağı ve kayış gerginliği kontrol edilmelidir.'
+      },
+      {
+        name: 'Navara',
+        interval: 15000,
+        baseVal: 1450000,
+        engines: [
+          '2.3 dCi 4x4 Platinum Otomatik (190 HP)',
+          '2.3 dCi 4x4 Tekna Manuel (163 HP)'
+        ],
+        chronic: 'Arka çok noktadan bağlantılı helezon yaylı süspansiyon ve şasi pas koruması takip edilmelidir.'
       }
     ],
 
@@ -1423,6 +2328,39 @@
           'B5 AWD Ultimate Geartronic (250 HP)'
         ],
         chronic: 'Pilot Assist radar sensörü ön ızgara temizliği takip edilmelidir.'
+      },
+      {
+        name: 'XC90',
+        interval: 15000,
+        baseVal: 5950000,
+        engines: [
+          'B5 AWD Mild Hybrid Plus / Ultimate Geartronic (235/250 HP)',
+          'T8 Plug-in Hybrid AWD Recharge (390/455 HP)',
+          'D5 AWD Inscription Geartronic (225/235 HP)'
+        ],
+        chronic: 'Hava süspansiyon körükleri, ERAD arka elektrik motoru ve Geartronic şanzıman kontrol edilmelidir.'
+      },
+      {
+        name: 'V40',
+        interval: 15000,
+        baseVal: 1150000,
+        engines: [
+          '1.5 T3 Inscription / R-Design Geartronic (152 HP)',
+          '2.0 D2 Momentum Geartronic (120 HP)',
+          '1.6 D2 Advance Powershift (115 HP)',
+          'Cross Country 1.5 T3 Geartronic (152 HP)'
+        ],
+        chronic: 'Geartronic şanzıman yağı ve motor üst kulağı kontrol edilmelidir.'
+      },
+      {
+        name: 'EX30',
+        interval: 15000,
+        baseVal: 1980000,
+        engines: [
+          'Single Motor RWD Core / Plus Elektrikli (272 HP)',
+          'Twin Motor Performance AWD Ultra Elektrikli (428 HP)'
+        ],
+        chronic: 'Merkezi ekran yazılım güncellemeleri ve batarya termal yönetimi kontrol edilmelidir.'
       }
     ],
 
@@ -1473,6 +2411,26 @@
           'Performance AWD Çift Motor (78.1 kWh, 528 km, 510 HP)'
         ],
         chronic: 'Ön süspansiyon salıncak burçları ve lastik içi akustik köpük izolasyonu periyodik kontrol edilmelidir.'
+      },
+      {
+        name: 'Model S',
+        interval: 20000,
+        baseVal: 4850000,
+        engines: [
+          'Long Range Dual Motor AWD (670 HP)',
+          'Plaid Tri Motor AWD (1020 HP)'
+        ],
+        chronic: 'Havalı süspansiyon kompresörü ve ön salıncak burçları kontrol edilmelidir.'
+      },
+      {
+        name: 'Model X',
+        interval: 20000,
+        baseVal: 5450000,
+        engines: [
+          'Long Range Dual Motor AWD (670 HP)',
+          'Plaid Tri Motor AWD (1020 HP)'
+        ],
+        chronic: 'Falcon Wing kanat kapı sensörleri ve menteşe mekanizması kontrol edilmelidir.'
       }
     ],
 
@@ -1515,6 +2473,34 @@
           'Comfort 44.9 kWh (310 km, 95 HP)'
         ],
         chronic: 'Di-Link multimedya OTA sürümü ve yüksek voltaj batarya alt koruma sacı kontrol edilmelidir.'
+      },
+      {
+        name: 'Tang',
+        interval: 20000,
+        baseVal: 3250000,
+        engines: [
+          'Flagship AWD Çift Motor Elektrikli (517 HP / 86.4 kWh)'
+        ],
+        chronic: 'Brembo fren kaliperleri ve Blade Batarya hücre dengelemesi takip edilmelidir.'
+      },
+      {
+        name: 'Han',
+        interval: 20000,
+        baseVal: 3100000,
+        engines: [
+          'Executive AWD Çift Motor Elektrikli (517 HP / 85.4 kWh)'
+        ],
+        chronic: 'DiSus süspansiyon sistemi ve merkezi döner ekran motoru kontrol edilmelidir.'
+      },
+      {
+        name: 'Seal U DM-i',
+        interval: 15000,
+        baseVal: 1850000,
+        engines: [
+          '1.5 Hibrit Design E-CVT (218 HP Plug-in)',
+          '1.5 Turbo AWD 4x4 Design E-CVT (319 HP Plug-in)'
+        ],
+        chronic: 'DM-i hibrit motor yağı ve yüksek voltaj batarya soğutma sıvısı kontrol edilmelidir.'
       }
     ],
 
@@ -1550,6 +2536,26 @@
           '1.6 TGDI Excellent 7DCT (183 HP)'
         ],
         chronic: 'Multimedya ekranı Türkçe dil paketi ve Apple CarPlay güncellemeleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Tiggo 4 Pro',
+        interval: 15000,
+        baseVal: 1190000,
+        engines: [
+          '1.5 Turbo Comfort CVT (147 HP)',
+          '1.5 Turbo Luxury CVT (147 HP)'
+        ],
+        chronic: 'CVT şanzıman adaptasyonu ve multimedya yazılımı kontrol edilmelidir.'
+      },
+      {
+        name: 'Tiggo 8 Pro Max',
+        interval: 15000,
+        baseVal: 1950000,
+        engines: [
+          '2.0 TGDI AWD Intelligent DCT (254 HP)',
+          '1.6 TGDI Exceptional DCT (183 HP)'
+        ],
+        chronic: 'AWD 4 çeker aktarma kutusu yağı ve DCT şanzıman kontrol edilmelidir.'
       }
     ],
 
@@ -1586,6 +2592,26 @@
           'XPOWER 4WD (435 HP Elektrik)'
         ],
         chronic: 'Batarya şarj soketi kilitleme pimi kontrol edilmelidir.'
+      },
+      {
+        name: 'Cyberster',
+        interval: 15000,
+        baseVal: 3800000,
+        engines: [
+          'Trophy RWD Elektrikli Roadster (340 HP)',
+          'GT AWD Çift Motor Elektrikli Roadster (544 HP)'
+        ],
+        chronic: 'Elektrikli makas kapı mekanizmaları ve batarya termal döngüsü takip edilmelidir.'
+      },
+      {
+        name: 'ZS EV',
+        interval: 15000,
+        baseVal: 1350000,
+        engines: [
+          'Comfort Elektrikli (156 HP / 51 kWh)',
+          'Luxury Elektrikli (156 HP / 72.6 kWh)'
+        ],
+        chronic: 'Batarya şarj soket kilidi ve rejenerasyon fren ayarları kontrol edilmelidir.'
       }
     ],
 
@@ -1619,6 +2645,16 @@
           '1.5 AllGrip 4x4 GLX Manuel (102 HP)'
         ],
         chronic: 'Ağır arazi şartları sonrası şaft gresleme ve alt takım kontrolü şarttır.'
+      },
+      {
+        name: 'S-Cross',
+        interval: 15000,
+        baseVal: 1520000,
+        engines: [
+          '1.4 Boosterjet Allgrip 4x4 GL Elegance 6AT (129 HP Hibrit)',
+          '1.4 Boosterjet 4x2 GL Elegance 6AT (129 HP Hibrit)'
+        ],
+        chronic: 'AllGrip 4x4 elektromanyetik diferansiyel yağı ve turbo besleme hortumları kontrol edilmelidir.'
       }
     ]
   };
@@ -6097,24 +7133,28 @@ ${ekspertizText}
 
   // --- 18. GELİŞMİŞ ARAÇ EKLEME SİHİRBAZI (KULLANICI SIRALAMASI: ARAÇ TİPİ -> MARKA -> MODEL -> YIL -> MOTOR & DONANIM) ---
   const SUV_MODELS = new Set([
-    'Austral', 'Captur', 'Duster', 'Yeni Duster', 'Tiguan', 'T-Roc', 'Taigo',
-    'Egea Cross', 'C-HR', 'Corolla Cross', 'Yaris Cross', 'RAV4', 'Puma', 'Kuga',
-    'Tucson', 'Bayon', 'Kona', 'Ioniq 5', '2008', '3008', '408', '5008',
-    'Sandero Stepway', 'Jogger', 'Mokka', 'Grandland', 'Crossland',
+    'Austral', 'Captur', 'Duster', 'Yeni Duster', 'Tiguan', 'T-Roc', 'Taigo', 'Touareg',
+    'Egea Cross', 'C-HR', 'Corolla Cross', 'Yaris Cross', 'RAV4', 'Land Cruiser Prado', 'Puma', 'Kuga', 'Ecosport',
+    'Tucson', 'Bayon', 'Kona', 'Santa Fe', 'Ioniq 5', '2008', '3008', '408', '5008',
+    'Sandero Stepway', 'Jogger', 'Spring', 'Mokka', 'Grandland', 'Crossland',
     'Kamiq', 'Karoq', 'Kodiaq', 'CR-V', 'HR-V', 'ZR-V',
-    'C5 Aircross', 'C3 Aircross', 'C4 X', 'X1', 'X3', 'X5',
-    'GLA', 'GLB', 'GLC', 'Q2', 'Q3', 'Q5', 'Arona', 'Ateca', 'Tarraco',
-    'Formentor', 'Sportage', 'Stonic', 'Niro', 'EV6', 'Qashqai', 'Juke', 'X-Trail',
-    'XC40', 'XC60', 'XC90', 'T10X', 'Tiggo 7 Pro', 'Tiggo 8 Pro', 'Omoda 5',
+    'C5 Aircross', 'C3 Aircross', 'C4 X', 'X1', 'iX1', 'X3', 'X5', 'X6', 'X7', 'iX',
+    'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'Q2', 'Q3', 'Q3 Sportback', 'Q5', 'Q7', 'Q8',
+    'Arona', 'Ateca', 'Tarraco', 'Formentor', 'Cupra Formentor', 'Cupra Ateca',
+    'Sportage', 'Stonic', 'Niro', 'EV6', 'EV9', 'Sorento',
+    'Qashqai', 'Juke', 'X-Trail',
+    'XC40', 'XC60', 'XC90', 'EX30', 'T10X',
+    'Tiggo 4 Pro', 'Tiggo 7 Pro', 'Tiggo 8 Pro', 'Tiggo 8 Pro Max', 'Omoda 5',
     'HS', 'ZS', 'ZS EV', 'Vitara', 'Jimny', 'S-Cross',
-    'Model Y', 'Atto 3', 'Seal U', 'Tang'
+    'Model Y', 'Model X', 'Atto 3', 'Seal U', 'Seal U DM-i', 'Tang',
+    'Kadjar', 'Koleos', 'Rafale', 'Megane E-Tech', '500X'
   ]);
 
   const TICARI_MODELS = new Set([
-    'Kangoo', 'Trafic', 'Master', 'Caddy', 'Transporter', 'Crafter', 'Amarok',
-    'Doblo', 'Fiorino', 'Ducato', 'Tourneo Courier', 'Transit Custom', 'Transit', 'Ranger',
-    'Rifter', 'Partner', 'Boxer', 'Berlingo', 'Jumpy', 'Jumper', 'Hilux', 'Proace',
-    'Combo', 'Vivaro', 'Vito', 'Sprinter'
+    'Kangoo', 'Trafic', 'Master', 'Caddy', 'Transporter', 'Crafter', 'Amarok', 'Caravelle',
+    'Doblo', 'Fiorino', 'Ducato', 'Tourneo Courier', 'Tourneo Connect', 'Transit Custom', 'Transit', 'Ranger',
+    'Rifter', 'Partner', 'Boxer', 'Expert', 'Berlingo', 'Jumpy', 'Jumper', 'Hilux', 'Proace', 'Proace City',
+    'Combo', 'Vivaro', 'Zafira Life', 'Vito', 'Sprinter', 'Dokker', 'Staria', 'H-100', 'Bongo', 'Navara'
   ]);
 
   function getModelBodyType(modelName) {
@@ -6376,14 +7416,14 @@ ${ekspertizText}
     return ['Standart Donanım Paketi'];
   }
 
-  let selectedBodyType = 'otomobil';
+  let selectedBodyType = 'tumu';
   let selectedBrandId = null;
   let selectedModelName = '';
   let selectedYear = 2024;
   let selectedEnginePackage = '';
 
   function resetWizardState() {
-    selectedBodyType = 'otomobil';
+    selectedBodyType = 'tumu';
     selectedBrandId = null;
     selectedModelName = '';
     selectedYear = 2024;
@@ -6396,6 +7436,7 @@ ${ekspertizText}
 
     // Seçili gövde tipine sahip markaları bul ve A'dan Z'ye sırala
     const brandsForType = BRANDS.filter(b => {
+      if (selectedBodyType === 'tumu') return true;
       const models = VEHICLE_MODELS[b.id] || [];
       return models.some(m => getModelBodyType(m.name) === selectedBodyType);
     }).sort((a, b) => a.name.localeCompare(b.name, 'tr'));
@@ -6409,7 +7450,9 @@ ${ekspertizText}
 
     // Seçili marka ve gövde tipine uyan modeller
     const allBrandModels = selectedBrandId ? ((VEHICLE_MODELS[selectedBrandId] || []).slice()) : [];
-    let modelsForType = allBrandModels.filter(m => getModelBodyType(m.name) === selectedBodyType);
+    let modelsForType = (selectedBodyType === 'tumu')
+      ? allBrandModels
+      : allBrandModels.filter(m => getModelBodyType(m.name) === selectedBodyType);
     if (modelsForType.length === 0 && allBrandModels.length > 0) {
       modelsForType = allBrandModels;
     }
@@ -6477,21 +7520,26 @@ ${ekspertizText}
                 </label>
                 <span class="text-[11px] text-slate-400 font-medium">Kasa / Segment</span>
               </div>
-              <div class="grid grid-cols-3 gap-2">
-                <button type="button" class="btn-wiz-bodytype p-3 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 ${selectedBodyType === 'otomobil' ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'}" data-body="otomobil">
-                  <span class="text-xl">🚗</span>
-                  <span class="text-xs font-bold">Otomobil</span>
-                  <span class="text-[10px] text-slate-400 truncate">Sedan / Hatchback</span>
+              <div class="grid grid-cols-4 gap-1.5 sm:gap-2">
+                <button type="button" class="btn-wiz-bodytype p-2 sm:p-2.5 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 ${selectedBodyType === 'tumu' ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'}" data-body="tumu">
+                  <span class="text-base sm:text-xl">🌟</span>
+                  <span class="text-[11px] sm:text-xs font-bold">Tümü</span>
+                  <span class="text-[9px] text-slate-400 truncate hidden sm:block">Tüm Modeller</span>
                 </button>
-                <button type="button" class="btn-wiz-bodytype p-3 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 ${selectedBodyType === 'suv' ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'}" data-body="suv">
-                  <span class="text-xl">🚙</span>
-                  <span class="text-xs font-bold">SUV & Crossover</span>
-                  <span class="text-[10px] text-slate-400 truncate">4x4 / Şehir SUV</span>
+                <button type="button" class="btn-wiz-bodytype p-2 sm:p-2.5 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 ${selectedBodyType === 'otomobil' ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'}" data-body="otomobil">
+                  <span class="text-base sm:text-xl">🚗</span>
+                  <span class="text-[11px] sm:text-xs font-bold">Otomobil</span>
+                  <span class="text-[9px] text-slate-400 truncate hidden sm:block">Sedan / HB</span>
                 </button>
-                <button type="button" class="btn-wiz-bodytype p-3 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 ${selectedBodyType === 'ticari' ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'}" data-body="ticari">
-                  <span class="text-xl">🚐</span>
-                  <span class="text-xs font-bold">Hafif Ticari</span>
-                  <span class="text-[10px] text-slate-400 truncate">Panelvan / Kombi</span>
+                <button type="button" class="btn-wiz-bodytype p-2 sm:p-2.5 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 ${selectedBodyType === 'suv' ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'}" data-body="suv">
+                  <span class="text-base sm:text-xl">🚙</span>
+                  <span class="text-[11px] sm:text-xs font-bold">SUV</span>
+                  <span class="text-[9px] text-slate-400 truncate hidden sm:block">4x4 / Crossover</span>
+                </button>
+                <button type="button" class="btn-wiz-bodytype p-2 sm:p-2.5 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 ${selectedBodyType === 'ticari' ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'}" data-body="ticari">
+                  <span class="text-base sm:text-xl">🚐</span>
+                  <span class="text-[11px] sm:text-xs font-bold">Ticari</span>
+                  <span class="text-[9px] text-slate-400 truncate hidden sm:block">Panelvan / Kombi</span>
                 </button>
               </div>
             </div>
@@ -6542,7 +7590,10 @@ ${ekspertizText}
 
               ${(selectedBrandId && modelsForType.length > 0) ? `
                 <select id="wiz-select-model" class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 px-3.5 text-sm text-slate-900 font-bold outline-none focus:border-emerald-500 focus:bg-white transition">
-                  ${modelsForType.map(m => `<option value="${m.name}" ${m.name === selectedModelName ? 'selected' : ''}>${m.name}</option>`).join('')}
+                  ${modelsForType.map(m => {
+                    const tag = getModelBodyType(m.name) === 'suv' ? ' [SUV]' : (getModelBodyType(m.name) === 'ticari' ? ' [Ticari]' : '');
+                    return `<option value="${m.name}" ${m.name === selectedModelName ? 'selected' : ''}>${m.name}${selectedBodyType === 'tumu' ? tag : ''}</option>`;
+                  }).join('')}
                 </select>
               ` : `
                 <div class="p-3 bg-slate-50 border border-dashed border-slate-300 rounded-2xl text-center text-xs font-semibold text-slate-500 flex items-center justify-center gap-2">
@@ -6676,13 +7727,14 @@ ${ekspertizText}
     const bCancel = document.getElementById('btn-wiz-cancel');
     if (bCancel) bCancel.onclick = close;
 
-    // 1. Araç Tipi butonları (Otomobil / SUV / Ticari)
+    // 1. Araç Tipi butonları (Tümü / Otomobil / SUV / Ticari)
     document.querySelectorAll('.btn-wiz-bodytype').forEach(b => {
       b.onclick = () => {
-        selectedBodyType = b.getAttribute('data-body') || 'otomobil';
+        selectedBodyType = b.getAttribute('data-body') || 'tumu';
         
         // Bu gövde tipine uygun markalar (A-Z)
         const brandsForType = BRANDS.filter(brand => {
+          if (selectedBodyType === 'tumu') return true;
           const mList = VEHICLE_MODELS[brand.id] || [];
           return mList.some(m => getModelBodyType(m.name) === selectedBodyType);
         }).sort((x, y) => x.name.localeCompare(y.name, 'tr'));
@@ -6694,7 +7746,9 @@ ${ekspertizText}
         } else if (selectedBrandId) {
           // Bu marka ve gövde tipine ait modeller (A-Z)
           const allModels = (VEHICLE_MODELS[selectedBrandId] || []).slice();
-          let models = allModels.filter(m => getModelBodyType(m.name) === selectedBodyType);
+          let models = (selectedBodyType === 'tumu')
+            ? allModels
+            : allModels.filter(m => getModelBodyType(m.name) === selectedBodyType);
           if (models.length === 0) models = allModels;
           models.sort((x, y) => x.name.localeCompare(y.name, 'tr'));
 
@@ -6714,7 +7768,9 @@ ${ekspertizText}
       b.onclick = () => {
         selectedBrandId = b.getAttribute('data-brand');
         const allModels = (VEHICLE_MODELS[selectedBrandId] || []).slice();
-        let models = allModels.filter(m => getModelBodyType(m.name) === selectedBodyType);
+        let models = (selectedBodyType === 'tumu')
+          ? allModels
+          : allModels.filter(m => getModelBodyType(m.name) === selectedBodyType);
         if (models.length === 0) models = allModels;
         models.sort((x, y) => x.name.localeCompare(y.name, 'tr'));
 
@@ -6806,6 +7862,8 @@ ${ekspertizText}
         const inspVal = document.getElementById('wiz-input-insp-date')?.value || null;
         const insVal = document.getElementById('wiz-input-ins-date')?.value || null;
 
+        const calculatedBodyType = getModelBodyType(modelName) || (selectedBodyType === 'tumu' ? 'otomobil' : selectedBodyType);
+
         store.addVehicle({
           plate: plateVal,
           brandId: selectedBrandId,
@@ -6813,7 +7871,7 @@ ${ekspertizText}
           model: modelName,
           enginePackage: enginePkg,
           year: selectedYear,
-          bodyType: selectedBodyType,
+          bodyType: calculatedBodyType,
           currentKm: kmVal ? parseInt(kmVal, 10) : 48500,
           monthlyAvgKm: document.getElementById('wiz-input-monthly')?.value || 1200,
           inspectionDate: inspVal,
