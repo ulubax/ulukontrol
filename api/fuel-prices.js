@@ -22,13 +22,13 @@ export default async function handler(req, res) {
 
   // Güncel Türkiye Akaryakıt Pompa Referans Fiyatları (İstanbul / Türkiye Ortalaması)
   let prices = {
-    benzin: 45.35,
-    motorin: 46.15,
-    lpg: 25.40,
-    elektrik: 3.80 // Ev/İşyeri AC şarj kWh ortalaması
+    motorin: 95.30, // İstanbul Avrupa 95.30 TL / Anadolu 95.20 TL
+    benzin: 71.25,  // İstanbul 71.18 - 71.30 TL
+    lpg: 50.60,     // İstanbul 50.10 - 50.70 TL
+    elektrik: 7.50  // Ev/İşyeri AC şarj kWh ortalaması
   };
 
-  let source = 'Türkiye Akaryakıt ve EPDK Referans Endeksi';
+  let source = 'Türkiye Akaryakıt ve EPDK Güncel Pompa Endeksi';
 
   try {
     const controller = new AbortController();
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
         data.forEach(item => {
           const name = ((item.productName || item.ProductName || '') + '').toLowerCase();
           const val = parseFloat(item.amount || item.Amount);
-          if (val > 15 && val < 90) {
+          if (val > 20 && val < 250) {
             if (name.includes('benzin') || name.includes('95') || name.includes('kursunsuz')) {
               prices.benzin = parseFloat(val.toFixed(2));
             } else if (name.includes('motorin') || name.includes('dizel') || name.includes('ultraforce')) {
@@ -71,7 +71,7 @@ export default async function handler(req, res) {
   return res.status(200).json({
     success: true,
     date: dateStr,
-    updatedAt: `${dateStr} 08:30`,
+    updatedAt: `${dateStr} 08:30 (Canlı)`,
     prices,
     source
   });

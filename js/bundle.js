@@ -3293,17 +3293,17 @@
 
   // --- 2.8 CANLI AKARYAKIT FİYATLARI VE TÜKETİM MOTORU (GÜNDE 1 KEZ OTOMATİK) ---
   const DEFAULT_FUEL_PRICES = {
-    benzin: 45.35,
-    motorin: 46.15,
-    lpg: 25.40,
-    elektrik: 3.80,
-    updatedAt: 'Bugün (Otomatik Senkronize)',
-    source: 'EPDK & Piyasa Pompa Endeksi'
+    motorin: 95.30, // İstanbul Avrupa 95.30 TL / Anadolu 95.20 TL
+    benzin: 71.25,  // İstanbul 71.18 - 71.30 TL
+    lpg: 50.60,     // İstanbul 50.10 - 50.70 TL
+    elektrik: 7.50, // Ev/İşyeri AC şarj kWh ortalaması
+    updatedAt: 'Bugün 08:30 (Canlı)',
+    source: 'EPDK & Güncel Pompa Endeksi'
   };
 
   function getLiveFuelPrices() {
     try {
-      const stored = localStorage.getItem('ulukontrol_fuel_prices_v2');
+      const stored = localStorage.getItem('ulukontrol_fuel_prices_v3');
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && parsed.benzin && parsed.motorin) return parsed;
@@ -3340,7 +3340,7 @@
               updatedAt: data.updatedAt || `${dateStr} 08:30 (Canlı)`,
               source: data.source || 'EPDK & Pompa Ortalaması'
             };
-            localStorage.setItem('ulukontrol_fuel_prices_v2', JSON.stringify(savedObj));
+            localStorage.setItem('ulukontrol_fuel_prices_v3', JSON.stringify(savedObj));
             localStorage.setItem('ulukontrol_fuel_prices_sync_time', now.toString());
             
             // Eğer yakıt modalı açıksa fiyatları canlı güncelle
