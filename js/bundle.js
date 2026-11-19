@@ -437,7 +437,640 @@
       `;
     }
 
-    // 39. DİĞER / ÖZEL MODEL - Şık Otomobil Direksiyon Simgesi
+    // 39. TOFAŞ - İkonik Mavi Çember ve Çift Çizgi T Rozeti
+    if (b.includes('tofas')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0284C7"/>
+          <circle cx="12" cy="12" r="8.5" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+          <path d="M7 8.5H17M12 8.5V17" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 40. ANADOL - Efsanevi Koç Başı Amblemi
+    if (b.includes('anadol')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#B91C1C"/>
+          <path d="M7 9C7 6.5 9.5 6 12 8.5C14.5 6 17 6.5 17 9C17 12 13.5 16 12 18C10.5 16 7 12 7 9Z" stroke="#FFFFFF" stroke-width="1.6" fill="none"/>
+          <circle cx="12" cy="11" r="1.5" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 41. CHEVROLET - Altın Papyon (Bowtie) Rozeti
+    if (b.includes('chevrolet')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M5 9.5H8.5V6.5H15.5V9.5H19L18 14.5H15.5V17.5H8.5V14.5H5L5 9.5Z" fill="#D97706" stroke="#92400E" stroke-width="0.8"/>
+          <path d="M6 10.5H9.5V7.5H14.5V10.5H18L17.2 13.5H14.5V16.5H9.5V13.5H6Z" fill="#FCD34D"/>
+        </svg>
+      `;
+    }
+
+    // 42. LADA - İkonik Yelkenli Gemi (Ladya) Rozeti
+    if (b.includes('lada')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <ellipse cx="12" cy="12" rx="10" ry="7.5" fill="#1E3A8A"/>
+          <ellipse cx="12" cy="12" rx="9" ry="6.5" stroke="#93C5FD" stroke-width="0.8" fill="none"/>
+          <path d="M12 6.5V17M12 7L16 11H12M12 8.5L8.5 11H12M8 14H16L15 16.5H9L8 14Z" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 43. DAEWOO - Klasik Mavi Yelpaze Rozeti
+    if (b.includes('daewoo')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0284C7"/>
+          <path d="M7 10C9 14 15 14 17 10C15 8 9 8 7 10ZM12 8V16" stroke="#FFFFFF" stroke-width="1.6" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 44. TATA - İkonik Mavi Halka ve Çift Akış T Rozeti
+    if (b.includes('tata')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#1E40AF"/>
+          <path d="M7 8C9.5 8 12 10.5 12 16M17 8C14.5 8 12 10.5 12 16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 45. PROTON - Kükreyen Kaplan Başı Rozeti
+    if (b.includes('proton')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#047857"/>
+          <circle cx="12" cy="12" r="8" stroke="#FBBF24" stroke-width="1.2" fill="none"/>
+          <path d="M10 8L15 12L10 16L12 12Z" fill="#FBBF24"/>
+        </svg>
+      `;
+    }
+
+    // 46. DAIHATSU - Stilize Kırmızı 'D' Amblemi
+    if (b.includes('daihatsu')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#DC2626"/>
+          <path d="M8 7H12.5C15.5 7 17 9 17 12C17 15 15.5 17 12.5 17H8V7Z" stroke="#FFFFFF" stroke-width="1.8" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 47. GEELY - Modern Mavi & Siyah Altıgenler
+    if (b.includes('geely')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="6" width="18" height="12" rx="3" fill="#0284C7"/>
+          <path d="M4 10H20M4 14H20M9 6V18M15 6V18" stroke="#FFFFFF" stroke-width="0.8"/>
+        </svg>
+      `;
+    }
+
+    // 48. SAAB - İkonik Mavi Zemin ve Kırmızı Taçlı Grifon
+    if (b.includes('saab')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#1E3A8A"/>
+          <circle cx="12" cy="12" r="8.5" stroke="#E2E8F0" stroke-width="1" fill="none"/>
+          <path d="M12 7C9.5 7 8 8.8 8 11C8 13.5 10 14.5 12 14.5M12 7L13.5 9H16L13.5 11L14 14.5" stroke="#DC2626" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <text x="12" y="19" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="4.2" text-anchor="middle" letter-spacing="0.5">SAAB</text>
+        </svg>
+      `;
+    }
+
+    // 49. ROVER - İkonik Viking Gemisi Rozeti
+    if (b.includes('rover')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 3L6 8V16L12 21L18 16V8L12 3Z" fill="#B91C1C" stroke="#D97706" stroke-width="1"/>
+          <path d="M12 6V17M12 7L15 10H12M9 10H12M9 13H15" stroke="#FDE68A" stroke-width="1.2"/>
+        </svg>
+      `;
+    }
+
+    // 50. LANCIA - İkonik Mavi Kalkan ve Bayrak Rozeti
+    if (b.includes('lancia')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 3L5 6V14C5 18 12 21 12 21C12 21 19 18 19 14V6L12 3Z" fill="#1E3A8A" stroke="#E2E8F0" stroke-width="1"/>
+          <circle cx="12" cy="12" r="5" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+          <path d="M10 9L15 12L10 15V9Z" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 51. JAGUAR - Atlayan Vahşi Jaguar (Leaper) Rozeti
+    if (b.includes('jaguar')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M4 13C6 11 9 10 12 11C15 12 17 10 20 8M12 11L14 15M7 12L9 16M17 11L19 14" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 52. MASERATI - İkonik Neptün Üç Dişli Mızrağı (Trident)
+    if (b.includes('maserati')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <ellipse cx="12" cy="12" rx="9" ry="10" fill="#00204A"/>
+          <path d="M12 6V18M12 6L9 9V12C9 14 12 15 12 15C12 15 15 14 15 12V9L12 6ZM7 9V11C7 13 9 14.5 12 15M17 9V11C17 13 15 14.5 12 15" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+          <path d="M10 18H14" stroke="#DC2626" stroke-width="1.6"/>
+        </svg>
+      `;
+    }
+
+    // 53. ASTON MARTIN - İkonik Zümrüt Zeminli Kanatlar
+    if (b.includes('astonmartin')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="7" width="20" height="10" rx="3" fill="#004225"/>
+          <path d="M3 11C7 11 10 9 12 7C14 9 17 11 21 11M4 14C7 14 10 13 12 12C14 13 17 14 20 14" stroke="#E2E8F0" stroke-width="1.2" fill="none"/>
+          <rect x="8" y="10.5" width="8" height="3" fill="#004225" stroke="#E2E8F0" stroke-width="0.8"/>
+        </svg>
+      `;
+    }
+
+    // 54. BENTLEY - Efsanevi Kanatlı 'B' Amblemi
+    if (b.includes('bentley')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M3 12C7 9 10 11 12 12C14 11 17 9 21 12C17 15 14 13 12 12C10 13 7 15 3 12Z" fill="#334155" stroke="#FFFFFF" stroke-width="0.8"/>
+          <circle cx="12" cy="12" r="4" fill="#000000" stroke="#FFFFFF" stroke-width="1"/>
+          <text x="12" y="14.5" fill="#FFFFFF" font-family="'Plus Jakarta Sans', serif" font-weight="900" font-size="6" text-anchor="middle">B</text>
+        </svg>
+      `;
+    }
+
+    // 55. FERRARI - Şaha Kalkan Siyah Tay & Sarı Kalkan
+    if (b.includes('ferrari')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 2L5 5V14C5 18.5 12 22 12 22C12 22 19 18.5 19 14V5L12 2Z" fill="#FACC15" stroke="#000000" stroke-width="0.8"/>
+          <path d="M11 16C9 14 9 10 11 7C12 8 13 8 13.5 7C13 9 14 10 14 12C14 14 13 16 11 16Z" fill="#000000"/>
+          <path d="M5 4.5H19" stroke="#16A34A" stroke-width="1.2"/>
+        </svg>
+      `;
+    }
+
+    // 56. LAMBORGHINI - Altın Raging Bull Boğa Rozeti
+    if (b.includes('lamborghini')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 2L4 5L5 18L12 22L19 18L20 5L12 2Z" fill="#000000" stroke="#EAB308" stroke-width="1.2"/>
+          <path d="M8 11C10 9 14 9 16 11C15 13 13 15 12 17C11 15 9 13 8 11Z" fill="#EAB308"/>
+        </svg>
+      `;
+    }
+
+    // 57. ROLLS-ROYCE - İkonik İkiz 'RR' Monogramı
+    if (b.includes('rollsroyce') || b.includes('rolls')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="4" y="3" width="16" height="18" rx="2" fill="#1E293B" stroke="#CBD5E1" stroke-width="1.2"/>
+          <text x="10.5" y="14" fill="#CBD5E1" font-family="'Times New Roman', serif" font-weight="bold" font-size="9" text-anchor="middle">R</text>
+          <text x="13.5" y="16.5" fill="#CBD5E1" font-family="'Times New Roman', serif" font-weight="bold" font-size="9" text-anchor="middle">R</text>
+        </svg>
+      `;
+    }
+
+    // 58. MCLAREN - İkonik Turuncu Hız Bumerangı
+    if (b.includes('mclaren')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M7 16C10 8 16 7 18 10C16 11 12 12 9 16Z" fill="#F97316"/>
+        </svg>
+      `;
+    }
+
+    // 59. LOTUS - Colin Chapman Baş Harfleri & Sarı/Yeşil Rozet
+    if (b.includes('lotus')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#FACC15"/>
+          <path d="M12 3C7 3 4 7 4 12C4 17 7 21 12 21C17 21 20 17 20 12C20 7 17 3 12 3Z" fill="#047857"/>
+          <text x="12" y="14" fill="#FACC15" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="5" text-anchor="middle">LOTUS</text>
+        </svg>
+      `;
+    }
+
+    // 60. ALPINE - İkonik Mavi Alpine 'A' Oku
+    if (b.includes('alpine')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0055A5"/>
+          <path d="M7 17L12 6L17 17M9 13.5H15M13.5 13.5L16.5 17" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 61. ABARTH - İkonik Sarı/Kırmızı Akrep Rozeti
+    if (b.includes('abarth')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 2L4 5V14C4 18.5 12 22 12 22C12 22 20 18.5 20 14V5L12 2Z" fill="#EF4444" stroke="#FACC15" stroke-width="1.2"/>
+          <path d="M4 5L20 19M4 19L20 5" stroke="#FACC15" stroke-width="12" fill="none"/>
+          <circle cx="12" cy="12" r="3.5" fill="#000000"/>
+        </svg>
+      `;
+    }
+
+    // 62. GENESIS - Kanatlı Lüks Kalkan Amblemi
+    if (b.includes('genesis')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#1E293B"/>
+          <path d="M3 11C7 11 10 9 12 10C14 9 17 11 21 11C18 13 15 14 12 14C9 14 6 13 3 11Z" fill="#94A3B8"/>
+          <circle cx="12" cy="12" r="2.5" fill="#0F172A" stroke="#E2E8F0" stroke-width="0.8"/>
+        </svg>
+      `;
+    }
+
+    // 63. INFINITI - Sonsuzluk Ufuk Çizgisi Rozeti
+    if (b.includes('infiniti')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <ellipse cx="12" cy="12" rx="10" ry="7.5" fill="#0F172A" stroke="#94A3B8" stroke-width="1.2"/>
+          <path d="M7 16L11 8L12 11L13 8L17 16" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 64. DODGE - Kırmızı Çift Çizgi / Ram Rozeti
+    if (b.includes('dodge')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="6" width="20" height="12" rx="2" fill="#000000"/>
+          <text x="10" y="14" fill="#FFFFFF" font-family="'Plus Jakarta Sans', Arial" font-weight="900" font-size="5" text-anchor="middle">DODGE</text>
+          <path d="M16 8L18 16M18.5 8L20.5 16" stroke="#DC2626" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 65. CHRYSLER - Mavi Kalkan ve Gümüş Kanatlar
+    if (b.includes('chrysler')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0A2540"/>
+          <path d="M2 11C6 11 10 10 12 8C14 10 18 11 22 11C18 13 14 14 12 14C10 14 6 13 2 11Z" fill="#3B82F6" stroke="#93C5FD" stroke-width="0.6"/>
+          <circle cx="12" cy="11" r="2.8" fill="#1E3A8A" stroke="#FFFFFF" stroke-width="0.8"/>
+        </svg>
+      `;
+    }
+
+    // 66. CADILLAC - İkonik Geometrik Renkli Kalkan
+    if (b.includes('cadillac')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 4L4 8L6 16L12 20L18 16L20 8L12 4Z" fill="#1E293B" stroke="#E2E8F0" stroke-width="1"/>
+          <rect x="8" y="9" width="3" height="3" fill="#DC2626"/>
+          <rect x="13" y="9" width="3" height="3" fill="#2563EB"/>
+          <rect x="8" y="12" width="3" height="3" fill="#EAB308"/>
+          <rect x="13" y="12" width="3" height="3" fill="#000000"/>
+        </svg>
+      `;
+    }
+
+    // 67. LINCOLN - Dikdörtgen Yıldız Rozeti
+    if (b.includes('lincoln')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="6" y="3" width="12" height="18" rx="2" fill="#0F172A" stroke="#94A3B8" stroke-width="1.2"/>
+          <path d="M12 5V19M8 12H16" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 68. GMC - Kırmızı Blok Harfli Rozet
+    if (b.includes('gmc')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="6" width="20" height="12" rx="2" fill="#B91C1C"/>
+          <text x="12" y="14.8" fill="#FFFFFF" font-family="'Plus Jakarta Sans', Arial" font-weight="900" font-size="7" text-anchor="middle" letter-spacing="0.5">GMC</text>
+        </svg>
+      `;
+    }
+
+    // 69. HUMMER - Sert Çerçeveli Askeri Font Rozeti
+    if (b.includes('hummer')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="7" width="20" height="10" rx="1.5" fill="#1E293B" stroke="#F59E0B" stroke-width="1.2"/>
+          <text x="12" y="14.2" fill="#F59E0B" font-family="'Plus Jakarta Sans', Arial" font-weight="900" font-size="5" text-anchor="middle" letter-spacing="1">HUMMER</text>
+        </svg>
+      `;
+    }
+
+    // 70. PONTIAC - Kırmızı Ok Ucu Rozeti
+    if (b.includes('pontiac')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 2L6 8L12 22L18 8L12 2Z" fill="#DC2626" stroke="#B91C1C" stroke-width="1"/>
+          <path d="M12 6V18M8 9H16" stroke="#FFFFFF" stroke-width="1.2"/>
+        </svg>
+      `;
+    }
+
+    // 71. BUICK - Üç Renkli Kalkan Rozeti
+    if (b.includes('buick')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A" stroke="#94A3B8" stroke-width="1.2"/>
+          <path d="M9 7L6 17H9L12 7H9Z" fill="#DC2626"/>
+          <path d="M13 7L10 17H13L16 7H13Z" fill="#E2E8F0"/>
+          <path d="M17 7L14 17H17L20 7H17Z" fill="#2563EB"/>
+        </svg>
+      `;
+    }
+
+    // 72. JAECOO - Şık Geometrik Safari Yeşili
+    if (b.includes('jaecoo')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="6" width="20" height="12" rx="3" fill="#065F46"/>
+          <text x="12" y="14.5" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="4.8" text-anchor="middle" letter-spacing="1.2">JAECOO</text>
+        </svg>
+      `;
+    }
+
+    // 73. OMODA - Fütüristik Geometrik Rozet
+    if (b.includes('omoda')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#090D16"/>
+          <text x="12" y="14.5" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="5" text-anchor="middle" letter-spacing="1">OMODA</text>
+        </svg>
+      `;
+    }
+
+    // 74. LEAPMOTOR - Yeşil Yaprak / Halka Elektrik Rozeti
+    if (b.includes('leapmotor')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#022C22"/>
+          <path d="M7 14C7 9.5 10.5 7 15 7C15 11.5 11.5 14 7 14Z" fill="#10B981"/>
+          <circle cx="14" cy="14" r="3" fill="#34D399"/>
+        </svg>
+      `;
+    }
+
+    // 75. VOYAH - Geniş Açılmış Kuş Kanatları
+    if (b.includes('voyah')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M4 10C8 14 11 15 12 13C13 15 16 14 20 10C16 12 13 12 12 11C11 12 8 12 4 10Z" fill="#38BDF8"/>
+        </svg>
+      `;
+    }
+
+    // 76. SKYWELL - Geometrik Mavi Prizma
+    if (b.includes('skywell')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="6" width="18" height="12" rx="3" fill="#0284C7"/>
+          <path d="M7 9L12 15L17 9" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 77. SERES - İkiz Kırmızı Dalga Halkaları
+    if (b.includes('seres')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#1E293B"/>
+          <circle cx="9.5" cy="12" r="4" stroke="#EF4444" stroke-width="1.6" fill="none"/>
+          <circle cx="14.5" cy="12" r="4" stroke="#EF4444" stroke-width="1.6" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 78. SMART - Sarı Ok ve 'C' Harfi Rozeti
+    if (b.includes('smart')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#334155"/>
+          <path d="M12 7C9.2 7 7 9.2 7 12C7 14.8 9.2 17 12 17" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M13 8.5L17 12L13 15.5V8.5Z" fill="#F59E0B"/>
+        </svg>
+      `;
+    }
+
+    // 79. DFSK - Kırmızı Çift Dalga Rozeti
+    if (b.includes('dfsk')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#DC2626"/>
+          <path d="M7 10C9 8 15 8 17 10M7 14C9 12 15 12 17 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 80. MAXUS - Üçlü Mavi Üçgen Geometrisi
+    if (b.includes('maxus')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0284C7"/>
+          <path d="M12 6L8 12H16L12 6ZM7 14L5 17H11L9 14M17 14L15 17H21L19 14" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 81. HONGQI - Kızıl Bayrak / Çin Devlet Rozeti
+    if (b.includes('hongqi')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="4" width="18" height="16" rx="3" fill="#7F1D1D"/>
+          <path d="M12 5V19M8 9H16" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 5L16 8L12 11" fill="#DC2626"/>
+        </svg>
+      `;
+    }
+
+    // 82. LYNK & CO - Minimalist Geometrik Kutu
+    if (b.includes('lynkco') || b.includes('lynk')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="6" width="18" height="12" rx="2" fill="#000000" stroke="#FFFFFF" stroke-width="1"/>
+          <path d="M7 9V15H11M13 9H17V15" stroke="#FFFFFF" stroke-width="1.8"/>
+        </svg>
+      `;
+    }
+
+    // 83. ZEEKR - Fütüristik Neon İkiz Köşegenler
+    if (b.includes('zeekr')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="5" width="18" height="14" rx="2" fill="#09090B"/>
+          <path d="M7 8H13L8 16H14M16 8V16" stroke="#F43F5E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 84. NIO - Gökyüzü ve Yol (Sky & Forward) Rozeti
+    if (b.includes('nio')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0369A1"/>
+          <path d="M7 11C7 8 9.5 6 12 6C14.5 6 17 8 17 11" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+          <path d="M8 17L12 13L16 17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 85. XPENG - Çapraz 'X' Kanatları
+    if (b.includes('xpeng')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M7 7L17 17M17 7L7 17" stroke="#EF4444" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="2" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 86. LUCID - Minimalist Lüks Tipografi
+    if (b.includes('lucid')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="7" width="20" height="10" rx="2" fill="#18181B"/>
+          <text x="12" y="14" fill="#E4E4E7" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="5" text-anchor="middle" letter-spacing="1.5">LUCID</text>
+        </svg>
+      `;
+    }
+
+    // 87. RIVIAN - İkonik Pusula Dörtgeni
+    if (b.includes('rivian')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="4" y="4" width="16" height="16" rx="3" fill="#D97706"/>
+          <path d="M12 6L16 12L12 18L8 12Z" fill="#FEF3C7"/>
+        </svg>
+      `;
+    }
+
+    // 88. FISKER - Kaliforniya Güneşi ve Okyanus
+    if (b.includes('fisker')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#EA580C"/>
+          <circle cx="12" cy="12" r="6" fill="#0284C7"/>
+          <path d="M9 12H15" stroke="#FFFFFF" stroke-width="2"/>
+        </svg>
+      `;
+    }
+
+    // 89. POLESTAR - İskandinav Kutup Yıldızı
+    if (b.includes('polestar')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#000000"/>
+          <path d="M12 5V12M12 19V12M5 12H12M19 12H12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="1.5" fill="#EAB308"/>
+        </svg>
+      `;
+    }
+
+    // 90. FORTHING - Aslan Pençesi / Spor Geometri
+    if (b.includes('forthing')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M7 15L12 7L17 15L12 12Z" fill="#F59E0B"/>
+        </svg>
+      `;
+    }
+
+    // 91. SWM - İtalyan Mirası Kırmızı Kalkan
+    if (b.includes('swm')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 3L4 6V14C4 18 12 21 12 21C12 21 20 18 20 14V6L12 3Z" fill="#DC2626"/>
+          <text x="12" y="14" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="5" text-anchor="middle">SWM</text>
+        </svg>
+      `;
+    }
+
+    // 92. IVECO - İtalyan Mavi Blok Amblemi
+    if (b.includes('iveco')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="7" width="20" height="10" rx="2.5" fill="#002D62"/>
+          <text x="12" y="14.5" fill="#FFFFFF" font-family="'Plus Jakarta Sans', Arial" font-weight="900" font-size="5.5" text-anchor="middle" letter-spacing="1">IVECO</text>
+        </svg>
+      `;
+    }
+
+    // 93. BMC - Türk Sanayisinin Kırmızı Çemberi
+    if (b.includes('bmc')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#B91C1C"/>
+          <circle cx="12" cy="12" r="8.5" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+          <text x="12" y="15" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="6.5" text-anchor="middle" letter-spacing="0.5">BMC</text>
+        </svg>
+      `;
+    }
+
+    // 94. KARSAN - Modern Türk Ticari Taşıt Logosu
+    if (b.includes('karsan')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#047857"/>
+          <path d="M8 8V16M8 12L15 7M8 12L15 17" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `;
+    }
+
+    // 95. OTOKAR - İkonik Mavi Üçgen Çark
+    if (b.includes('otokar')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#003366"/>
+          <polygon points="12,6 17,16 7,16" stroke="#FFFFFF" stroke-width="1.6" fill="none"/>
+          <circle cx="12" cy="12" r="1.8" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 96. GAZ / GAZELLE - Rus Geyiği Amblemi
+    if (b.includes('gaz')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 3L5 6V15C5 18 12 21 12 21C12 21 19 18 19 15V6L12 3Z" fill="#1E293B" stroke="#B45309" stroke-width="1"/>
+          <path d="M10 9C10 7.5 12 7 13 8C14 7 15 8 14 10C13 12 12 14 11 16H14" stroke="#FDE68A" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 97. MAHINDRA - Hint Gücü Kırmızı Amblem
+    if (b.includes('mahindra')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#DC2626"/>
+          <path d="M7 14L10 8L12 12L14 8L17 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 98. PIAGGIO - İkonik İtalyan Altıgeni
+    if (b.includes('piaggio')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <polygon points="12,3 19,7.5 19,16.5 12,21 5,16.5 5,7.5" fill="#0284C7" stroke="#FFFFFF" stroke-width="1"/>
+          <path d="M9 12H15M12 9V15" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 99. DİĞER / ÖZEL MODEL - Şık Otomobil Direksiyon Simgesi
     return `
       <svg viewBox="0 0 24 24" class="${className}" fill="none">
         <circle cx="12" cy="12" r="9.2" stroke="#10B981" stroke-width="1.8"/>
@@ -485,7 +1118,67 @@
     { id: 'lexus', name: 'Lexus', logo: getBrandLogoSvg('lexus') },
     { id: 'ds', name: 'DS Automobiles', logo: getBrandLogoSvg('ds') },
     { id: 'ssangyong', name: 'KGM / SsangYong', logo: getBrandLogoSvg('ssangyong') },
-    { id: 'isuzu', name: 'Isuzu', logo: getBrandLogoSvg('isuzu') }
+    { id: 'isuzu', name: 'Isuzu', logo: getBrandLogoSvg('isuzu') },
+    { id: 'tofas', name: 'Tofaş', logo: getBrandLogoSvg('tofas') },
+    { id: 'anadol', name: 'Anadol', logo: getBrandLogoSvg('anadol') },
+    { id: 'chevrolet', name: 'Chevrolet', logo: getBrandLogoSvg('chevrolet') },
+    { id: 'lada', name: 'Lada', logo: getBrandLogoSvg('lada') },
+    { id: 'daewoo', name: 'Daewoo', logo: getBrandLogoSvg('daewoo') },
+    { id: 'tata', name: 'Tata', logo: getBrandLogoSvg('tata') },
+    { id: 'proton', name: 'Proton', logo: getBrandLogoSvg('proton') },
+    { id: 'daihatsu', name: 'Daihatsu', logo: getBrandLogoSvg('daihatsu') },
+    { id: 'geely', name: 'Geely', logo: getBrandLogoSvg('geely') },
+    { id: 'saab', name: 'Saab', logo: getBrandLogoSvg('saab') },
+    { id: 'rover', name: 'Rover', logo: getBrandLogoSvg('rover') },
+    { id: 'lancia', name: 'Lancia', logo: getBrandLogoSvg('lancia') },
+    { id: 'jaguar', name: 'Jaguar', logo: getBrandLogoSvg('jaguar') },
+    { id: 'maserati', name: 'Maserati', logo: getBrandLogoSvg('maserati') },
+    { id: 'astonmartin', name: 'Aston Martin', logo: getBrandLogoSvg('astonmartin') },
+    { id: 'bentley', name: 'Bentley', logo: getBrandLogoSvg('bentley') },
+    { id: 'ferrari', name: 'Ferrari', logo: getBrandLogoSvg('ferrari') },
+    { id: 'lamborghini', name: 'Lamborghini', logo: getBrandLogoSvg('lamborghini') },
+    { id: 'rollsroyce', name: 'Rolls-Royce', logo: getBrandLogoSvg('rollsroyce') },
+    { id: 'mclaren', name: 'McLaren', logo: getBrandLogoSvg('mclaren') },
+    { id: 'lotus', name: 'Lotus', logo: getBrandLogoSvg('lotus') },
+    { id: 'alpine', name: 'Alpine', logo: getBrandLogoSvg('alpine') },
+    { id: 'abarth', name: 'Abarth', logo: getBrandLogoSvg('abarth') },
+    { id: 'genesis', name: 'Genesis', logo: getBrandLogoSvg('genesis') },
+    { id: 'infiniti', name: 'Infiniti', logo: getBrandLogoSvg('infiniti') },
+    { id: 'dodge', name: 'Dodge', logo: getBrandLogoSvg('dodge') },
+    { id: 'chrysler', name: 'Chrysler', logo: getBrandLogoSvg('chrysler') },
+    { id: 'cadillac', name: 'Cadillac', logo: getBrandLogoSvg('cadillac') },
+    { id: 'lincoln', name: 'Lincoln', logo: getBrandLogoSvg('lincoln') },
+    { id: 'gmc', name: 'GMC', logo: getBrandLogoSvg('gmc') },
+    { id: 'hummer', name: 'Hummer', logo: getBrandLogoSvg('hummer') },
+    { id: 'pontiac', name: 'Pontiac', logo: getBrandLogoSvg('pontiac') },
+    { id: 'buick', name: 'Buick', logo: getBrandLogoSvg('buick') },
+    { id: 'jaecoo', name: 'Jaecoo', logo: getBrandLogoSvg('jaecoo') },
+    { id: 'omoda', name: 'Omoda', logo: getBrandLogoSvg('omoda') },
+    { id: 'leapmotor', name: 'Leapmotor', logo: getBrandLogoSvg('leapmotor') },
+    { id: 'voyah', name: 'Voyah', logo: getBrandLogoSvg('voyah') },
+    { id: 'skywell', name: 'Skywell', logo: getBrandLogoSvg('skywell') },
+    { id: 'seres', name: 'Seres', logo: getBrandLogoSvg('seres') },
+    { id: 'smart', name: 'Smart', logo: getBrandLogoSvg('smart') },
+    { id: 'dfsk', name: 'DFSK', logo: getBrandLogoSvg('dfsk') },
+    { id: 'maxus', name: 'Maxus', logo: getBrandLogoSvg('maxus') },
+    { id: 'hongqi', name: 'Hongqi', logo: getBrandLogoSvg('hongqi') },
+    { id: 'lynkco', name: 'Lynk & Co', logo: getBrandLogoSvg('lynkco') },
+    { id: 'zeekr', name: 'Zeekr', logo: getBrandLogoSvg('zeekr') },
+    { id: 'nio', name: 'Nio', logo: getBrandLogoSvg('nio') },
+    { id: 'xpeng', name: 'Xpeng', logo: getBrandLogoSvg('xpeng') },
+    { id: 'lucid', name: 'Lucid', logo: getBrandLogoSvg('lucid') },
+    { id: 'rivian', name: 'Rivian', logo: getBrandLogoSvg('rivian') },
+    { id: 'fisker', name: 'Fisker', logo: getBrandLogoSvg('fisker') },
+    { id: 'polestar', name: 'Polestar', logo: getBrandLogoSvg('polestar') },
+    { id: 'forthing', name: 'Forthing', logo: getBrandLogoSvg('forthing') },
+    { id: 'swm', name: 'SWM', logo: getBrandLogoSvg('swm') },
+    { id: 'iveco', name: 'Iveco', logo: getBrandLogoSvg('iveco') },
+    { id: 'bmc', name: 'BMC', logo: getBrandLogoSvg('bmc') },
+    { id: 'karsan', name: 'Karsan', logo: getBrandLogoSvg('karsan') },
+    { id: 'otokar', name: 'Otokar', logo: getBrandLogoSvg('otokar') },
+    { id: 'gaz', name: 'GAZ / GAZelle', logo: getBrandLogoSvg('gaz') },
+    { id: 'mahindra', name: 'Mahindra', logo: getBrandLogoSvg('mahindra') },
+    { id: 'piaggio', name: 'Piaggio', logo: getBrandLogoSvg('piaggio') }
   ];
 
   const VEHICLE_MODELS = {
