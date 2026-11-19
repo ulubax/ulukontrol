@@ -4452,56 +4452,52 @@
 
   function getVehicleFuelStats(v) {
     if (!v) return null;
-    const logs = v.fuelLogs || [];
     const liveUnitPrice = getVehicleFuelUnitPrice(v);
     const authentic = getModelAuthenticConsumption(v.brandId, v.model, v.enginePackage, v.fuel);
+    const monthlyKm = Math.max(100, parseInt(v.monthlyAvgKm, 10) || 1200);
 
-    if (logs.length > 0) {
-      const totalLiters = logs.reduce((sum, item) => sum + (parseFloat(item.liters) || 0), 0);
-      const totalCost = logs.reduce((sum, item) => sum + (parseFloat(item.totalCost) || 0), 0);
-      
-      const kmValues = logs.map(l => l.km);
-      const minKm = Math.min(...kmValues);
-      const maxKm = Math.max(...kmValues);
-      const kmDiff = maxKm - minKm;
+    const avgLitersPer100 = authentic.val;
+    const unitLabel = authentic.unit; // 'L / 100 KM' veya 'kWh / 100 KM'
+    const costPerKm = parseFloat(((avgLitersPer100 * liveUnitPrice) / 100).toFixed(2));
+    const monthlyCost = Math.round(costPerKm * monthlyKm);
+    const yearlyCost = monthlyCost * 12;
 
-      let lPer100 = 0;
-      let costPerKm = 0;
-      if (kmDiff > 0 && totalLiters > 0) {
-        lPer100 = (totalLiters / kmDiff) * 100;
-        costPerKm = totalCost / kmDiff;
-      } else {
-        lPer100 = authentic.val;
-        costPerKm = (lPer100 * (totalCost / Math.max(1, totalLiters))) / 100;
-      }
+    // Sürüş Senaryoları (Şehir İçi & Şehirlerarası)
+    const isElectric = unitLabel.includes('kWh');
+    const cityMultiplier = isElectric ? 0.90 : 1.24;
+    const highwayMultiplier = isElectric ? 1.22 : 0.82;
 
-      return {
-        hasLogs: true,
-        logCount: logs.length,
-        avgLitersPer100: parseFloat(lPer100.toFixed(1)),
-        unitLabel: authentic.unit,
-        costPerKm: parseFloat(costPerKm.toFixed(2)),
-        totalSpent: Math.round(totalCost),
-        totalLiters: parseFloat(totalLiters.toFixed(1)),
-        liveUnitPrice: liveUnitPrice,
-        isAuthenticSpec: false,
-        lastLog: logs[0]
-      };
+    const cityL100 = parseFloat((avgLitersPer100 * cityMultiplier).toFixed(1));
+    const cityCostPerKm = parseFloat(((cityL100 * liveUnitPrice) / 100).toFixed(2));
+    const highwayL100 = parseFloat((avgLitersPer100 * highwayMultiplier).toFixed(1));
+    const highwayCostPerKm = parseFloat(((highwayL100 * liveUnitPrice) / 100).toFixed(2));
+
+    // Depo Kapasitesi ve Tam Depo Menzil
+    const isSuvOrTicari = (typeof SUV_MODELS !== 'undefined' && SUV_MODELS.has(v.model)) || (typeof TICARI_MODELS !== 'undefined' && TICARI_MODELS.has(v.model));
+    let tankCapacity = 50;
+    if (isElectric) {
+      tankCapacity = 60;
+    } else if (isSuvOrTicari) {
+      tankCapacity = 62;
     }
+    const tankCost = Math.round(tankCapacity * liveUnitPrice);
+    const fullTankRange = Math.round((tankCapacity / avgLitersPer100) * 100);
 
-    // Fiş girilmemişse model ve motoruna özel fabrika karma WLTP tüketimi ve canlı akaryakıt fiyatıyla hesaplanır
-    const estCostPerKm = parseFloat(((authentic.val * liveUnitPrice) / 100).toFixed(2));
     return {
-      hasLogs: false,
-      logCount: 0,
-      avgLitersPer100: authentic.val,
-      unitLabel: authentic.unit,
-      costPerKm: estCostPerKm,
-      totalSpent: 0,
-      totalLiters: 0,
-      liveUnitPrice: liveUnitPrice,
-      isAuthenticSpec: true,
-      lastLog: null
+      avgLitersPer100,
+      unitLabel,
+      costPerKm,
+      monthlyKm,
+      monthlyCost,
+      yearlyCost,
+      cityL100,
+      cityCostPerKm,
+      highwayL100,
+      highwayCostPerKm,
+      tankCapacity,
+      tankCost,
+      fullTankRange,
+      liveUnitPrice
     };
   }
 
@@ -4510,71 +4506,19 @@
 
   function getMonthlyFuelChartData(v) {
     if (!v) return null;
-    const logs = (v.fuelLogs || []).slice();
     const unitPrice = getVehicleFuelUnitPrice(v);
     const fuelStats = getVehicleFuelStats(v);
     const monthNames = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
 
-    // 1. Gerçek Fiş Kayıtları 2 veya daha fazlaysa gerçek aylık gruplama yap
-    if (logs.length >= 2) {
-      logs.sort((a, b) => new Date(a.date) - new Date(b.date));
-      const monthlyMap = {};
-
-      logs.forEach(l => {
-        const d = new Date(l.date || Date.now());
-        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
-        const label = monthNames[d.getMonth()];
-        if (!monthlyMap[key]) {
-          monthlyMap[key] = { key, label, totalCost: 0, totalLiters: 0, count: 0, kms: [] };
-        }
-        monthlyMap[key].totalCost += parseFloat(l.totalCost) || 0;
-        monthlyMap[key].totalLiters += parseFloat(l.liters) || 0;
-        monthlyMap[key].count += 1;
-        if (l.km) monthlyMap[key].kms.push(parseInt(l.km, 10));
-      });
-
-      const keys = Object.keys(monthlyMap).sort();
-      const recentKeys = keys.slice(-6); // Son 6 ay
-      const points = recentKeys.map(k => {
-        const m = monthlyMap[k];
-        const minK = Math.min(...m.kms);
-        const maxK = Math.max(...m.kms);
-        const kDiff = maxK - minK;
-        let l100 = fuelStats.avgLitersPer100;
-        if (kDiff > 0 && m.totalLiters > 0) {
-          l100 = parseFloat(((m.totalLiters / kDiff) * 100).toFixed(1));
-        }
-        return {
-          label: m.label,
-          totalCost: Math.round(m.totalCost),
-          totalLiters: parseFloat(m.totalLiters.toFixed(1)),
-          l100: l100,
-          count: m.count,
-          isProjected: false
-        };
-      });
-
-      const avgMonthlyCost = Math.round(points.reduce((s, p) => s + p.totalCost, 0) / Math.max(1, points.length));
-      return {
-        isProjected: false,
-        points: points,
-        avgMonthlyCost: avgMonthlyCost,
-        avgL100: fuelStats.avgLitersPer100,
-        unitLabel: fuelStats.unitLabel,
-        unitPrice: unitPrice
-      };
-    }
-
-    // 2. Fiş azsa veya henüz girilmediyse: Aracın aylık ortalama KM'si ve canlı fiyatla son 6 ayın trend projeksiyonu
     const now = new Date();
     const points = [];
-    const avgMonthlyKm = parseInt(v.monthlyAvgKm, 10) || 1200;
+    const avgMonthlyKm = fuelStats.monthlyKm;
     const baseL100 = fuelStats.avgLitersPer100;
     const baseMonthlyLiters = (avgMonthlyKm * baseL100) / 100;
     const baseMonthlyCost = baseMonthlyLiters * unitPrice;
 
-    // Gerçekçi mevsimsel dalgalanmalar (kış/yaz klima ve motor ısınma faktörleri)
-    const seasonalFactors = [1.02, 1.04, 0.98, 0.97, 1.01, 1.0];
+    // Gerçekçi mevsimsel dalgalanmalar (kış klima/ısınma katsayısı +%5, yaz +%2, ilkbahar ideal)
+    const seasonalFactors = [1.05, 1.04, 0.98, 0.97, 1.02, 1.0];
 
     for (let i = 5; i >= 0; i--) {
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
@@ -4587,14 +4531,11 @@
         label: monthNames[d.getMonth()],
         totalCost: mCost,
         totalLiters: mLiters,
-        l100: mL100,
-        count: 0,
-        isProjected: true
+        l100: mL100
       });
     }
 
     return {
-      isProjected: true,
       points: points,
       avgMonthlyCost: Math.round(baseMonthlyCost),
       avgL100: baseL100,
@@ -5562,34 +5503,12 @@ ${ekspertizText}
       this.notify();
     }
 
-    addFuelLog(vehicleId, logData) {
+    updateVehicleMonthlyKm(vehicleId, monthlyKm) {
       const v = this.state.vehicles.find(item => item.id === vehicleId);
       if (!v) return;
-      if (!v.fuelLogs) v.fuelLogs = [];
-      const newKm = parseInt(logData.km, 10) || v.currentKm;
-      v.fuelLogs.unshift({
-        id: 'fuel-' + Date.now(),
-        date: logData.date || new Date().toISOString().split('T')[0],
-        km: newKm,
-        liters: parseFloat(logData.liters) || 0,
-        totalCost: parseFloat(logData.totalCost) || 0,
-        station: logData.station || 'Akaryakıt İstasyonu'
-      });
-      if (newKm > v.currentKm) {
-        v.currentKm = newKm;
-      }
+      v.monthlyAvgKm = Math.max(100, parseInt(monthlyKm, 10) || 1200);
       this.saveState();
-      this.state.isFuelModalOpen = false;
-      this.showToast('Yakıt alımı başarıyla kaydedildi! ⛽', 'success');
-      this.notify();
-    }
-
-    deleteFuelLog(vehicleId, logId) {
-      const v = this.state.vehicles.find(item => item.id === vehicleId);
-      if (!v || !v.fuelLogs) return;
-      v.fuelLogs = v.fuelLogs.filter(l => l.id !== logId);
-      this.saveState();
-      this.showToast('Yakıt kaydı silindi.', 'info');
+      this.showToast(`Aylık sürüş mesafesi ${v.monthlyAvgKm.toLocaleString('tr-TR')} KM olarak güncellendi!`, 'info');
       this.notify();
     }
 
@@ -6529,12 +6448,12 @@ ${ekspertizText}
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="p-2.5 rounded-2xl bg-indigo-50 text-indigo-700 border border-indigo-100">${Icons.fuel('w-5 h-5')}</span>
-                <span class="text-[10px] font-bold px-2.5 py-1 rounded-full ${fuelStats.hasLogs ? 'bg-indigo-100 text-indigo-800' : 'bg-slate-100 text-slate-700'}">
-                  ${fuelStats.hasLogs ? `${fuelStats.logCount} Fiş Kayıtlı` : 'Fabrika Tahmini'}
+                <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                  Canlı Pompa Endeksli
                 </span>
               </div>
               <h4 class="text-sm font-black text-slate-900">Yakıt & KM Başı Maliyet</h4>
-              <p class="text-xs text-slate-500 mt-0.5">Ortalama: <b>${fuelStats.avgLitersPer100} ${fuelStats.unitLabel}</b></p>
+              <p class="text-xs text-slate-500 mt-0.5">Karma WLTP: <b>${fuelStats.avgLitersPer100} ${fuelStats.unitLabel}</b></p>
             </div>
 
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-baseline justify-between">
@@ -6543,7 +6462,7 @@ ${ekspertizText}
                 <span class="text-xs font-semibold text-slate-500">₺ / KM</span>
               </div>
               <button type="button" class="btn-open-fuel-modal text-xs font-bold text-indigo-700 hover:text-indigo-900 hover:underline cursor-pointer active:scale-95 transition">
-                + Fiş Ekle →
+                Maliyet & Trend →
               </button>
             </div>
           </div>
@@ -7804,7 +7723,7 @@ ${ekspertizText}
     }
   }
 
-  // --- 17.8 YAKIT & KM MALİYET TAKİP MODALI (CANLI FİYATLAR & AYLIK GRAFİK) ---
+  // --- 17.8 YAKIT & KM MALİYET ANALİZ PANELİ (OTOMATİK & FİŞSİZ CANLI MOTOR) ---
   function renderFuelModal() {
     const state = store.getState();
     if (!state.isFuelModalOpen) return '';
@@ -7812,7 +7731,6 @@ ${ekspertizText}
     if (!v) return '';
 
     const stats = getVehicleFuelStats(v);
-    const logs = v.fuelLogs || [];
     const livePrices = getLiveFuelPrices();
     const unitPrice = getVehicleFuelUnitPrice(v);
     const chartData = getMonthlyFuelChartData(v);
@@ -7828,7 +7746,7 @@ ${ekspertizText}
                 ⛽
               </div>
               <div>
-                <h3 class="font-black text-lg text-slate-900 leading-tight">Yakıt & KM Başı Maliyet Takibi</h3>
+                <h3 class="font-black text-lg text-slate-900 leading-tight">Yakıt & KM Başı Maliyet Analizi</h3>
                 <p class="text-xs text-slate-500">${v.brand} ${v.model} • <span class="font-mono font-bold text-slate-700">${v.plate}</span></p>
               </div>
             </div>
@@ -7844,6 +7762,7 @@ ${ekspertizText}
                 <span class="px-2 py-0.5 rounded-lg bg-white border border-slate-200 text-slate-800 shadow-2xs" title="Benzin 95 Oktan">Benzin: <b class="text-indigo-600">${livePrices.benzin} ₺</b></span>
                 <span class="px-2 py-0.5 rounded-lg bg-white border border-slate-200 text-slate-800 shadow-2xs" title="Motorin / Dizel">Motorin: <b class="text-teal-600">${livePrices.motorin} ₺</b></span>
                 <span class="px-2 py-0.5 rounded-lg bg-white border border-slate-200 text-slate-800 shadow-2xs" title="LPG / Otogaz">LPG: <b class="text-amber-600">${livePrices.lpg} ₺</b></span>
+                <span class="px-2 py-0.5 rounded-lg bg-white border border-slate-200 text-slate-800 shadow-2xs" title="Elektrik AC">Şarj: <b class="text-emerald-600">${livePrices.elektrik} ₺</b></span>
               </div>
             </div>
             <div class="flex items-center gap-2 text-[11px] text-slate-500">
@@ -7857,24 +7776,61 @@ ${ekspertizText}
           <!-- 4 Temel Özet Kartı -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
             <div class="p-3 bg-indigo-50/70 rounded-2xl border border-indigo-200">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-900 block">Ortalama Tüketim</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-900 block">Ortalama (WLTP)</span>
               <span class="text-lg font-black font-mono text-indigo-950 mt-0.5 block">${stats.avgLitersPer100}</span>
               <span class="text-[10px] font-semibold text-indigo-700">${stats.unitLabel}</span>
             </div>
             <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">1 KM Maliyeti</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">1 KM Sürüş Maliyeti</span>
               <span class="text-lg font-black font-mono text-slate-900 mt-0.5 block">${stats.costPerKm} ₺</span>
               <span class="text-[10px] font-semibold text-slate-500">Maliyet / KM</span>
             </div>
             <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
               <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">Aylık Tahmini Bütçe</span>
-              <span class="text-lg font-black font-mono text-slate-900 mt-0.5 block">${chartData.avgMonthlyCost.toLocaleString('tr-TR')} ₺</span>
-              <span class="text-[10px] font-semibold text-slate-500">Aylık Ortalama</span>
+              <span class="text-lg font-black font-mono text-slate-900 mt-0.5 block">${stats.monthlyCost.toLocaleString('tr-TR')} ₺</span>
+              <span class="text-[10px] font-semibold text-slate-500">${stats.monthlyKm.toLocaleString('tr-TR')} KM / Ay</span>
             </div>
             <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">Aktif Pompa Fiyatı</span>
-              <span class="text-lg font-black font-mono text-emerald-800 mt-0.5 block">${unitPrice} ₺</span>
-              <span class="text-[10px] font-semibold text-emerald-700">1 Litre (${v.fuel || 'Yakıt'})</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">Yıllık Yakıt Gideri</span>
+              <span class="text-lg font-black font-mono text-emerald-800 mt-0.5 block">${stats.yearlyCost.toLocaleString('tr-TR')} ₺</span>
+              <span class="text-[10px] font-semibold text-emerald-700">12 Aylık Tahmin</span>
+            </div>
+          </div>
+
+          <!-- Aylık Sürüş Mesafesi (KM) Hızlı Ayarlayıcı -->
+          <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="text-base">🚗</span>
+              <div>
+                <span class="font-bold text-slate-800 block">Aylık Ortalama Kullanımınız:</span>
+                <span class="text-[11px] text-slate-500">Maliyetler bu mesafeye göre anında yeniden hesaplanır.</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap">
+              ${[800, 1200, 1800, 2500].map(k => `
+                <button type="button" class="btn-quick-monthly-km px-2.5 py-1 rounded-xl text-xs font-mono font-bold transition cursor-pointer ${stats.monthlyKm === k ? 'bg-indigo-600 text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}" data-km="${k}">
+                  ${k.toLocaleString('tr-TR')} KM
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- 3 Farklı Sürüş Senaryosuna Göre Tüketim & KM Maliyeti -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">🏙️ Şehir İçi (Dur-Kalk)</span>
+              <span class="text-base font-black font-mono text-slate-900 block">${stats.cityL100} ${stats.unitLabel}</span>
+              <span class="text-xs font-mono font-bold text-amber-700 mt-1 block">${stats.cityCostPerKm} ₺ / KM</span>
+            </div>
+            <div class="p-3.5 bg-indigo-50/60 rounded-2xl border border-indigo-200 text-center">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-900 block mb-1">⚖️ Karma (Fabrika WLTP)</span>
+              <span class="text-base font-black font-mono text-indigo-950 block">${stats.avgLitersPer100} ${stats.unitLabel}</span>
+              <span class="text-xs font-mono font-bold text-indigo-700 mt-1 block">${stats.costPerKm} ₺ / KM</span>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">🛣️ Uzun Yol (90-110 km/s)</span>
+              <span class="text-base font-black font-mono text-slate-900 block">${stats.highwayL100} ${stats.unitLabel}</span>
+              <span class="text-xs font-mono font-bold text-emerald-700 mt-1 block">${stats.highwayCostPerKm} ₺ / KM</span>
             </div>
           </div>
 
@@ -7882,20 +7838,9 @@ ${ekspertizText}
           <div class="p-4 sm:p-5 bg-slate-50/90 rounded-3xl border border-slate-200 space-y-3.5">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <div class="flex items-center gap-2">
-                  <h4 class="text-xs font-black uppercase tracking-wider text-slate-800">Aylık Tüketim & Harcama Trendi</h4>
-                  ${chartData.isProjected ? `
-                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800">
-                      💡 Projeksiyon (${v.monthlyAvgKm || 1200} KM/Ay)
-                    </span>
-                  ` : `
-                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
-                      ✓ Gerçek Fiş Verileri (${stats.logCount} Dolum)
-                    </span>
-                  `}
-                </div>
+                <h4 class="text-xs font-black uppercase tracking-wider text-slate-800">Mevsimsel Tüketim & Harcama Projeksiyonu</h4>
                 <p class="text-[11px] text-slate-400 mt-0.5">
-                  ${fuelChartMode === 'cost' ? 'Son 6 ayda akaryakıta ödenen / tahmin edilen toplam bütçe' : 'Son 6 aydaki 100 KM başına ortalama yakıt sarfiyatı'}
+                  ${fuelChartMode === 'cost' ? 'Son 6 ayda iklim ve mevsim katsayılarına göre tahmini akaryakıt bütçesi' : 'Son 6 ayda iklim katsayılarına göre 100 KM tüketim seyri'}
                 </p>
               </div>
 
@@ -7925,7 +7870,7 @@ ${ekspertizText}
                 ${chartData.points.map(pt => {
                   const val = (fuelChartMode === 'cost') ? pt.totalCost : pt.l100;
                   const maxVal = Math.max(...chartData.points.map(p => (fuelChartMode === 'cost') ? p.totalCost : p.l100), 1);
-                  const heightPct = Math.max(18, Math.round((val / maxVal) * 100));
+                  const heightPct = Math.max(20, Math.round((val / maxVal) * 100));
 
                   return `
                     <div class="flex-1 flex flex-col items-center gap-1 z-10 group">
@@ -7941,105 +7886,25 @@ ${ekspertizText}
 
                       <!-- Ay Etiketi -->
                       <span class="text-[11px] font-bold text-slate-700 mt-0.5">${pt.label}</span>
-                      <span class="text-[9px] font-medium text-slate-400 -mt-1">${pt.totalLiters} L</span>
+                      <span class="text-[9px] font-medium text-slate-400 -mt-1">${pt.totalLiters} ${stats.unitLabel.includes('kWh') ? 'kWh' : 'L'}</span>
                     </div>
                   `;
                 }).join('')}
               </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-200/60 gap-1">
-              <span>💡 Güncel <b>${v.fuel || 'Yakıt'}</b> pompa fiyatı (${unitPrice} ₺/L) üzerinden hesaplanmaktadır.</span>
-              <span class="text-[10px] text-slate-400">${chartData.isProjected ? 'Fiş girdikçe grafik gerçek verilerinizle güncellenir' : 'Fiş geçmişinizden hesaplanmıştır'}</span>
-            </div>
-          </div>
-
-          <!-- Yeni Yakıt Fişi Ekleme Formu (Akıllı Otomatik Hesaplamalı) -->
-          <div class="p-4 sm:p-5 bg-slate-50 rounded-2xl border border-slate-200 space-y-3.5">
-            <div class="flex items-center justify-between">
-              <h4 class="text-xs font-black uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-                <span>⛽</span> Yeni Yakıt Dolumu Ekle
-              </h4>
-              <span class="text-[11px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-lg border border-indigo-100">
-                1 Litre = ${unitPrice} ₺
+            <!-- Depo Dolum & Menzil Özeti -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-slate-600 pt-2 border-t border-slate-200/60 gap-2">
+              <span class="flex items-center gap-1.5 font-bold">
+                <span>⛽ Tam Depo Maliyeti:</span>
+                <span class="font-mono text-indigo-700 font-black">~${stats.tankCost.toLocaleString('tr-TR')} ₺</span>
+                <span class="text-slate-400 font-normal">(${stats.tankCapacity} ${stats.unitLabel.includes('kWh') ? 'kWh' : 'L'})</span>
+              </span>
+              <span class="flex items-center gap-1.5 font-bold">
+                <span>🎯 Tam Depo Tahmini Menzil:</span>
+                <span class="font-mono text-emerald-700 font-black">~${stats.fullTankRange.toLocaleString('tr-TR')} KM</span>
               </span>
             </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label class="text-[11px] font-bold text-slate-600 block mb-1">Dolum Tarihi</label>
-                <input type="date" id="input-fuel-date" value="${new Date().toISOString().split('T')[0]}" class="w-full bg-white border border-slate-300 rounded-xl py-2 px-3 text-xs font-bold text-slate-800 outline-none focus:border-indigo-500" />
-              </div>
-              <div>
-                <label class="text-[11px] font-bold text-slate-600 block mb-1">Dolum Anındaki Güncel KM</label>
-                <input type="number" id="input-fuel-km" value="${v.currentKm}" min="${v.currentKm}" class="w-full bg-white border border-slate-300 rounded-xl py-2 px-3 text-xs font-mono font-bold text-slate-800 outline-none focus:border-indigo-500" />
-              </div>
-              <div>
-                <div class="flex items-center justify-between mb-1">
-                  <label class="text-[11px] font-bold text-slate-600">Alınan Yakıt (Litre / Birim)</label>
-                  <span class="text-[10px] text-slate-400">Tutar otomatik hesaplanır</span>
-                </div>
-                <input type="number" id="input-fuel-liters" step="0.01" min="1" placeholder="Örn: 40" class="w-full bg-white border border-slate-300 rounded-xl py-2 px-3 text-xs font-mono font-bold text-slate-800 outline-none focus:border-indigo-500" />
-              </div>
-              <div>
-                <div class="flex items-center justify-between mb-1">
-                  <label class="text-[11px] font-bold text-slate-600">Toplam Tutar (₺)</label>
-                  <span class="text-[10px] text-slate-400">Litreye göre otomatik</span>
-                </div>
-                <input type="number" id="input-fuel-cost" step="0.5" min="10" placeholder="Örn: 1846" class="w-full bg-white border border-slate-300 rounded-xl py-2 px-3 text-xs font-mono font-bold text-slate-800 outline-none focus:border-indigo-500" />
-              </div>
-              <div class="sm:col-span-2">
-                <label class="text-[11px] font-bold text-slate-600 block mb-1">İstasyon & Not (İsteğe Bağlı)</label>
-                <input type="text" id="input-fuel-station" placeholder="Örn: Opet - Şehirlerarası Uzun Yol" class="w-full bg-white border border-slate-300 rounded-xl py-2 px-3 text-xs font-semibold text-slate-800 outline-none focus:border-indigo-500" />
-              </div>
-            </div>
-
-            <div class="flex justify-end pt-1">
-              <button type="button" id="btn-save-fuel-log" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs shadow-md shadow-indigo-600/20 active:scale-95 transition cursor-pointer flex items-center gap-1.5">
-                ${Icons.plus('w-4 h-4')}
-                <span>Fişi Kaydet & Grafiğe Ekle</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Yakıt Geçmişi Listesi -->
-          <div class="space-y-2.5">
-            <h4 class="text-xs font-black uppercase tracking-wider text-slate-700">Geçmiş Dolum Kayıtları</h4>
-            ${logs.length === 0 ? `
-              <div class="p-5 text-center bg-slate-50 rounded-2xl border border-dashed border-slate-300 text-xs text-slate-500 space-y-1">
-                <p class="font-bold text-slate-700">Henüz yakıt fişi eklenmedi.</p>
-                <p>Her yakıt aldığınızda fişinizi buraya ekleyerek kuruşu kuruşuna gerçek tüketim ve harcamanızı takip edebilirsiniz.</p>
-              </div>
-            ` : `
-              <div class="space-y-2 max-h-48 overflow-y-auto pr-1">
-                ${logs.map(item => {
-                  const uPrice = item.liters > 0 ? (item.totalCost / item.liters).toFixed(2) : '0';
-                  return `
-                    <div class="p-3 bg-white rounded-2xl border border-slate-200/90 flex items-center justify-between gap-3 text-xs shadow-2xs hover:border-slate-300 transition">
-                      <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold text-xs shrink-0">⛽</span>
-                        <div>
-                          <div class="flex items-center gap-2">
-                            <span class="font-mono font-black text-slate-900">${item.km ? parseInt(item.km, 10).toLocaleString('tr-TR') : '—'} KM</span>
-                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">${item.station || 'İstasyon'}</span>
-                          </div>
-                          <p class="text-[11px] text-slate-400 mt-0.5">${item.date} • Birim: ${uPrice} ₺/L</p>
-                        </div>
-                      </div>
-                      <div class="flex items-center gap-3">
-                        <div class="text-right">
-                          <span class="font-mono font-black text-slate-900 block">${parseInt(item.totalCost, 10).toLocaleString('tr-TR')} ₺</span>
-                          <span class="text-[11px] font-mono text-indigo-700 font-bold block">${item.liters} L</span>
-                        </div>
-                        <button type="button" class="btn-delete-fuel-log p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition cursor-pointer" data-id="${item.id}" title="Kaydı Sil">
-                          ${Icons.trash('w-4 h-4')}
-                        </button>
-                      </div>
-                    </div>
-                  `;
-                }).join('')}
-              </div>
-            `}
           </div>
 
         </div>
@@ -8052,8 +7917,6 @@ ${ekspertizText}
     if (!state.isFuelModalOpen) return;
     const v = store.getActiveVehicle();
     if (!v) return;
-
-    const unitPrice = getVehicleFuelUnitPrice(v);
 
     const close = () => store.setFuelModalOpen(false);
     const bClose = document.getElementById('btn-close-fuel-modal');
@@ -8088,61 +7951,12 @@ ${ekspertizText}
       };
     }
 
-    // Akıllı İki Yönlü Hesaplama (Litre <-> Tutar)
-    const inLiters = document.getElementById('input-fuel-liters');
-    const inCost = document.getElementById('input-fuel-cost');
-
-    if (inLiters && inCost) {
-      inLiters.oninput = () => {
-        const lVal = parseFloat(inLiters.value);
-        if (!isNaN(lVal) && lVal > 0 && unitPrice > 0) {
-          inCost.value = Math.round(lVal * unitPrice);
-        }
-      };
-
-      inCost.oninput = () => {
-        const cVal = parseFloat(inCost.value);
-        if (!isNaN(cVal) && cVal > 0 && unitPrice > 0) {
-          inLiters.value = (cVal / unitPrice).toFixed(2);
-        }
-      };
-    }
-
-    const bSave = document.getElementById('btn-save-fuel-log');
-    if (bSave) {
-      bSave.onclick = () => {
-        const inDate = document.getElementById('input-fuel-date')?.value;
-        const inKm = document.getElementById('input-fuel-km')?.value;
-        const lVal = document.getElementById('input-fuel-liters')?.value;
-        const cVal = document.getElementById('input-fuel-cost')?.value;
-        const inStation = (document.getElementById('input-fuel-station')?.value || '').trim();
-
-        if (!lVal || parseFloat(lVal) <= 0) {
-          store.showToast('Lütfen alınan yakıt miktarını (litre) girin!', 'warning');
-          return;
-        }
-        if (!cVal || parseFloat(cVal) <= 0) {
-          store.showToast('Lütfen toplam ödenen tutarı (₺) girin!', 'warning');
-          return;
-        }
-
-        store.addFuelLog(v.id, {
-          date: inDate,
-          km: inKm,
-          liters: lVal,
-          totalCost: cVal,
-          station: inStation || 'Akaryakıt İstasyonu'
-        });
-        store.showToast('Yakıt fişi kaydedildi ve grafik güncellendi!', 'success');
-      };
-    }
-
-    document.querySelectorAll('.btn-delete-fuel-log').forEach(btn => {
+    // Aylık Ortalama KM Hızlı Ayarlayıcı
+    document.querySelectorAll('.btn-quick-monthly-km').forEach(btn => {
       btn.onclick = () => {
-        const logId = btn.getAttribute('data-id');
-        if (logId) {
-          store.deleteFuelLog(v.id, logId);
-          store.showToast('Yakıt kaydı silindi.', 'info');
+        const kmVal = parseInt(btn.getAttribute('data-km'), 10);
+        if (kmVal && kmVal > 0) {
+          store.updateVehicleMonthlyKm(v.id, kmVal);
         }
       };
     });
