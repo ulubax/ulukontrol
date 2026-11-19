@@ -1,29 +1,12 @@
-// UluKontrol PWA Service Worker (Faz 1)
-const CACHE_NAME = 'ulukontrol-cache-v1';
+// UluKontrol PWA Service Worker (Faz 2)
+const CACHE_NAME = 'ulukontrol-cache-v5';
 
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './css/app.css',
-  './js/app.js',
-  './js/store.js',
-  './js/data/initialState.js',
-  './js/data/vehiclesData.js',
-  './js/components/Icons.js',
-  './js/components/PlateBadge.js',
-  './js/components/Header.js',
-  './js/components/GarageCard.js',
-  './js/components/CockpitWidgets.js',
-  './js/components/MaintenanceScreen.js',
-  './js/components/MarketScreen.js',
-  './js/components/ProfileScreen.js',
-  './js/components/AuthScreen.js',
-  './js/components/BottomNav.js',
-  './js/components/MobileFrame.js',
-  './js/components/QuickKmModal.js',
-  './js/components/VehicleWizardModal.js',
-  './js/components/PwaInstallBanner.js',
+  './js/bundle.js',
   './icons/favicon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png'
@@ -57,13 +40,32 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Ağ İsteği Yakalama (Stale-While-Revalidate Stratejisi)
+// Ağ İsteği Yakalama (Network-First for Code, Stale-While-Revalidate for Assets)
 self.addEventListener('fetch', (event) => {
-  // Sadece HTTP/HTTPS GET isteklerini önbellekle
+  // Sadece HTTP/HTTPS GET isteklerini işle
   if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) {
     return;
   }
 
+  const url = event.request.url;
+
+  // JS ve CSS dosyaları için NETWORK-FIRST (Kullanıcı asla eski/hatalı kodda takılı kalmaz)
+  if (url.includes('bundle.js') || url.includes('.css') || url.includes('index.html')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Diğer statik varlıklar (resimler, fontlar vb.) için Stale-While-Revalidate
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       const fetchPromise = fetch(event.request)
@@ -76,10 +78,7 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         })
-        .catch(() => {
-          // Ağ hatası veya çevrimdışı durumunda önbellekteki veriyi kullan
-          return cachedResponse;
-        });
+        .catch(() => cachedResponse);
 
       return cachedResponse || fetchPromise;
     })
