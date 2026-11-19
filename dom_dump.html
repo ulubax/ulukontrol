@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr" class="light"><head>
+  <meta charset="UTF-8">
+  <script>
+    window.onerror = function(msg, url, lineNo, columnNo, error) {
+      var errText = 'JS HATASI: ' + msg + ' (Satir: ' + lineNo + ':' + columnNo + ')\n' + (error ? error.stack : '');
+      console.error(errText);
+      var el = document.getElementById('debug-error-box');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'debug-error-box';
+        el.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#990000;color:#ffffff;padding:16px;z-index:999999;font-size:13px;font-family:monospace;white-space:pre-wrap;box-shadow:0 4px 12px rgba(0,0,0,0.5);';
+        document.body ? document.body.appendChild(el) : document.documentElement.appendChild(el);
+      }
+      el.textContent = errText;
+      return false;
+    };
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>UluKontrol - Akıllı Araç &amp; Garaj Portalı</title>
+
+  <!-- PWA & Mobil Meta Etiketleri -->
+  <meta name="description" content="Akıllı Araç ve Garaj Yönetim Portalı, Periyodik Bakım, TÜVTÜRK Muayene ve Piyasa Değerleme Takibi">
+  <meta name="theme-color" content="#10B981">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="UluKontrol">
+  <meta name="application-name" content="UluKontrol">
+
+  <!-- İkonlar ve Manifest -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- UluKontrol Tasarım Sistemi -->
+  <link rel="stylesheet" href="./css/app.css">
+  <script>
+    try {
+      if (localStorage.getItem('ulukontrol_theme_v3') === 'dark') {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.bottom-0{bottom:0px}.left-0{left:0px}.right-0{right:0px}.top-0{top:0px}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-2{margin-top:0.5rem;margin-bottom:0.5rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-14{height:3.5rem}.h-7{height:1.75rem}.h-1{height:0.25rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-9{height:2.25rem}.min-h-screen{min-height:100vh}.w-14{width:3.5rem}.w-7{width:1.75rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-2{width:0.5rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-72{width:18rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-3{gap:0.75rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-4{gap:1rem}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-emerald-500\/30{border-color:rgb(16 185 129 / 0.3)}.border-amber-100{--tw-border-opacity:1;border-color:rgb(254 243 199 / var(--tw-border-opacity, 1))}.border-emerald-100{--tw-border-opacity:1;border-color:rgb(209 250 229 / var(--tw-border-opacity, 1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-purple-100{--tw-border-opacity:1;border-color:rgb(243 232 255 / var(--tw-border-opacity, 1))}.border-sky-100{--tw-border-opacity:1;border-color:rgb(224 242 254 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200\/80{border-color:rgb(226 232 240 / 0.8)}.border-slate-200\/90{border-color:rgb(226 232 240 / 0.9)}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-purple-100{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.bg-sky-100{--tw-bg-opacity:1;background-color:rgb(224 242 254 / var(--tw-bg-opacity, 1))}.bg-sky-50{--tw-bg-opacity:1;background-color:rgb(240 249 255 / var(--tw-bg-opacity, 1))}.bg-slate-100\/80{background-color:rgb(241 245 249 / 0.8)}.bg-slate-100\/90{background-color:rgb(241 245 249 / 0.9)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-emerald-600{--tw-gradient-from:#059669 var(--tw-gradient-from-position);--tw-gradient-to:rgb(5 150 105 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 255 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-emerald-50\/25{--tw-gradient-to:rgb(236 253 245 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(236 253 245 / 0.25) var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-teal-50\/35{--tw-gradient-to:rgb(240 253 250 / 0.35) var(--tw-gradient-to-position)}.to-teal-500{--tw-gradient-to:#14b8a6 var(--tw-gradient-to-position)}.to-teal-600{--tw-gradient-to:#0d9488 var(--tw-gradient-to-position)}.p-1{padding:0.25rem}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-24{padding-bottom:6rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-xs{font-size:0.75rem;line-height:1rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-bold{font-weight:700}.font-black{font-weight:900}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wider{letter-spacing:0.05em}.tracking-tight{letter-spacing:-0.025em}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.text-rose-800{--tw-text-opacity:1;color:rgb(159 18 57 / var(--tw-text-opacity, 1))}.text-sky-700{--tw-text-opacity:1;color:rgb(3 105 161 / var(--tw-text-opacity, 1))}.text-sky-800{--tw-text-opacity:1;color:rgb(7 89 133 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_-4px_25px_rgba\(0\2c 0\2c 0\2c 0\.06\)\]{--tw-shadow:0 -4px 25px rgba(0,0,0,0.06);--tw-shadow-colored:0 -4px 25px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-emerald-600\/20{--tw-shadow-color:rgb(5 150 105 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.shadow-emerald-600\/25{--tw-shadow-color:rgb(5 150 105 / 0.25);--tw-shadow:var(--tw-shadow-colored)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.selection\:bg-emerald-500 *::selection{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-emerald-500::selection{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:border-emerald-300:hover{--tw-border-opacity:1;border-color:rgb(110 231 183 / var(--tw-border-opacity, 1))}.hover\:bg-amber-50\/70:hover{background-color:rgb(255 251 235 / 0.7)}.hover\:bg-emerald-50\/70:hover{background-color:rgb(236 253 245 / 0.7)}.hover\:bg-emerald-500:hover{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-50\/70:hover{background-color:rgb(255 241 242 / 0.7)}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:from-emerald-500:hover{--tw-gradient-from:#10b981 var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-teal-500:hover{--tw-gradient-to:#14b8a6 var(--tw-gradient-to-position)}.hover\:text-slate-800:hover{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.hover\:text-slate-900:hover{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-rose-900{--tw-text-opacity:1;color:rgb(136 19 55 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:block{display:block}.sm\:inline{display:inline}.sm\:h-11{height:2.75rem}.sm\:h-20{height:5rem}.sm\:h-6{height:1.5rem}.sm\:w-11{width:2.75rem}.sm\:w-6{width:1.5rem}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:gap-2\.5{gap:0.625rem}.sm\:p-10{padding:2.5rem}.sm\:p-6{padding:1.5rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}}@media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:pb-12{padding-bottom:3rem}}@media (min-width: 1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+  <!-- Uygulamanın Dinamik Olarak Bağlanacağı Kök Eleman -->
+  <div id="app-root" class="min-h-screen flex flex-col">
+      <div class="min-h-screen bg-slate-50 flex flex-col text-slate-900 antialiased selection:bg-emerald-500 selection:text-white">
+        
+      <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16 sm:h-20">
+            
+            <!-- Logo ve Başlık (Ana Sayfaya / Garajıma Dönüş) -->
+            <button type="button" class="btn-brand-home flex items-center gap-3 cursor-pointer text-left focus:outline-none transition-transform active:scale-95 group" onclick="if(window.store){store.setActiveTab('garajim');window.scrollTo({top:0,behavior:'smooth'});}">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-base sm:text-lg font-black tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors">UluKontrol</span>
+                </div>
+                <p class="text-[11px] font-medium text-slate-500 hidden sm:block">Akıllı Araç &amp; Garaj Yönetim Portalı</p>
+              </div>
+            </button>
+
+            <!-- Masaüstü Navigasyon Sekmeleri (Desktop Tabs) -->
+            <nav class="hidden md:flex items-center gap-1.5 bg-slate-100/90 p-1.5 rounded-2xl border border-slate-200/80">
+              
+                  <button type="button" class="btn-desktop-nav px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-white text-emerald-900 shadow-xs border border-slate-200/80" data-tab="garajim">
+                    <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+                    <span>Garajım</span>
+                  </button>
+                
+                  <button type="button" class="btn-desktop-nav px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 text-slate-600 hover:text-slate-900" data-tab="bakim">
+                    <svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    <span>Bakım</span>
+                  </button>
+                
+                  <button type="button" class="btn-desktop-nav px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 text-slate-600 hover:text-slate-900" data-tab="piyasa">
+                    <svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    <span>Piyasa</span>
+                  </button>
+                
+                  <button type="button" class="btn-desktop-nav px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 text-slate-600 hover:text-slate-900" data-tab="profil">
+                    <svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>Profil</span>
+                  </button>
+                
+            </nav>
+
+            <!-- Sağ Aksiyon Grubu (Ferah ve Sadeleştirilmiş) -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+              
+              <!-- Tema Değiştirici (Zarif Kompakt İkon Buton) -->
+              <button id="btn-toggle-theme" class="w-10 h-10 rounded-2xl border border-slate-200/90 bg-slate-100/80 hover:bg-slate-200 flex items-center justify-center text-slate-700 transition active:scale-95 cursor-pointer shadow-2xs" title="Koyu Temaya (Gece / Kokpit Modu) Geç">
+                <svg class="w-5 h-5 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+              </button>
+
+              <!-- Hızlı Asistan & Araçlar Açılır Menüsü (Dropdown) -->
+              <div class="relative" id="dropdown-tools-wrapper">
+                <button type="button" id="btn-toggle-tools-menu" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100/90 hover:bg-slate-200 px-3.5 py-2.5 rounded-2xl border border-slate-200/90 transition active:scale-95 cursor-pointer shadow-2xs">
+                  <span class="text-sm">⚡</span>
+                  <span class="hidden sm:inline">Hızlı Araçlar</span>
+                  <svg class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200" id="tools-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"></path></svg>
+                </button>
+
+                <!-- Açılır Menü İçeriği -->
+                <div id="tools-dropdown-menu" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-2xl border border-slate-200/90 shadow-2xl p-2 z-50 animate-slide-up text-slate-900">
+                  
+                  <!-- İkaz Rehberi -->
+                  <button type="button" id="menu-item-lights" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50/70 transition text-left cursor-pointer group">
+                    <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 text-base shadow-2xs">
+                      ⚠️
+                    </div>
+                    <div>
+                      <div class="text-xs font-black text-slate-900 group-hover:text-amber-900">İkaz Lambaları Rehberi</div>
+                      <div class="text-[11px] text-slate-500">10 araç kümesi ve semboller</div>
+                    </div>
+                  </button>
+
+                  <!-- Acil Asistan -->
+                  <button type="button" id="menu-item-emergency" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-rose-50/70 transition text-left cursor-pointer group">
+                    <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center shrink-0 text-base shadow-2xs">
+                      🆘
+                    </div>
+                    <div>
+                      <div class="text-xs font-black text-slate-900 group-hover:text-rose-900">Acil Yardım &amp; Kaza Asistanı</div>
+                      <div class="text-[11px] text-slate-500">112, kaza tutanağı &amp; acil adımlar</div>
+                    </div>
+                  </button>
+
+                  <!-- Telefona Yükle -->
+                  <button type="button" id="menu-item-pwa" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-emerald-50/70 transition text-left cursor-pointer group">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 text-base shadow-2xs">
+                      📲
+                    </div>
+                    <div>
+                      <div class="text-xs font-black text-slate-900 group-hover:text-emerald-900">Telefona Uygulama Olarak Ekle</div>
+                      <div class="text-[11px] text-slate-500">Ana ekrana mobil kurulum</div>
+                    </div>
+                  </button>
+
+                </div>
+              </div>
+
+              <!-- Yeni Araç Ekle Butonu -->
+              <button id="btn-top-add-vehicle" class="flex items-center gap-1.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 px-3.5 sm:px-4 py-2.5 rounded-2xl shadow-sm shadow-emerald-600/25 active:scale-95 transition cursor-pointer">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span class="hidden sm:inline">Yeni Araç</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </header>
+    
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 pb-24 md:pb-12">
+          
+      <div class="space-y-6 max-w-5xl mx-auto my-2 animate-fade-in">
+        
+        <!-- Ana Tanıtım Kartı (Hero Banner) -->
+        <div class="rounded-3xl bg-gradient-to-br from-white via-emerald-50/25 to-teal-50/35 border border-slate-200/90 p-6 sm:p-10 card-shadow text-center space-y-5">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Akıllı Araç &amp; Garaj Portalı
+          </div>
+
+          <div class="space-y-3 max-w-3xl mx-auto">
+            <h1 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              Aracınızın Tüm İhtiyaçları Tek Bir Ekranda
+            </h1>
+            <p class="text-xs sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
+              Bakım gününden kapı içi orijinal lastik basıncına, muayene tarihinden 2026 kasko/piyasa değerine kadar aracınızı ilgilendiren her şeyi tek bakışta öğrenin ve takip edin.
+            </p>
+          </div>
+
+          <!-- Buton & Çağrı -->
+          <div class="pt-2 max-w-md mx-auto space-y-2.5">
+            <button id="btn-empty-add-vehicle" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-sm sm:text-base shadow-xl shadow-emerald-600/25 transition active:scale-95 flex items-center justify-center gap-2.5">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>+ Aracınızı Ekleyin ve Hemen Başlayın</span>
+            </button>
+            <div class="flex items-center justify-center gap-4 text-[11px] font-semibold text-slate-500">
+              <span class="flex items-center gap-1">✓ Üyelik Gerekmez</span>
+              <span class="flex items-center gap-1">✓ 25 Marka Kataloğu</span>
+              <span class="flex items-center gap-1">✓ Ücretsiz &amp; Reklamsız</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Temel Özellik (Neler Yapabilirsiniz?) -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between px-1">
+            <h3 class="text-xs font-black uppercase tracking-wider text-slate-700">UluKontrol İle Neler Yapabilirsiniz?</h3>
+            <span class="text-[11px] text-slate-400 font-medium">4 Temel Güçlü Özellik</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- 1. Özellik: Periyodik Bakım -->
+            <div class="p-5 sm:p-6 bg-white rounded-3xl border border-slate-200/90 card-shadow hover:border-emerald-300 transition space-y-3 flex flex-col justify-between">
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                  </div>
+                  <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">1. Servis &amp; Bakım</span>
+                </div>
+                <h4 class="text-base font-black text-slate-900">Periyodik Bakım Takvimi</h4>
+                <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                  Aracınızın motoruna özel fabrika bakım aralığını (10.000 / 15.000 / 20.000 KM) otomatik bilir. Sonraki bakıma kaç KM kaldığını hesaplar; motor yağı, filtreler ve triger değişim zamanında sizi uyarır.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-emerald-800 font-bold">
+                <span>✓ Motor &amp; Şanzıman Ömrünü Korur</span>
+                <span class="text-slate-400 font-normal">KM Takibi</span>
+              </div>
+            </div>
+
+            <!-- 2. Özellik: Lastik & Basınç -->
+            <div class="p-5 sm:p-6 bg-white rounded-3xl border border-slate-200/90 card-shadow hover:border-emerald-300 transition space-y-3 flex flex-col justify-between">
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 flex items-center justify-center text-2xl">
+                    🛞
+                  </div>
+                  <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-sky-100 text-sky-800">2. Lastik Güvenliği</span>
+                </div>
+                <h4 class="text-base font-black text-slate-900">Fabrika Onaylı Lastik &amp; Hava Basıncı</h4>
+                <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                  Sürücü kapı içi B-sütunundaki üretici etiketine göre takılı jantınıza uygun orijinal ebadı ve önerilen ön/arka PSI hava basınçlarını gösterir. Yanlış basınç kaynaklı lastik aşınmasını ve fazla yakıt tüketimini önler.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-sky-800 font-bold">
+                <span>✓ Kapı İçi Orijinal PSI Değerleri</span>
+                <span class="text-slate-400 font-normal">Yakıt Tasarrufu</span>
+              </div>
+            </div>
+
+            <!-- 3. Özellik: TÜVTÜRK & Sigorta -->
+            <div class="p-5 sm:p-6 bg-white rounded-3xl border border-slate-200/90 card-shadow hover:border-emerald-300 transition space-y-3 flex flex-col justify-between">
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">3. Yasal Hatırlatıcı</span>
+                </div>
+                <h4 class="text-base font-black text-slate-900">TÜVTÜRK Muayene &amp; Zorunlu Sigorta</h4>
+                <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                  Muayene ve zorunlu trafik sigortası bitiş tarihlerinizi güvenle saklar. Günü yaklaşınca sizi haberdar ederek gecikme cezası, muayene gecikme faizi veya trafikte bağlanma riskini ortadan kaldırır.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-amber-800 font-bold">
+                <span>✓ Ceza ve Gecikme Faizini Önler</span>
+                <span class="text-slate-400 font-normal">Tarih Hatırlatıcı</span>
+              </div>
+            </div>
+
+            <!-- 4. Özellik: Piyasa & Kronik Bülten -->
+            <div class="p-5 sm:p-6 bg-white rounded-3xl border border-slate-200/90 card-shadow hover:border-emerald-300 transition space-y-3 flex flex-col justify-between">
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-100 text-purple-700 flex items-center justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                  </div>
+                  <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-purple-100 text-purple-800">4. Piyasa &amp; Kronik</span>
+                </div>
+                <h4 class="text-base font-black text-slate-900">2026 Piyasa Değeri &amp; Kronik Bültenler</h4>
+                <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                  2026 Türkiye ikinci el ve kasko pazar endeksine göre aracınızın gerçekçi değer aralığını hesaplar. Ayrıca motor ve şanzımanınıza özel resmi yetkili servis bültenlerini ve dikkat edilmesi gereken noktaları sunar.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-purple-800 font-bold">
+                <span>✓ Değer Kaybı &amp; Arıza Önleme</span>
+                <span class="text-slate-400 font-normal">Canlı Endeks</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 3 Adımda Nasıl Çalışır? -->
+        <div class="p-6 bg-white rounded-3xl border border-slate-200/90 card-shadow space-y-4">
+          <h4 class="text-xs font-black uppercase tracking-wider text-slate-500">Nasıl Kullanılır? (3 Kolay Adım)</h4>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-black text-xs flex items-center justify-center shrink-0">1</div>
+              <div>
+                <h5 class="text-xs font-black text-slate-900">Aracınızı Seçin</h5>
+                <p class="text-[11px] text-slate-500 mt-0.5 leading-relaxed">25 otomotiv markası ve yüzlerce gerçek donanım paketi arasından aracınızı belirleyin.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-black text-xs flex items-center justify-center shrink-0">2</div>
+              <div>
+                <h5 class="text-xs font-black text-slate-900">Güncel KM'yi Girin</h5>
+                <p class="text-[11px] text-slate-500 mt-0.5 leading-relaxed">Sayacınızdaki kilometreyi yazın; bakım aralıkları ve piyasa değeri anında hesaplansın.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-black text-xs flex items-center justify-center shrink-0">3</div>
+              <div>
+                <h5 class="text-xs font-black text-slate-900">Cebinizde Taşıyın</h5>
+                <p class="text-[11px] text-slate-500 mt-0.5 leading-relaxed">İster bilgisayardan ister telefonunuzun ana ekranından uygulama gibi her an takip edin.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    
+        </main>
+        
+      <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-3 py-2 shadow-[0_-4px_25px_rgba(0,0,0,0.06)]">
+        <div class="grid grid-cols-4 gap-1">
+          
+              <button type="button" class="btn-nav-tab flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl transition active:scale-95 text-emerald-700 font-bold" data-tab="garajim">
+                <span class="absolute top-0 w-8 h-1 bg-emerald-500 rounded-full"></span>
+                <div class="p-1 rounded-xl bg-emerald-50">
+                  <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+                </div>
+                <span class="text-[10px] tracking-tight leading-none mt-1 truncate w-full text-center">Garajım</span>
+              </button>
+            
+              <button type="button" class="btn-nav-tab flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl transition active:scale-95 text-slate-600 hover:text-slate-800" data-tab="bakim">
+                
+                <div class="p-1 rounded-xl ">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                </div>
+                <span class="text-[10px] tracking-tight leading-none mt-1 truncate w-full text-center">Bakım</span>
+              </button>
+            
+              <button type="button" class="btn-nav-tab flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl transition active:scale-95 text-slate-600 hover:text-slate-800" data-tab="piyasa">
+                
+                <div class="p-1 rounded-xl ">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
+                <span class="text-[10px] tracking-tight leading-none mt-1 truncate w-full text-center">Piyasa</span>
+              </button>
+            
+              <button type="button" class="btn-nav-tab flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl transition active:scale-95 text-slate-600 hover:text-slate-800" data-tab="profil">
+                
+                <div class="p-1 rounded-xl ">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <span class="text-[10px] tracking-tight leading-none mt-1 truncate w-full text-center">Profil</span>
+              </button>
+            
+        </div>
+      </nav>
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+  <!-- Ana Uygulama Çekirdeği -->
+  <script src="./js/bundle.js"></script>
+  <script>
+    setTimeout(function() {
+      var root = document.getElementById('app-root');
+      if (root && root.innerHTML.indexOf('UluKontrol Yükleniyor') !== -1) {
+        var btn = document.createElement('button');
+        btn.textContent = 'Yükleme Uzun Sürdü - Yeniden Başlat';
+        btn.className = 'mt-4 px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md hover:bg-emerald-700 transition cursor-pointer';
+        btn.onclick = function() {
+          localStorage.clear();
+          location.reload();
+        };
+        var wrapper = root.querySelector('.flex.flex-col.items-center');
+        if (wrapper && !wrapper.querySelector('button')) {
+          wrapper.appendChild(btn);
+        }
+      }
+    }, 4500);
+  </script>
+
+
+</body></html>

@@ -4381,7 +4381,7 @@
     'rexton': { default: 8.5, diesel: 8.5 },
 
     // ISUZU
-    'd-max': { default: 7.9, diesel: 7.9 }
+    'd-max': { default: 7.9, diesel: 7.9 },
 
     // ELEKTRİKLİLER (KWH / 100 KM)
     't10x': { default: 17.2, ev: true },
