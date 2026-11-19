@@ -3367,10 +3367,226 @@
     return prices.benzin; // Benzin ve Benzin Hibrit
   }
 
+  // --- 2.8.1 MODEL & MOTOR BAZLI GERÇEKÇİ WLTP TÜKETİM KATALOĞU (L / 100 KM & KWH) ---
+  const MODEL_CONSUMPTION_DATA = {
+    // SKODA
+    'kodiaq': { default: 6.8, diesel: 6.6, petrol: 7.1, hybrid: 6.8, rs: 8.9 },
+    'karoq': { default: 6.2, diesel: 5.3, petrol: 6.4 },
+    'kamiq': { default: 5.7, diesel: 5.2, petrol: 5.8 },
+    'octavia': { default: 5.1, diesel: 4.7, petrol: 5.4, hybrid: 5.1 },
+    'superb': { default: 5.7, diesel: 5.4, petrol: 6.1, hybrid: 5.7 },
+    'scala': { default: 5.3, diesel: 4.8, petrol: 5.4 },
+    'fabia': { default: 5.0, petrol: 5.0 },
+
+    // VOLKSWAGEN
+    'golf': { default: 5.3, diesel: 4.6, petrol: 5.5, hybrid: 5.2 },
+    'polo': { default: 5.1, diesel: 4.5, petrol: 5.2 },
+    'passat': { default: 5.8, diesel: 5.2, petrol: 6.2, hybrid: 5.6 },
+    'passat variant': { default: 5.9, diesel: 5.3, petrol: 6.3 },
+    'tiguan': { default: 6.7, diesel: 6.2, petrol: 7.1, hybrid: 6.6 },
+    't-roc': { default: 6.2, petrol: 6.3, diesel: 5.4 },
+    'taigo': { default: 5.6, petrol: 5.6 },
+    'caddy': { default: 5.4, diesel: 5.4, petrol: 6.5 },
+    'transporter': { default: 7.4, diesel: 7.4 },
+    'crafter': { default: 8.6, diesel: 8.6 },
+    'amarok': { default: 8.9, diesel: 8.9 },
+    'touareg': { default: 8.8, diesel: 8.8 },
+    'arteon': { default: 6.2, diesel: 5.5, petrol: 6.9 },
+    'jetta': { default: 5.7, diesel: 4.9, petrol: 6.2 },
+
+    // RENAULT
+    'clio': { default: 5.1, diesel: 4.3, petrol: 5.4, hybrid: 4.3 },
+    'megane': { default: 5.5, diesel: 4.6, petrol: 6.0 },
+    'megane sedan': { default: 5.5, diesel: 4.6, petrol: 6.0 },
+    'austral': { default: 5.3, hybrid: 4.9, petrol: 6.4 },
+    'captur': { default: 5.7, diesel: 4.8, petrol: 5.9, hybrid: 5.0 },
+    'duster': { default: 5.7, diesel: 5.1, petrol: 6.3, lpg: 8.8, hybrid: 5.1 },
+    'duster (yeni renault)': { default: 5.4, petrol: 6.1, lpg: 8.8, hybrid: 5.0 },
+    'fluence': { default: 5.1, diesel: 4.6, petrol: 6.4 },
+    'symbol': { default: 5.0, diesel: 4.4, petrol: 6.0 },
+    'talisman': { default: 5.4, diesel: 5.0, petrol: 6.7 },
+    'kadjar': { default: 5.4, diesel: 5.0, petrol: 6.2 },
+    'koleos': { default: 6.8, diesel: 6.8, petrol: 7.5 },
+    'kangoo': { default: 5.4, diesel: 5.3, petrol: 6.5 },
+    'trafic': { default: 7.3, diesel: 7.3 },
+    'master': { default: 8.4, diesel: 8.4 },
+
+    // FIAT
+    'egea': { default: 5.1, diesel: 4.5, petrol: 6.9, lpg: 8.9, hybrid: 5.2 },
+    'egea sedan': { default: 5.1, diesel: 4.5, petrol: 6.9, lpg: 8.9, hybrid: 5.2 },
+    'egea cross': { default: 5.3, diesel: 4.8, petrol: 7.1, hybrid: 5.3 },
+    'egea hatchback': { default: 5.1, diesel: 4.5, petrol: 6.9, hybrid: 5.2 },
+    'fiorino': { default: 5.1, diesel: 4.9, lpg: 8.6, petrol: 7.2 },
+    'doblo': { default: 5.6, diesel: 5.5, petrol: 7.0 },
+    'ducato': { default: 8.5, diesel: 8.5 },
+    '500': { default: 4.9, hybrid: 4.8, petrol: 5.4 },
+    '500x': { default: 6.0, diesel: 5.2, petrol: 6.7 },
+    'punto': { default: 5.2, diesel: 4.5, petrol: 6.1 },
+    'linea': { default: 5.2, diesel: 4.7, petrol: 6.8 },
+
+    // TOYOTA
+    'corolla': { default: 4.8, hybrid: 4.4, petrol: 6.0 },
+    'corolla cross': { default: 4.9, hybrid: 4.9 },
+    'c-hr': { default: 4.7, hybrid: 4.7 },
+    'yaris': { default: 4.3, hybrid: 4.1, petrol: 5.4 },
+    'yaris cross': { default: 4.6, hybrid: 4.6 },
+    'rav4': { default: 5.6, hybrid: 5.6 },
+    'hilux': { default: 7.9, diesel: 7.9 },
+    'auris': { default: 4.9, hybrid: 4.5, diesel: 4.8, petrol: 6.3 },
+    'avensis': { default: 5.7, diesel: 5.1, petrol: 6.8 },
+    'proace city': { default: 5.5, diesel: 5.5 },
+
+    // FORD
+    'focus': { default: 5.1, diesel: 4.7, petrol: 5.7 },
+    'puma': { default: 5.6, petrol: 5.6, hybrid: 5.5 },
+    'kuga': { default: 6.8, petrol: 7.1, hybrid: 5.4, diesel: 5.8 },
+    'tourneo courier': { default: 5.1, diesel: 5.0, petrol: 6.2 },
+    'tourneo connect': { default: 5.6, diesel: 5.5 },
+    'transit custom': { default: 7.2, diesel: 7.2 },
+    'transit': { default: 8.4, diesel: 8.4 },
+    'ranger': { default: 8.7, diesel: 8.7 },
+    'fiesta': { default: 5.2, diesel: 4.4, petrol: 5.5 },
+    'mondeo': { default: 5.8, diesel: 5.3, petrol: 7.2 },
+
+    // PEUGEOT
+    '208': { default: 5.0, diesel: 4.3, petrol: 5.4, hybrid: 4.8 },
+    '2008': { default: 5.5, diesel: 4.8, petrol: 5.9, hybrid: 5.2 },
+    '308': { default: 5.3, diesel: 4.6, petrol: 5.8, hybrid: 5.0 },
+    '3008': { default: 5.6, diesel: 5.2, petrol: 6.4, hybrid: 5.4 },
+    '408': { default: 6.0, petrol: 6.1, hybrid: 5.3 },
+    '508': { default: 5.6, diesel: 5.0, petrol: 6.6 },
+    '5008': { default: 5.9, diesel: 5.4, petrol: 6.7 },
+    'rifter': { default: 5.5, diesel: 5.5 },
+
+    // OPEL
+    'corsa': { default: 5.0, diesel: 4.3, petrol: 5.3 },
+    'astra': { default: 5.4, diesel: 4.7, petrol: 5.8 },
+    'mokka': { default: 5.7, diesel: 4.8, petrol: 6.0 },
+    'grandland': { default: 5.7, diesel: 5.2, petrol: 6.5 },
+    'insignia': { default: 5.9, diesel: 5.4, petrol: 7.1 },
+    'crossland': { default: 5.6, diesel: 4.8, petrol: 5.9 },
+    'combo': { default: 5.5, diesel: 5.5 },
+
+    // HYUNDAI
+    'i20': { default: 5.8, petrol: 6.2, diesel: 4.5 },
+    'tucson': { default: 6.6, diesel: 5.8, petrol: 7.6, hybrid: 5.9 },
+    'bayon': { default: 5.9, petrol: 6.3 },
+    'elantra': { default: 6.3, petrol: 6.3 },
+    'i10': { default: 5.2, petrol: 5.2 },
+    'i30': { default: 5.4, diesel: 4.8, petrol: 6.1 },
+    'kona': { default: 5.8, hybrid: 4.9, petrol: 6.7 },
+    'santa fe': { default: 6.8, hybrid: 6.8, diesel: 7.2 },
+    'accent blue': { default: 5.1, diesel: 4.7, petrol: 6.4 },
+    'staria': { default: 8.2, diesel: 8.2 },
+
+    // BMW
+    '3 serisi (g20)': { default: 6.3, diesel: 5.2, petrol: 7.1 },
+    '1 serisi (f40)': { default: 5.7, diesel: 4.8, petrol: 6.1 },
+    '5 serisi (g30/g60)': { default: 6.2, diesel: 5.3, petrol: 7.0 },
+    'x1 / ix1': { default: 6.3, petrol: 6.4, diesel: 5.4 },
+    '2 serisi gran coupe': { default: 5.9, diesel: 4.9, petrol: 6.3 },
+    '4 serisi gran coupe': { default: 6.4, diesel: 5.3, petrol: 7.1 },
+    'x3': { default: 7.1, diesel: 6.3, petrol: 7.8 },
+    'x5': { default: 7.9, diesel: 7.8, petrol: 9.2 },
+
+    // MERCEDES
+    'c-serisi (w205/w206)': { default: 6.4, diesel: 5.2, petrol: 7.2 },
+    'a-serisi (w177)': { default: 5.8, diesel: 4.8, petrol: 6.2 },
+    'e-serisi (w213/w214)': { default: 6.3, diesel: 5.4, petrol: 7.2 },
+    'gla / glb': { default: 6.4, petrol: 6.5, diesel: 5.5 },
+    'cla': { default: 6.0, diesel: 4.9, petrol: 6.3 },
+    'glc': { default: 6.8, diesel: 6.7, petrol: 7.8 },
+    'b-serisi': { default: 5.9, diesel: 4.9, petrol: 6.3 },
+    'vito': { default: 7.6, diesel: 7.6 },
+
+    // AUDI
+    'a3 sedan / sportback': { default: 5.3, diesel: 4.6, petrol: 5.6 },
+    'a4 sedan': { default: 5.5, diesel: 5.2, petrol: 6.5 },
+    'q3 / q3 sportback': { default: 6.5, petrol: 6.7, diesel: 5.6 },
+    'a5 sportback': { default: 5.8, diesel: 5.3, petrol: 6.8 },
+    'a6 sedan': { default: 6.1, diesel: 5.6, petrol: 7.2 },
+    'q2': { default: 5.9, petrol: 6.1, diesel: 5.1 },
+    'q5': { default: 6.9, diesel: 6.8, petrol: 7.9 },
+
+    // CHERY
+    'tiggo 7 pro': { default: 7.9, petrol: 7.9 },
+    'tiggo 8 pro': { default: 8.3, petrol: 8.3 },
+    'tiggo 8 pro max': { default: 8.5, petrol: 8.5 },
+    'omoda 5': { default: 7.8, petrol: 7.8 },
+    'tiggo 4 pro': { default: 7.4, petrol: 7.4 },
+
+    // ELEKTRİKLİLER (KWH / 100 KM)
+    't10x': { default: 17.2, ev: true },
+    't10f': { default: 16.5, ev: true },
+    'model y': { default: 15.7, ev: true },
+    'model 3': { default: 14.8, ev: true },
+    'model s': { default: 17.8, ev: true },
+    'model x': { default: 19.5, ev: true },
+    'atto 3': { default: 15.9, ev: true },
+    'dolphin': { default: 15.2, ev: true },
+    'seal': { default: 16.4, ev: true },
+    'seal u': { default: 18.0, ev: true },
+    'seal u dm-i': { default: 5.1, hybrid: 5.1 },
+    'mg4': { default: 16.0, ev: true },
+    'spring': { default: 13.9, ev: true },
+    'ami': { default: 8.5, ev: true }
+  };
+
+  function getModelAuthenticConsumption(brandId, modelName, enginePackage, fuelType) {
+    const mKey = (modelName || '').toLowerCase().trim();
+    const pkg = (enginePackage || '').toLowerCase();
+    const f = (fuelType || '').toLowerCase();
+
+    // 1. Elektrikli kontrolü
+    if (f.includes('elektrik') || pkg.includes('elektrik') || pkg.includes('ev') || pkg.includes('kwh') || brandId === 'tesla' || brandId === 'togg') {
+      const data = MODEL_CONSUMPTION_DATA[mKey];
+      if (data && data.default) return { val: data.default, unit: 'kWh / 100 KM' };
+      return { val: 16.8, unit: 'kWh / 100 KM' };
+    }
+
+    // 2. Sözlükten tam model eşleşmesi
+    const entry = MODEL_CONSUMPTION_DATA[mKey];
+    if (entry) {
+      if (pkg.includes('rs') && entry.rs) return { val: entry.rs, unit: 'L / 100 KM' };
+      if ((f.includes('lpg') || pkg.includes('lpg') || pkg.includes('eco-g')) && entry.lpg) return { val: entry.lpg, unit: 'L / 100 KM' };
+      if ((f.includes('hibrit') || pkg.includes('hybrid') || pkg.includes('e-tec') || pkg.includes('e-tech') || pkg.includes('e:hev')) && entry.hybrid) return { val: entry.hybrid, unit: 'L / 100 KM' };
+      if ((f.includes('dizel') || pkg.includes('tdi') || pkg.includes('dci') || pkg.includes('bluehdi') || pkg.includes('multijet') || pkg.includes('ecoblue') || pkg.includes('crdi')) && entry.diesel) return { val: entry.diesel, unit: 'L / 100 KM' };
+      if (f.includes('benzin') && entry.petrol) return { val: entry.petrol, unit: 'L / 100 KM' };
+      if (entry.default) return { val: entry.default, unit: 'L / 100 KM' };
+    }
+
+    // 3. Genel dinamik katsayı hesaplayıcı
+    const isSuv = SUV_MODELS.has(modelName);
+    const isTicari = TICARI_MODELS.has(modelName);
+    let base = 6.2;
+
+    if (f.includes('dizel') || pkg.includes('dizel') || pkg.includes('tdi') || pkg.includes('dci')) {
+      base = 4.8;
+      if (pkg.includes('2.0') || pkg.includes('3.0')) base = 6.4;
+      if (isSuv) base += 0.8;
+      if (isTicari) base += 1.4;
+    } else if (f.includes('lpg') || pkg.includes('lpg')) {
+      base = 8.6;
+      if (isSuv) base += 0.9;
+    } else if (f.includes('hibrit') || pkg.includes('hybrid') || pkg.includes('e-tec')) {
+      base = 4.9;
+      if (isSuv) base += 0.6;
+    } else { // Standart Benzin
+      base = 5.8;
+      if (pkg.includes('1.5') || pkg.includes('1.6')) base = 6.4;
+      if (pkg.includes('2.0')) base = 7.6;
+      if (isSuv) base += 0.9;
+      if (isTicari) base += 1.6;
+    }
+
+    return { val: parseFloat(base.toFixed(1)), unit: 'L / 100 KM' };
+  }
+
   function getVehicleFuelStats(v) {
     if (!v) return null;
     const logs = v.fuelLogs || [];
     const liveUnitPrice = getVehicleFuelUnitPrice(v);
+    const authentic = getModelAuthenticConsumption(v.brandId, v.model, v.enginePackage, v.fuel);
 
     if (logs.length > 0) {
       const totalLiters = logs.reduce((sum, item) => sum + (parseFloat(item.liters) || 0), 0);
@@ -3387,7 +3603,7 @@
         lPer100 = (totalLiters / kmDiff) * 100;
         costPerKm = totalCost / kmDiff;
       } else {
-        lPer100 = (v.fuel === 'Dizel') ? 5.2 : 6.8;
+        lPer100 = authentic.val;
         costPerKm = (lPer100 * (totalCost / Math.max(1, totalLiters))) / 100;
       }
 
@@ -3395,47 +3611,28 @@
         hasLogs: true,
         logCount: logs.length,
         avgLitersPer100: parseFloat(lPer100.toFixed(1)),
-        unitLabel: v.fuel === 'Elektrik' ? 'kWh / 100 KM' : 'L / 100 KM',
+        unitLabel: authentic.unit,
         costPerKm: parseFloat(costPerKm.toFixed(2)),
         totalSpent: Math.round(totalCost),
         totalLiters: parseFloat(totalLiters.toFixed(1)),
         liveUnitPrice: liveUnitPrice,
+        isAuthenticSpec: false,
         lastLog: logs[0]
       };
     }
 
-    // Fiş girilmemişse motor ve yakıta göre canlı akaryakıt fiyatıyla hesaplanan gerçekçi fabrika tahmini
-    const f = (v.fuel || '').toLowerCase();
-    let defaultL100 = 6.2;
-    if (f.includes('dizel')) {
-      defaultL100 = 4.8;
-    } else if (f.includes('lpg')) {
-      defaultL100 = 8.6;
-    } else if (f.includes('elektrik')) {
-      const costPerKm = parseFloat(((16.5 * liveUnitPrice) / 100).toFixed(2));
-      return {
-        hasLogs: false,
-        logCount: 0,
-        avgLitersPer100: 16.5,
-        unitLabel: 'kWh / 100 KM',
-        costPerKm: costPerKm,
-        totalSpent: 0,
-        totalLiters: 0,
-        liveUnitPrice: liveUnitPrice,
-        lastLog: null
-      };
-    }
-
-    const estCostPerKm = (defaultL100 * liveUnitPrice) / 100;
+    // Fiş girilmemişse model ve motoruna özel fabrika karma WLTP tüketimi ve canlı akaryakıt fiyatıyla hesaplanır
+    const estCostPerKm = parseFloat(((authentic.val * liveUnitPrice) / 100).toFixed(2));
     return {
       hasLogs: false,
       logCount: 0,
-      avgLitersPer100: parseFloat(defaultL100.toFixed(1)),
-      unitLabel: 'L / 100 KM',
-      costPerKm: parseFloat(estCostPerKm.toFixed(2)),
+      avgLitersPer100: authentic.val,
+      unitLabel: authentic.unit,
+      costPerKm: estCostPerKm,
       totalSpent: 0,
       totalLiters: 0,
       liveUnitPrice: liveUnitPrice,
+      isAuthenticSpec: true,
       lastLog: null
     };
   }
