@@ -4291,6 +4291,98 @@
     'omoda 5': { default: 7.8, petrol: 7.8 },
     'tiggo 4 pro': { default: 7.4, petrol: 7.4 },
 
+    // JEEP
+    'renegade': { default: 6.1, petrol: 6.4, diesel: 5.2, hybrid: 5.7 },
+    'compass': { default: 6.4, petrol: 6.7, diesel: 5.5, hybrid: 5.9 },
+    'wrangler': { default: 9.8, petrol: 10.5, hybrid: 8.5 },
+    'grand cherokee': { default: 8.6, diesel: 8.2, hybrid: 7.9 },
+    'avenger': { default: 15.6, ev: true, petrol: 5.8 },
+
+    // LAND ROVER
+    'range rover': { default: 9.5, diesel: 8.8, petrol: 11.2, hybrid: 6.5 },
+    'range rover sport': { default: 8.9, diesel: 8.4, petrol: 10.5, hybrid: 6.2 },
+    'range rover velar': { default: 7.8, diesel: 6.9, petrol: 8.8 },
+    'range rover evoque': { default: 7.2, diesel: 6.5, petrol: 8.1, hybrid: 6.0 },
+    'defender': { default: 9.4, diesel: 8.9, petrol: 11.5, hybrid: 7.8 },
+    'discovery': { default: 8.9, diesel: 8.5, petrol: 10.4 },
+    'discovery sport': { default: 7.4, diesel: 6.7, petrol: 8.4, hybrid: 6.2 },
+
+    // PORSCHE
+    'macan': { default: 9.2, petrol: 9.5 },
+    'cayenne': { default: 10.2, petrol: 10.8, hybrid: 8.4 },
+    'panamera': { default: 9.8, petrol: 10.2, hybrid: 7.9 },
+    '911 carrera': { default: 10.5, petrol: 10.5 },
+    'taycan': { default: 21.5, ev: true },
+    '718 cayman': { default: 9.0, petrol: 9.0 },
+    '718 boxster': { default: 9.1, petrol: 9.1 },
+
+    // MINI
+    'cooper': { default: 5.9, petrol: 5.9, diesel: 4.8 },
+    'countryman': { default: 6.6, petrol: 6.8, diesel: 5.4, hybrid: 6.0 },
+    'clubman': { default: 6.2, petrol: 6.4, diesel: 5.1 },
+    'cooper se': { default: 15.5, ev: true },
+    'aceman': { default: 15.8, ev: true },
+
+    // CUPRA
+    'formentor': { default: 6.7, petrol: 7.1, hybrid: 6.0, diesel: 5.8 },
+    'leon cupra': { default: 6.5, petrol: 6.8, hybrid: 5.8 },
+    'ateca cupra': { default: 8.5, petrol: 8.5 },
+    'born': { default: 15.8, ev: true },
+    'tavascan': { default: 16.5, ev: true },
+    'terramar': { default: 6.6, petrol: 6.9, hybrid: 5.9 },
+
+    // ALFA ROMEO
+    'tonale': { default: 6.1, hybrid: 5.8, diesel: 5.6 },
+    'giulia': { default: 7.0, petrol: 7.4, diesel: 5.4 },
+    'stelvio': { default: 7.8, petrol: 8.2, diesel: 6.2 },
+    'junior': { default: 15.5, ev: true, hybrid: 5.2 },
+    'giulietta': { default: 5.6, diesel: 4.9, petrol: 6.2 },
+
+    // MAZDA
+    'mazda 3': { default: 5.8, petrol: 5.8, diesel: 4.8 },
+    'cx-5': { default: 6.9, petrol: 7.2, diesel: 6.0 },
+    'cx-3': { default: 6.1, petrol: 6.3, diesel: 5.2 },
+    'cx-30': { default: 6.2, petrol: 6.2 },
+    'mx-5': { default: 6.5, petrol: 6.5 },
+    'mazda 6': { default: 6.8, petrol: 6.9, diesel: 5.6 },
+
+    // MITSUBISHI
+    'l200': { default: 8.4, diesel: 8.4 },
+    'asx': { default: 6.2, petrol: 6.4, diesel: 5.3, hybrid: 5.6 },
+    'eclipse cross': { default: 7.3, petrol: 7.7, hybrid: 6.5 },
+    'space star': { default: 5.1, petrol: 5.1 },
+    'outlander': { default: 7.8, petrol: 8.2, hybrid: 6.2 },
+
+    // SUBARU
+    'xv / crosstrek': { default: 6.9, petrol: 7.2, hybrid: 6.5 },
+    'forester': { default: 7.4, petrol: 7.7, hybrid: 6.9 },
+    'outback': { default: 8.2, petrol: 8.2 },
+    'impreza': { default: 6.6, petrol: 6.6 },
+    'solterra': { default: 16.8, ev: true },
+
+    // LEXUS
+    'rx': { default: 6.7, hybrid: 6.4, petrol: 8.5 },
+    'nx': { default: 6.0, hybrid: 5.7, petrol: 7.8 },
+    'ux': { default: 5.3, hybrid: 5.0 },
+    'es': { default: 5.5, hybrid: 5.3 },
+    'lbx': { default: 4.6, hybrid: 4.5 },
+
+    // DS AUTOMOBILES
+    'ds 7': { default: 5.8, diesel: 5.4, hybrid: 5.2, petrol: 6.7 },
+    'ds 4': { default: 5.3, diesel: 4.8, petrol: 5.8, hybrid: 5.1 },
+    'ds 3': { default: 5.1, petrol: 5.4, diesel: 4.6 },
+    'ds 9': { default: 6.6, hybrid: 6.2, petrol: 7.0 },
+
+    // KGM / SSANGYONG
+    'torres': { default: 7.9, petrol: 8.1 },
+    'korando': { default: 7.4, petrol: 7.7, diesel: 6.2 },
+    'tivoli': { default: 7.1, petrol: 7.2, diesel: 5.6 },
+    'musso grand': { default: 8.8, diesel: 8.8 },
+    'rexton': { default: 8.5, diesel: 8.5 },
+
+    // ISUZU
+    'd-max': { default: 7.9, diesel: 7.9 }
+
     // ELEKTRİKLİLER (KWH / 100 KM)
     't10x': { default: 17.2, ev: true },
     't10f': { default: 16.5, ev: true },
