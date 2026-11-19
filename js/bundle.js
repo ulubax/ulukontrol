@@ -5323,6 +5323,14 @@ ${ekspertizText}
                     pressures: { ...tireSpecs.normalPressures }
                   };
                 }
+                if (!v.fuel || !v.transmission) {
+                  const specs = parseEngineSpecs(v.enginePackage || '', v.brandId || '', v.model || '');
+                  v.fuel = v.fuel || specs.fuel || 'Benzin';
+                  v.transmission = v.transmission || specs.transmission || 'Manuel';
+                }
+                if (!v.fuelLogs) {
+                  v.fuelLogs = [];
+                }
               });
             }
           } catch (e) {
@@ -6596,19 +6604,19 @@ ${ekspertizText}
               <span class="font-bold text-slate-800">Karbonlu Polen Filtresi</span>
               <span class="text-[11px] text-slate-500">Klima & Kabin Hava</span>
             </div>
-            ${activeVehicle.fuel === 'Dizel' ? `
+            ${(activeVehicle.fuel || '') === 'Dizel' ? `
               <div class="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200 flex items-center justify-between col-span-1 sm:col-span-2">
                 <span class="font-bold text-emerald-950">Mazot (Dizel) Yakıt Filtresi</span>
                 <span class="text-[11px] text-emerald-800 font-semibold">Orijinal Mais/Delphi Tavsiye Edilir</span>
               </div>
             ` : ''}
-            ${activeVehicle.fuel.includes('LPG') ? `
+            ${(activeVehicle.fuel || '').includes('LPG') ? `
               <div class="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200 flex items-center justify-between col-span-1 sm:col-span-2">
                 <span class="font-bold text-emerald-950">LPG Gaz Kesici Filtresi & Kalibrasyon</span>
                 <span class="text-[11px] text-emerald-800 font-semibold">Gaz Kaçak & Sızıntı Kontrolü</span>
               </div>
             ` : ''}
-            ${activeVehicle.transmission === 'Otomatik' ? `
+            ${(activeVehicle.transmission || '') === 'Otomatik' ? `
               <div class="p-3 bg-blue-50/70 rounded-2xl border border-blue-200 flex items-center justify-between col-span-1 sm:col-span-2">
                 <span class="font-bold text-blue-950">Otomatik Şanzıman Sıvısı & Mekatronik</span>
                 <span class="text-[11px] text-blue-800 font-semibold">Kavrama Kalibrasyonu & Yağ Seviyesi</span>
@@ -9248,7 +9256,7 @@ ${ekspertizText}
           return;
         }
 
-        const enginePkg = document.getElementById('wiz-select-engine')?.value || selectedEnginePackage || 'Standart Donanım';
+        let enginePkg = document.getElementById('wiz-select-engine')?.value || selectedEnginePackage || 'Standart Donanım';
 
         const plateVal = (document.getElementById('wiz-input-plate')?.value || '').trim();
         if (!plateVal) {
@@ -9286,6 +9294,7 @@ ${ekspertizText}
 
   // --- 19. ANA RENDER DÖNGÜSÜ (TAM DUYARLI WEB & MOBİL) ---
   function renderApp() {
+    try {
     const root = document.getElementById('app-root');
     if (!root) return;
     const state = store.getState();
@@ -9385,6 +9394,24 @@ ${ekspertizText}
     attachDashboardLightsModalEvents();
     attachEmergencyModalEvents();
     attachPwaModalEvents();
+    } catch (renderError) {
+      console.error('UluKontrol renderApp Error caught:', renderError);
+      const root = document.getElementById('app-root');
+      if (root) {
+        root.innerHTML = `
+          <div class="min-h-screen flex items-center justify-center bg-slate-50 text-slate-800 p-6">
+            <div class="max-w-md w-full bg-white rounded-3xl p-6 border border-slate-200 shadow-xl text-center space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto text-xl font-bold">⚠️</div>
+              <h3 class="font-black text-lg text-slate-900">UluKontrol Başlatılıyor</h3>
+              <p class="text-xs text-slate-500">Tarayıcınızdaki eski araç önbelleği otomatik olarak güncelleniyor.</p>
+              <button onclick="localStorage.removeItem('ulukontrol_vehicles_v3'); location.reload();" class="w-full py-3 bg-emerald-600 text-white rounded-xl font-bold text-xs hover:bg-emerald-700 transition cursor-pointer shadow-sm">
+                Önbelleği Yenile & Başlat
+              </button>
+            </div>
+          </div>
+        `;
+      }
+    }
   }
 
   // Global erişim

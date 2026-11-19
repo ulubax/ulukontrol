@@ -77,5 +77,23 @@
 
   <!-- Ana Uygulama Çekirdeği -->
   <script src="./js/bundle.js"></script>
+  <script>
+    setTimeout(function() {
+      var root = document.getElementById('app-root');
+      if (root && root.innerHTML.indexOf('UluKontrol Yükleniyor') !== -1) {
+        var btn = document.createElement('button');
+        btn.textContent = 'Yükleme Uzun Sürdü - Yeniden Başlat';
+        btn.className = 'mt-4 px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md hover:bg-emerald-700 transition cursor-pointer';
+        btn.onclick = function() {
+          localStorage.clear();
+          location.reload();
+        };
+        var wrapper = root.querySelector('.flex.flex-col.items-center');
+        if (wrapper && !wrapper.querySelector('button')) {
+          wrapper.appendChild(btn);
+        }
+      }
+    }, 4500);
+  </script>
 </body>
 </html>

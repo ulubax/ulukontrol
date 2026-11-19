@@ -6,7 +6,7 @@
   "description": "UluKontrol - PWA Mobil Kokpit ve Araç Takip Asistanı",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node -e \"const fs=require('fs'); fs.mkdirSync('dist/js',{recursive:true}); fs.copyFileSync('js/bundle.js','dist/js/bundle.js'); fs.mkdirSync('dist/css',{recursive:true}); fs.copyFileSync('css/app.css','dist/css/app.css');\"",
+    "build": "vite build && node -e \"import('node:fs').then(fs => { fs.mkdirSync('dist/js',{recursive:true}); fs.copyFileSync('js/bundle.js','dist/js/bundle.js'); fs.mkdirSync('dist/css',{recursive:true}); fs.copyFileSync('css/app.css','dist/css/app.css'); })\"",
     "preview": "vite preview"
   },
   "dependencies": {
