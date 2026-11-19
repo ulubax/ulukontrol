@@ -437,7 +437,640 @@
       `;
     }
 
-    // 39. DİĞER / ÖZEL MODEL - Şık Otomobil Direksiyon Simgesi
+    // 39. TOFAŞ - İkonik Mavi Çember ve Çift Çizgi T Rozeti
+    if (b.includes('tofas')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0284C7"/>
+          <circle cx="12" cy="12" r="8.5" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+          <path d="M7 8.5H17M12 8.5V17" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 40. ANADOL - Efsanevi Koç Başı Amblemi
+    if (b.includes('anadol')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#B91C1C"/>
+          <path d="M7 9C7 6.5 9.5 6 12 8.5C14.5 6 17 6.5 17 9C17 12 13.5 16 12 18C10.5 16 7 12 7 9Z" stroke="#FFFFFF" stroke-width="1.6" fill="none"/>
+          <circle cx="12" cy="11" r="1.5" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 41. CHEVROLET - Altın Papyon (Bowtie) Rozeti
+    if (b.includes('chevrolet')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M5 9.5H8.5V6.5H15.5V9.5H19L18 14.5H15.5V17.5H8.5V14.5H5L5 9.5Z" fill="#D97706" stroke="#92400E" stroke-width="0.8"/>
+          <path d="M6 10.5H9.5V7.5H14.5V10.5H18L17.2 13.5H14.5V16.5H9.5V13.5H6Z" fill="#FCD34D"/>
+        </svg>
+      `;
+    }
+
+    // 42. LADA - İkonik Yelkenli Gemi (Ladya) Rozeti
+    if (b.includes('lada')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <ellipse cx="12" cy="12" rx="10" ry="7.5" fill="#1E3A8A"/>
+          <ellipse cx="12" cy="12" rx="9" ry="6.5" stroke="#93C5FD" stroke-width="0.8" fill="none"/>
+          <path d="M12 6.5V17M12 7L16 11H12M12 8.5L8.5 11H12M8 14H16L15 16.5H9L8 14Z" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 43. DAEWOO - Klasik Mavi Yelpaze Rozeti
+    if (b.includes('daewoo')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0284C7"/>
+          <path d="M7 10C9 14 15 14 17 10C15 8 9 8 7 10ZM12 8V16" stroke="#FFFFFF" stroke-width="1.6" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 44. TATA - İkonik Mavi Halka ve Çift Akış T Rozeti
+    if (b.includes('tata')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#1E40AF"/>
+          <path d="M7 8C9.5 8 12 10.5 12 16M17 8C14.5 8 12 10.5 12 16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 45. PROTON - Kükreyen Kaplan Başı Rozeti
+    if (b.includes('proton')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#047857"/>
+          <circle cx="12" cy="12" r="8" stroke="#FBBF24" stroke-width="1.2" fill="none"/>
+          <path d="M10 8L15 12L10 16L12 12Z" fill="#FBBF24"/>
+        </svg>
+      `;
+    }
+
+    // 46. DAIHATSU - Stilize Kırmızı 'D' Amblemi
+    if (b.includes('daihatsu')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#DC2626"/>
+          <path d="M8 7H12.5C15.5 7 17 9 17 12C17 15 15.5 17 12.5 17H8V7Z" stroke="#FFFFFF" stroke-width="1.8" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 47. GEELY - Modern Mavi & Siyah Altıgenler
+    if (b.includes('geely')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="6" width="18" height="12" rx="3" fill="#0284C7"/>
+          <path d="M4 10H20M4 14H20M9 6V18M15 6V18" stroke="#FFFFFF" stroke-width="0.8"/>
+        </svg>
+      `;
+    }
+
+    // 48. SAAB - İkonik Mavi Zemin ve Kırmızı Taçlı Grifon
+    if (b.includes('saab')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#1E3A8A"/>
+          <circle cx="12" cy="12" r="8.5" stroke="#E2E8F0" stroke-width="1" fill="none"/>
+          <path d="M12 7C9.5 7 8 8.8 8 11C8 13.5 10 14.5 12 14.5M12 7L13.5 9H16L13.5 11L14 14.5" stroke="#DC2626" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <text x="12" y="19" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="4.2" text-anchor="middle" letter-spacing="0.5">SAAB</text>
+        </svg>
+      `;
+    }
+
+    // 49. ROVER - İkonik Viking Gemisi Rozeti
+    if (b.includes('rover')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 3L6 8V16L12 21L18 16V8L12 3Z" fill="#B91C1C" stroke="#D97706" stroke-width="1"/>
+          <path d="M12 6V17M12 7L15 10H12M9 10H12M9 13H15" stroke="#FDE68A" stroke-width="1.2"/>
+        </svg>
+      `;
+    }
+
+    // 50. LANCIA - İkonik Mavi Kalkan ve Bayrak Rozeti
+    if (b.includes('lancia')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 3L5 6V14C5 18 12 21 12 21C12 21 19 18 19 14V6L12 3Z" fill="#1E3A8A" stroke="#E2E8F0" stroke-width="1"/>
+          <circle cx="12" cy="12" r="5" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+          <path d="M10 9L15 12L10 15V9Z" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 51. JAGUAR - Atlayan Vahşi Jaguar (Leaper) Rozeti
+    if (b.includes('jaguar')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M4 13C6 11 9 10 12 11C15 12 17 10 20 8M12 11L14 15M7 12L9 16M17 11L19 14" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 52. MASERATI - İkonik Neptün Üç Dişli Mızrağı (Trident)
+    if (b.includes('maserati')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <ellipse cx="12" cy="12" rx="9" ry="10" fill="#00204A"/>
+          <path d="M12 6V18M12 6L9 9V12C9 14 12 15 12 15C12 15 15 14 15 12V9L12 6ZM7 9V11C7 13 9 14.5 12 15M17 9V11C17 13 15 14.5 12 15" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+          <path d="M10 18H14" stroke="#DC2626" stroke-width="1.6"/>
+        </svg>
+      `;
+    }
+
+    // 53. ASTON MARTIN - İkonik Zümrüt Zeminli Kanatlar
+    if (b.includes('astonmartin')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="7" width="20" height="10" rx="3" fill="#004225"/>
+          <path d="M3 11C7 11 10 9 12 7C14 9 17 11 21 11M4 14C7 14 10 13 12 12C14 13 17 14 20 14" stroke="#E2E8F0" stroke-width="1.2" fill="none"/>
+          <rect x="8" y="10.5" width="8" height="3" fill="#004225" stroke="#E2E8F0" stroke-width="0.8"/>
+        </svg>
+      `;
+    }
+
+    // 54. BENTLEY - Efsanevi Kanatlı 'B' Amblemi
+    if (b.includes('bentley')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M3 12C7 9 10 11 12 12C14 11 17 9 21 12C17 15 14 13 12 12C10 13 7 15 3 12Z" fill="#334155" stroke="#FFFFFF" stroke-width="0.8"/>
+          <circle cx="12" cy="12" r="4" fill="#000000" stroke="#FFFFFF" stroke-width="1"/>
+          <text x="12" y="14.5" fill="#FFFFFF" font-family="'Plus Jakarta Sans', serif" font-weight="900" font-size="6" text-anchor="middle">B</text>
+        </svg>
+      `;
+    }
+
+    // 55. FERRARI - Şaha Kalkan Siyah Tay & Sarı Kalkan
+    if (b.includes('ferrari')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 2L5 5V14C5 18.5 12 22 12 22C12 22 19 18.5 19 14V5L12 2Z" fill="#FACC15" stroke="#000000" stroke-width="0.8"/>
+          <path d="M11 16C9 14 9 10 11 7C12 8 13 8 13.5 7C13 9 14 10 14 12C14 14 13 16 11 16Z" fill="#000000"/>
+          <path d="M5 4.5H19" stroke="#16A34A" stroke-width="1.2"/>
+        </svg>
+      `;
+    }
+
+    // 56. LAMBORGHINI - Altın Raging Bull Boğa Rozeti
+    if (b.includes('lamborghini')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 2L4 5L5 18L12 22L19 18L20 5L12 2Z" fill="#000000" stroke="#EAB308" stroke-width="1.2"/>
+          <path d="M8 11C10 9 14 9 16 11C15 13 13 15 12 17C11 15 9 13 8 11Z" fill="#EAB308"/>
+        </svg>
+      `;
+    }
+
+    // 57. ROLLS-ROYCE - İkonik İkiz 'RR' Monogramı
+    if (b.includes('rollsroyce') || b.includes('rolls')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="4" y="3" width="16" height="18" rx="2" fill="#1E293B" stroke="#CBD5E1" stroke-width="1.2"/>
+          <text x="10.5" y="14" fill="#CBD5E1" font-family="'Times New Roman', serif" font-weight="bold" font-size="9" text-anchor="middle">R</text>
+          <text x="13.5" y="16.5" fill="#CBD5E1" font-family="'Times New Roman', serif" font-weight="bold" font-size="9" text-anchor="middle">R</text>
+        </svg>
+      `;
+    }
+
+    // 58. MCLAREN - İkonik Turuncu Hız Bumerangı
+    if (b.includes('mclaren')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M7 16C10 8 16 7 18 10C16 11 12 12 9 16Z" fill="#F97316"/>
+        </svg>
+      `;
+    }
+
+    // 59. LOTUS - Colin Chapman Baş Harfleri & Sarı/Yeşil Rozet
+    if (b.includes('lotus')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#FACC15"/>
+          <path d="M12 3C7 3 4 7 4 12C4 17 7 21 12 21C17 21 20 17 20 12C20 7 17 3 12 3Z" fill="#047857"/>
+          <text x="12" y="14" fill="#FACC15" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="5" text-anchor="middle">LOTUS</text>
+        </svg>
+      `;
+    }
+
+    // 60. ALPINE - İkonik Mavi Alpine 'A' Oku
+    if (b.includes('alpine')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0055A5"/>
+          <path d="M7 17L12 6L17 17M9 13.5H15M13.5 13.5L16.5 17" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 61. ABARTH - İkonik Sarı/Kırmızı Akrep Rozeti
+    if (b.includes('abarth')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 2L4 5V14C4 18.5 12 22 12 22C12 22 20 18.5 20 14V5L12 2Z" fill="#EF4444" stroke="#FACC15" stroke-width="1.2"/>
+          <path d="M4 5L20 19M4 19L20 5" stroke="#FACC15" stroke-width="12" fill="none"/>
+          <circle cx="12" cy="12" r="3.5" fill="#000000"/>
+        </svg>
+      `;
+    }
+
+    // 62. GENESIS - Kanatlı Lüks Kalkan Amblemi
+    if (b.includes('genesis')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#1E293B"/>
+          <path d="M3 11C7 11 10 9 12 10C14 9 17 11 21 11C18 13 15 14 12 14C9 14 6 13 3 11Z" fill="#94A3B8"/>
+          <circle cx="12" cy="12" r="2.5" fill="#0F172A" stroke="#E2E8F0" stroke-width="0.8"/>
+        </svg>
+      `;
+    }
+
+    // 63. INFINITI - Sonsuzluk Ufuk Çizgisi Rozeti
+    if (b.includes('infiniti')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <ellipse cx="12" cy="12" rx="10" ry="7.5" fill="#0F172A" stroke="#94A3B8" stroke-width="1.2"/>
+          <path d="M7 16L11 8L12 11L13 8L17 16" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 64. DODGE - Kırmızı Çift Çizgi / Ram Rozeti
+    if (b.includes('dodge')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="6" width="20" height="12" rx="2" fill="#000000"/>
+          <text x="10" y="14" fill="#FFFFFF" font-family="'Plus Jakarta Sans', Arial" font-weight="900" font-size="5" text-anchor="middle">DODGE</text>
+          <path d="M16 8L18 16M18.5 8L20.5 16" stroke="#DC2626" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 65. CHRYSLER - Mavi Kalkan ve Gümüş Kanatlar
+    if (b.includes('chrysler')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0A2540"/>
+          <path d="M2 11C6 11 10 10 12 8C14 10 18 11 22 11C18 13 14 14 12 14C10 14 6 13 2 11Z" fill="#3B82F6" stroke="#93C5FD" stroke-width="0.6"/>
+          <circle cx="12" cy="11" r="2.8" fill="#1E3A8A" stroke="#FFFFFF" stroke-width="0.8"/>
+        </svg>
+      `;
+    }
+
+    // 66. CADILLAC - İkonik Geometrik Renkli Kalkan
+    if (b.includes('cadillac')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 4L4 8L6 16L12 20L18 16L20 8L12 4Z" fill="#1E293B" stroke="#E2E8F0" stroke-width="1"/>
+          <rect x="8" y="9" width="3" height="3" fill="#DC2626"/>
+          <rect x="13" y="9" width="3" height="3" fill="#2563EB"/>
+          <rect x="8" y="12" width="3" height="3" fill="#EAB308"/>
+          <rect x="13" y="12" width="3" height="3" fill="#000000"/>
+        </svg>
+      `;
+    }
+
+    // 67. LINCOLN - Dikdörtgen Yıldız Rozeti
+    if (b.includes('lincoln')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="6" y="3" width="12" height="18" rx="2" fill="#0F172A" stroke="#94A3B8" stroke-width="1.2"/>
+          <path d="M12 5V19M8 12H16" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 68. GMC - Kırmızı Blok Harfli Rozet
+    if (b.includes('gmc')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="6" width="20" height="12" rx="2" fill="#B91C1C"/>
+          <text x="12" y="14.8" fill="#FFFFFF" font-family="'Plus Jakarta Sans', Arial" font-weight="900" font-size="7" text-anchor="middle" letter-spacing="0.5">GMC</text>
+        </svg>
+      `;
+    }
+
+    // 69. HUMMER - Sert Çerçeveli Askeri Font Rozeti
+    if (b.includes('hummer')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="7" width="20" height="10" rx="1.5" fill="#1E293B" stroke="#F59E0B" stroke-width="1.2"/>
+          <text x="12" y="14.2" fill="#F59E0B" font-family="'Plus Jakarta Sans', Arial" font-weight="900" font-size="5" text-anchor="middle" letter-spacing="1">HUMMER</text>
+        </svg>
+      `;
+    }
+
+    // 70. PONTIAC - Kırmızı Ok Ucu Rozeti
+    if (b.includes('pontiac')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 2L6 8L12 22L18 8L12 2Z" fill="#DC2626" stroke="#B91C1C" stroke-width="1"/>
+          <path d="M12 6V18M8 9H16" stroke="#FFFFFF" stroke-width="1.2"/>
+        </svg>
+      `;
+    }
+
+    // 71. BUICK - Üç Renkli Kalkan Rozeti
+    if (b.includes('buick')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A" stroke="#94A3B8" stroke-width="1.2"/>
+          <path d="M9 7L6 17H9L12 7H9Z" fill="#DC2626"/>
+          <path d="M13 7L10 17H13L16 7H13Z" fill="#E2E8F0"/>
+          <path d="M17 7L14 17H17L20 7H17Z" fill="#2563EB"/>
+        </svg>
+      `;
+    }
+
+    // 72. JAECOO - Şık Geometrik Safari Yeşili
+    if (b.includes('jaecoo')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="6" width="20" height="12" rx="3" fill="#065F46"/>
+          <text x="12" y="14.5" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="4.8" text-anchor="middle" letter-spacing="1.2">JAECOO</text>
+        </svg>
+      `;
+    }
+
+    // 73. OMODA - Fütüristik Geometrik Rozet
+    if (b.includes('omoda')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#090D16"/>
+          <text x="12" y="14.5" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="5" text-anchor="middle" letter-spacing="1">OMODA</text>
+        </svg>
+      `;
+    }
+
+    // 74. LEAPMOTOR - Yeşil Yaprak / Halka Elektrik Rozeti
+    if (b.includes('leapmotor')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#022C22"/>
+          <path d="M7 14C7 9.5 10.5 7 15 7C15 11.5 11.5 14 7 14Z" fill="#10B981"/>
+          <circle cx="14" cy="14" r="3" fill="#34D399"/>
+        </svg>
+      `;
+    }
+
+    // 75. VOYAH - Geniş Açılmış Kuş Kanatları
+    if (b.includes('voyah')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M4 10C8 14 11 15 12 13C13 15 16 14 20 10C16 12 13 12 12 11C11 12 8 12 4 10Z" fill="#38BDF8"/>
+        </svg>
+      `;
+    }
+
+    // 76. SKYWELL - Geometrik Mavi Prizma
+    if (b.includes('skywell')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="6" width="18" height="12" rx="3" fill="#0284C7"/>
+          <path d="M7 9L12 15L17 9" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 77. SERES - İkiz Kırmızı Dalga Halkaları
+    if (b.includes('seres')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#1E293B"/>
+          <circle cx="9.5" cy="12" r="4" stroke="#EF4444" stroke-width="1.6" fill="none"/>
+          <circle cx="14.5" cy="12" r="4" stroke="#EF4444" stroke-width="1.6" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 78. SMART - Sarı Ok ve 'C' Harfi Rozeti
+    if (b.includes('smart')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#334155"/>
+          <path d="M12 7C9.2 7 7 9.2 7 12C7 14.8 9.2 17 12 17" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M13 8.5L17 12L13 15.5V8.5Z" fill="#F59E0B"/>
+        </svg>
+      `;
+    }
+
+    // 79. DFSK - Kırmızı Çift Dalga Rozeti
+    if (b.includes('dfsk')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#DC2626"/>
+          <path d="M7 10C9 8 15 8 17 10M7 14C9 12 15 12 17 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 80. MAXUS - Üçlü Mavi Üçgen Geometrisi
+    if (b.includes('maxus')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0284C7"/>
+          <path d="M12 6L8 12H16L12 6ZM7 14L5 17H11L9 14M17 14L15 17H21L19 14" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 81. HONGQI - Kızıl Bayrak / Çin Devlet Rozeti
+    if (b.includes('hongqi')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="4" width="18" height="16" rx="3" fill="#7F1D1D"/>
+          <path d="M12 5V19M8 9H16" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 5L16 8L12 11" fill="#DC2626"/>
+        </svg>
+      `;
+    }
+
+    // 82. LYNK & CO - Minimalist Geometrik Kutu
+    if (b.includes('lynkco') || b.includes('lynk')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="6" width="18" height="12" rx="2" fill="#000000" stroke="#FFFFFF" stroke-width="1"/>
+          <path d="M7 9V15H11M13 9H17V15" stroke="#FFFFFF" stroke-width="1.8"/>
+        </svg>
+      `;
+    }
+
+    // 83. ZEEKR - Fütüristik Neon İkiz Köşegenler
+    if (b.includes('zeekr')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="3" y="5" width="18" height="14" rx="2" fill="#09090B"/>
+          <path d="M7 8H13L8 16H14M16 8V16" stroke="#F43F5E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 84. NIO - Gökyüzü ve Yol (Sky & Forward) Rozeti
+    if (b.includes('nio')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0369A1"/>
+          <path d="M7 11C7 8 9.5 6 12 6C14.5 6 17 8 17 11" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+          <path d="M8 17L12 13L16 17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 85. XPENG - Çapraz 'X' Kanatları
+    if (b.includes('xpeng')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M7 7L17 17M17 7L7 17" stroke="#EF4444" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="2" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 86. LUCID - Minimalist Lüks Tipografi
+    if (b.includes('lucid')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="7" width="20" height="10" rx="2" fill="#18181B"/>
+          <text x="12" y="14" fill="#E4E4E7" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="5" text-anchor="middle" letter-spacing="1.5">LUCID</text>
+        </svg>
+      `;
+    }
+
+    // 87. RIVIAN - İkonik Pusula Dörtgeni
+    if (b.includes('rivian')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="4" y="4" width="16" height="16" rx="3" fill="#D97706"/>
+          <path d="M12 6L16 12L12 18L8 12Z" fill="#FEF3C7"/>
+        </svg>
+      `;
+    }
+
+    // 88. FISKER - Kaliforniya Güneşi ve Okyanus
+    if (b.includes('fisker')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#EA580C"/>
+          <circle cx="12" cy="12" r="6" fill="#0284C7"/>
+          <path d="M9 12H15" stroke="#FFFFFF" stroke-width="2"/>
+        </svg>
+      `;
+    }
+
+    // 89. POLESTAR - İskandinav Kutup Yıldızı
+    if (b.includes('polestar')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#000000"/>
+          <path d="M12 5V12M12 19V12M5 12H12M19 12H12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="1.5" fill="#EAB308"/>
+        </svg>
+      `;
+    }
+
+    // 90. FORTHING - Aslan Pençesi / Spor Geometri
+    if (b.includes('forthing')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#0F172A"/>
+          <path d="M7 15L12 7L17 15L12 12Z" fill="#F59E0B"/>
+        </svg>
+      `;
+    }
+
+    // 91. SWM - İtalyan Mirası Kırmızı Kalkan
+    if (b.includes('swm')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 3L4 6V14C4 18 12 21 12 21C12 21 20 18 20 14V6L12 3Z" fill="#DC2626"/>
+          <text x="12" y="14" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="5" text-anchor="middle">SWM</text>
+        </svg>
+      `;
+    }
+
+    // 92. IVECO - İtalyan Mavi Blok Amblemi
+    if (b.includes('iveco')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <rect x="2" y="7" width="20" height="10" rx="2.5" fill="#002D62"/>
+          <text x="12" y="14.5" fill="#FFFFFF" font-family="'Plus Jakarta Sans', Arial" font-weight="900" font-size="5.5" text-anchor="middle" letter-spacing="1">IVECO</text>
+        </svg>
+      `;
+    }
+
+    // 93. BMC - Türk Sanayisinin Kırmızı Çemberi
+    if (b.includes('bmc')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#B91C1C"/>
+          <circle cx="12" cy="12" r="8.5" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+          <text x="12" y="15" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="6.5" text-anchor="middle" letter-spacing="0.5">BMC</text>
+        </svg>
+      `;
+    }
+
+    // 94. KARSAN - Modern Türk Ticari Taşıt Logosu
+    if (b.includes('karsan')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#047857"/>
+          <path d="M8 8V16M8 12L15 7M8 12L15 17" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `;
+    }
+
+    // 95. OTOKAR - İkonik Mavi Üçgen Çark
+    if (b.includes('otokar')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#003366"/>
+          <polygon points="12,6 17,16 7,16" stroke="#FFFFFF" stroke-width="1.6" fill="none"/>
+          <circle cx="12" cy="12" r="1.8" fill="#FFFFFF"/>
+        </svg>
+      `;
+    }
+
+    // 96. GAZ / GAZELLE - Rus Geyiği Amblemi
+    if (b.includes('gaz')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <path d="M12 3L5 6V15C5 18 12 21 12 21C12 21 19 18 19 15V6L12 3Z" fill="#1E293B" stroke="#B45309" stroke-width="1"/>
+          <path d="M10 9C10 7.5 12 7 13 8C14 7 15 8 14 10C13 12 12 14 11 16H14" stroke="#FDE68A" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 97. MAHINDRA - Hint Gücü Kırmızı Amblem
+    if (b.includes('mahindra')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <circle cx="12" cy="12" r="10" fill="#DC2626"/>
+          <path d="M7 14L10 8L12 12L14 8L17 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      `;
+    }
+
+    // 98. PIAGGIO - İkonik İtalyan Altıgeni
+    if (b.includes('piaggio')) {
+      return `
+        <svg viewBox="0 0 24 24" class="${className}">
+          <polygon points="12,3 19,7.5 19,16.5 12,21 5,16.5 5,7.5" fill="#0284C7" stroke="#FFFFFF" stroke-width="1"/>
+          <path d="M9 12H15M12 9V15" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // 99. DİĞER / ÖZEL MODEL - Şık Otomobil Direksiyon Simgesi
     return `
       <svg viewBox="0 0 24 24" class="${className}" fill="none">
         <circle cx="12" cy="12" r="9.2" stroke="#10B981" stroke-width="1.8"/>
@@ -485,7 +1118,67 @@
     { id: 'lexus', name: 'Lexus', logo: getBrandLogoSvg('lexus') },
     { id: 'ds', name: 'DS Automobiles', logo: getBrandLogoSvg('ds') },
     { id: 'ssangyong', name: 'KGM / SsangYong', logo: getBrandLogoSvg('ssangyong') },
-    { id: 'isuzu', name: 'Isuzu', logo: getBrandLogoSvg('isuzu') }
+    { id: 'isuzu', name: 'Isuzu', logo: getBrandLogoSvg('isuzu') },
+    { id: 'tofas', name: 'Tofaş', logo: getBrandLogoSvg('tofas') },
+    { id: 'anadol', name: 'Anadol', logo: getBrandLogoSvg('anadol') },
+    { id: 'chevrolet', name: 'Chevrolet', logo: getBrandLogoSvg('chevrolet') },
+    { id: 'lada', name: 'Lada', logo: getBrandLogoSvg('lada') },
+    { id: 'daewoo', name: 'Daewoo', logo: getBrandLogoSvg('daewoo') },
+    { id: 'tata', name: 'Tata', logo: getBrandLogoSvg('tata') },
+    { id: 'proton', name: 'Proton', logo: getBrandLogoSvg('proton') },
+    { id: 'daihatsu', name: 'Daihatsu', logo: getBrandLogoSvg('daihatsu') },
+    { id: 'geely', name: 'Geely', logo: getBrandLogoSvg('geely') },
+    { id: 'saab', name: 'Saab', logo: getBrandLogoSvg('saab') },
+    { id: 'rover', name: 'Rover', logo: getBrandLogoSvg('rover') },
+    { id: 'lancia', name: 'Lancia', logo: getBrandLogoSvg('lancia') },
+    { id: 'jaguar', name: 'Jaguar', logo: getBrandLogoSvg('jaguar') },
+    { id: 'maserati', name: 'Maserati', logo: getBrandLogoSvg('maserati') },
+    { id: 'astonmartin', name: 'Aston Martin', logo: getBrandLogoSvg('astonmartin') },
+    { id: 'bentley', name: 'Bentley', logo: getBrandLogoSvg('bentley') },
+    { id: 'ferrari', name: 'Ferrari', logo: getBrandLogoSvg('ferrari') },
+    { id: 'lamborghini', name: 'Lamborghini', logo: getBrandLogoSvg('lamborghini') },
+    { id: 'rollsroyce', name: 'Rolls-Royce', logo: getBrandLogoSvg('rollsroyce') },
+    { id: 'mclaren', name: 'McLaren', logo: getBrandLogoSvg('mclaren') },
+    { id: 'lotus', name: 'Lotus', logo: getBrandLogoSvg('lotus') },
+    { id: 'alpine', name: 'Alpine', logo: getBrandLogoSvg('alpine') },
+    { id: 'abarth', name: 'Abarth', logo: getBrandLogoSvg('abarth') },
+    { id: 'genesis', name: 'Genesis', logo: getBrandLogoSvg('genesis') },
+    { id: 'infiniti', name: 'Infiniti', logo: getBrandLogoSvg('infiniti') },
+    { id: 'dodge', name: 'Dodge', logo: getBrandLogoSvg('dodge') },
+    { id: 'chrysler', name: 'Chrysler', logo: getBrandLogoSvg('chrysler') },
+    { id: 'cadillac', name: 'Cadillac', logo: getBrandLogoSvg('cadillac') },
+    { id: 'lincoln', name: 'Lincoln', logo: getBrandLogoSvg('lincoln') },
+    { id: 'gmc', name: 'GMC', logo: getBrandLogoSvg('gmc') },
+    { id: 'hummer', name: 'Hummer', logo: getBrandLogoSvg('hummer') },
+    { id: 'pontiac', name: 'Pontiac', logo: getBrandLogoSvg('pontiac') },
+    { id: 'buick', name: 'Buick', logo: getBrandLogoSvg('buick') },
+    { id: 'jaecoo', name: 'Jaecoo', logo: getBrandLogoSvg('jaecoo') },
+    { id: 'omoda', name: 'Omoda', logo: getBrandLogoSvg('omoda') },
+    { id: 'leapmotor', name: 'Leapmotor', logo: getBrandLogoSvg('leapmotor') },
+    { id: 'voyah', name: 'Voyah', logo: getBrandLogoSvg('voyah') },
+    { id: 'skywell', name: 'Skywell', logo: getBrandLogoSvg('skywell') },
+    { id: 'seres', name: 'Seres', logo: getBrandLogoSvg('seres') },
+    { id: 'smart', name: 'Smart', logo: getBrandLogoSvg('smart') },
+    { id: 'dfsk', name: 'DFSK', logo: getBrandLogoSvg('dfsk') },
+    { id: 'maxus', name: 'Maxus', logo: getBrandLogoSvg('maxus') },
+    { id: 'hongqi', name: 'Hongqi', logo: getBrandLogoSvg('hongqi') },
+    { id: 'lynkco', name: 'Lynk & Co', logo: getBrandLogoSvg('lynkco') },
+    { id: 'zeekr', name: 'Zeekr', logo: getBrandLogoSvg('zeekr') },
+    { id: 'nio', name: 'Nio', logo: getBrandLogoSvg('nio') },
+    { id: 'xpeng', name: 'Xpeng', logo: getBrandLogoSvg('xpeng') },
+    { id: 'lucid', name: 'Lucid', logo: getBrandLogoSvg('lucid') },
+    { id: 'rivian', name: 'Rivian', logo: getBrandLogoSvg('rivian') },
+    { id: 'fisker', name: 'Fisker', logo: getBrandLogoSvg('fisker') },
+    { id: 'polestar', name: 'Polestar', logo: getBrandLogoSvg('polestar') },
+    { id: 'forthing', name: 'Forthing', logo: getBrandLogoSvg('forthing') },
+    { id: 'swm', name: 'SWM', logo: getBrandLogoSvg('swm') },
+    { id: 'iveco', name: 'Iveco', logo: getBrandLogoSvg('iveco') },
+    { id: 'bmc', name: 'BMC', logo: getBrandLogoSvg('bmc') },
+    { id: 'karsan', name: 'Karsan', logo: getBrandLogoSvg('karsan') },
+    { id: 'otokar', name: 'Otokar', logo: getBrandLogoSvg('otokar') },
+    { id: 'gaz', name: 'GAZ / GAZelle', logo: getBrandLogoSvg('gaz') },
+    { id: 'mahindra', name: 'Mahindra', logo: getBrandLogoSvg('mahindra') },
+    { id: 'piaggio', name: 'Piaggio', logo: getBrandLogoSvg('piaggio') }
   ];
 
   const VEHICLE_MODELS = {
@@ -3432,11 +4125,2235 @@
         ],
         chronic: 'RZ4E-TC motorda DPF otomatik temizleme döngüsü takip edilmeli, ağır çeki demiri kullanımında şanzıman yağı 40.000 km’de değişmelidir.'
       }
+    ],
+    tofas: [
+      {
+        name: 'Şahin',
+        interval: 10000,
+        baseVal: 220000,
+        engines: [
+          '1.6 ie (80 HP Benzin & LPG)',
+          '1.6 S (80 HP Karbüratörlü Benzin & LPG)',
+          '1.4 (65 HP Karbüratörlü)'
+        ],
+        chronic: 'Distribütör avans ayarı, karbüratör/LPG diyaframı ve diferansiyel ötme kontrolü 10.000 km’de bir yapılmalıdır.'
+      },
+      {
+        name: 'Doğan',
+        interval: 10000,
+        baseVal: 290000,
+        engines: [
+          '1.6 ie SLX (83 HP Enjeksiyonlu Benzin & LPG)',
+          '1.6 SLX (80 HP Karbüratörlü Benzin & LPG)',
+          '1.6 S (80 HP Karbüratörlü)'
+        ],
+        chronic: 'Külbütör kapağı mantar conta yağ sızıntısı ve hararet müşürü hassasiyetle kontrol edilmelidir.'
+      },
+      {
+        name: 'Kartal',
+        interval: 10000,
+        baseVal: 250000,
+        engines: [
+          '1.6 ie SLX (83 HP Enjeksiyonlu Benzin & LPG)',
+          '1.6 SLX (80 HP Karbüratörlü Benzin & LPG)',
+          '1.6 S (80 HP Karbüratörlü)'
+        ],
+        chronic: 'Arka yaprak makas burçları ve diferansiyel yağı seviyesi periyodik kontrol edilmelidir.'
+      },
+      {
+        name: 'Serçe',
+        interval: 10000,
+        baseVal: 180000,
+        engines: [
+          '1.3 (65 HP Karbüratörlü Benzin & LPG)'
+        ],
+        chronic: 'Platin-meksefe ateşleme boşluğu ve sübap ayarı her 10.000 km bakımda gözden geçirilmelidir.'
+      },
+      {
+        name: 'Murat 131',
+        interval: 10000,
+        baseVal: 210000,
+        engines: [
+          '1.3 Mirafiori (65 HP Karbüratörlü)',
+          '1.6 Şahin (75 HP Karbüratörlü)'
+        ],
+        chronic: 'Fren ana merkezi ve debriyaj teli gerginliği periyodik kontrol edilmelidir.'
+      }
+    ],
+    anadol: [
+      {
+        name: 'A1',
+        interval: 10000,
+        baseVal: 280000,
+        engines: [
+          '1.2 Kent (54 HP Ford Motoru)',
+          '1.3 Kent (65 HP Ford Motoru)'
+        ],
+        chronic: 'Fiberglas gövde şasi bağlantı takozları ve Ford Kent itecekli motor sübap ayarı kontrol edilmelidir.'
+      },
+      {
+        name: 'A2',
+        interval: 10000,
+        baseVal: 290000,
+        engines: [
+          '1.3 Kent (65 HP)',
+          '1.6 Crossflow (80 HP)'
+        ],
+        chronic: 'Şasi korozyon durumu ve karbüratör şamandıra seviyesi kontrol edilmelidir.'
+      },
+      {
+        name: 'SV 1600',
+        interval: 10000,
+        baseVal: 320000,
+        engines: [
+          '1.6 Crossflow (80 HP Ford Motoru)'
+        ],
+        chronic: 'Arka helezon yay takozları ve diferansiyel keçesi kontrol edilmelidir.'
+      }
+    ],
+    chevrolet: [
+      {
+        name: 'Cruze',
+        interval: 15000,
+        baseVal: 580000,
+        engines: [
+          '1.6 16V LS/LT Manuel (113/124 HP Benzin & LPG)',
+          '1.6 16V LT Otomatik (124 HP)',
+          '1.4 Turbo LTZ Otomatik (140 HP)',
+          '2.0 VCDi LT Otomatik (163 HP Dizel)'
+        ],
+        chronic: 'LPG’li araçlarda magnezyum alaşımlı sübap erimesi (çelik sübap dönüşümü) ve plastik termostat gövdesi çatlağına dikkat edilmelidir.'
+      },
+      {
+        name: 'Aveo',
+        interval: 15000,
+        baseVal: 480000,
+        engines: [
+          '1.3 CDTI LT (75/95 HP Dizel)',
+          '1.2 16V LS Manuel (86 HP)',
+          '1.4 LT Otomatik (100 HP)'
+        ],
+        chronic: '1.3 CDTI motorda eksantrik zincir uzaması ve debriyaj hidrolik bilyası 100.000 km’de kontrol edilmelidir.'
+      },
+      {
+        name: 'Captiva',
+        interval: 10000,
+        baseVal: 690000,
+        engines: [
+          '2.0 D LT High 4x4 Otomatik (150 HP Dizel)',
+          '2.0 D H-Line 4x4 Otomatik (163 HP Dizel)'
+        ],
+        chronic: 'Aisin 6 ileri tork konvertörlü şanzıman yağı, partikül filtresi (DPF) ve ön amortisör kule bilyaları kontrol edilmelidir.'
+      },
+      {
+        name: 'Spark',
+        interval: 15000,
+        baseVal: 430000,
+        engines: [
+          '1.0 LS (68 HP Benzin & LPG)',
+          '1.2 LT (82 HP Benzin)'
+        ],
+        chronic: 'Rölanti motoru ve alternatör kayış gergi bilyası periyodik incelenmelidir.'
+      },
+      {
+        name: 'Lacetti',
+        interval: 10000,
+        baseVal: 380000,
+        engines: [
+          '1.6 16V SX / WTCC (109 HP Benzin & LPG)'
+        ],
+        chronic: 'EGR valfi kurum temizliği ve ateşleme bobini kontrol edilmelidir.'
+      },
+      {
+        name: 'Trax',
+        interval: 15000,
+        baseVal: 720000,
+        engines: [
+          '1.4 Turbo LT Otomatik (140 HP AWD/FWD)',
+          '1.7 CRDI LT Otomatik (130 HP Dizel)'
+        ],
+        chronic: 'Turbo yağ besleme borusu sızıntısı ve soğutma suyu genleşme kabı kontrol edilmelidir.'
+      },
+      {
+        name: 'Camaro',
+        interval: 10000,
+        baseVal: 3800000,
+        engines: [
+          '6.2 V8 SS Otomatik (453 HP)',
+          '2.0 Turbo LT Otomatik (275 HP)'
+        ],
+        chronic: '8/10 ileri şanzıman tork konvertörü titreme bülteni ve diferansiyel yağı kontrol edilmelidir.'
+      }
+    ],
+    lada: [
+      {
+        name: 'Samara',
+        interval: 10000,
+        baseVal: 180000,
+        engines: [
+          '1.5 21099 Sedan (71 HP Benzin & LPG)',
+          '1.5 2109 Hatchback (71 HP Benzin & LPG)'
+        ],
+        chronic: 'Ateşleme komütatörü (elektronik modül), distribütör kapağı ve karbüratör diyaframı incelenmelidir.'
+      },
+      {
+        name: 'Vega',
+        interval: 10000,
+        baseVal: 210000,
+        engines: [
+          '1.5 16V (91 HP Benzin & LPG)',
+          '1.6 16V (91 HP Benzin & LPG)'
+        ],
+        chronic: '16V silindir kapağında triger kopmasında sübap eğilme riski nedeniyle triger 40.000 km’de değişmelidir.'
+      },
+      {
+        name: 'Niva',
+        interval: 10000,
+        baseVal: 340000,
+        engines: [
+          '1.7i 4x4 Enjeksiyonlu (83 HP Benzin & LPG)',
+          '1.6 4x4 Karbüratörlü (76 HP)'
+        ],
+        chronic: 'Arazi şanzımanı mafsalları, ön aks körükleri ve şaft istavrozları düzenli greslenmelidir.'
+      },
+      {
+        name: 'Kalina',
+        interval: 10000,
+        baseVal: 270000,
+        engines: [
+          '1.4 16V (89 HP Benzin & LPG)',
+          '1.6 8V (81 HP)'
+        ],
+        chronic: 'Elektrikli direksiyon motoru (EPS) ve kalorifer radyatörü sızıntısı kontrol edilmelidir.'
+      },
+      {
+        name: 'Granta',
+        interval: 15000,
+        baseVal: 350000,
+        engines: [
+          '1.6 16V (98 HP Manuel/Otomatik)'
+        ],
+        chronic: 'Triger gergi bilyası ve alternatör diyot tablası periyodik kontrol edilmelidir.'
+      }
+    ],
+    daewoo: [
+      {
+        name: 'Nexia',
+        interval: 10000,
+        baseVal: 190000,
+        engines: [
+          '1.5 GLX / GTX 16V (75/90 HP Benzin & LPG)'
+        ],
+        chronic: 'Opel Kadett bazlı motorda distribütör içi manyetik okuyucu ve radyatör üst hortumu kontrol edilmelidir.'
+      },
+      {
+        name: 'Matiz',
+        interval: 10000,
+        baseVal: 240000,
+        engines: [
+          '0.8 SE (52 HP 3 Silindir Benzin)'
+        ],
+        chronic: 'Distribütör optik sensörü ve debriyaj teli kontrol edilmelidir.'
+      },
+      {
+        name: 'Nubira',
+        interval: 10000,
+        baseVal: 230000,
+        engines: [
+          '1.6 16V CDX (106 HP Benzin & LPG)',
+          '2.0 CDX Otomatik (133 HP)'
+        ],
+        chronic: 'Triger seti ve termostat gövdesi 60.000 km’de değişmelidir.'
+      },
+      {
+        name: 'Lanos',
+        interval: 10000,
+        baseVal: 220000,
+        engines: [
+          '1.5 SE (86 HP Benzin & LPG)',
+          '1.6 16V SX (106 HP)'
+        ],
+        chronic: 'Ön amortisör takozları ve rölanti ayar motoru kontrol edilmelidir.'
+      },
+      {
+        name: 'Tico',
+        interval: 10000,
+        baseVal: 170000,
+        engines: [
+          '0.8 SL (48 HP Benzin & LPG)'
+        ],
+        chronic: 'Karbüratör rölanti memesi ve benzin pompası diyaframı kontrol edilmelidir.'
+      }
+    ],
+    tata: [
+      {
+        name: 'Indica',
+        interval: 10000,
+        baseVal: 210000,
+        engines: [
+          '1.4 TDI (70 HP Dizel Manuel)',
+          '1.4 MPFI (85 HP Benzin & LPG)'
+        ],
+        chronic: 'Triger seti gergi ayarı ve marş motoru kömürleri periyodik kontrol edilmelidir.'
+      },
+      {
+        name: 'Indigo',
+        interval: 10000,
+        baseVal: 230000,
+        engines: [
+          '1.4 TDI Sedan (70 HP Dizel)'
+        ],
+        chronic: 'Mazot filtresi su tahliyesi ve debriyaj merkezi kontrol edilmelidir.'
+      },
+      {
+        name: 'Marina',
+        interval: 10000,
+        baseVal: 240000,
+        engines: [
+          '1.4 TDI Station Wagon (70 HP Dizel)'
+        ],
+        chronic: 'Arka helezon yay burçları ve fren limitörü incelenmelidir.'
+      },
+      {
+        name: 'Vista',
+        interval: 15000,
+        baseVal: 320000,
+        engines: [
+          '1.3 Quadrajet (75 HP Fiat Multijet Motoru)'
+        ],
+        chronic: 'Eksantrik zinciri ve kızdırma bujileri Fiat Multijet prosedürüne göre takip edilmelidir.'
+      },
+      {
+        name: 'Xenon',
+        interval: 10000,
+        baseVal: 480000,
+        engines: [
+          '2.2 Dicor 4x2 / 4x4 (140 HP Dizel Pick-up)'
+        ],
+        chronic: '4x4 arazi transfer kutusu aktüatörü ve şaft askı bilyası kontrol edilmelidir.'
+      },
+      {
+        name: 'Telcoline',
+        interval: 10000,
+        baseVal: 290000,
+        engines: [
+          '2.0 TDI 4x2 / 4x4 (90 HP Dizel Pick-up)'
+        ],
+        chronic: 'Ön torsiyon burçları ve mazot pompası avans ayarı periyodik yapılmalıdır.'
+      }
+    ],
+    proton: [
+      {
+        name: 'Gen-2',
+        interval: 10000,
+        baseVal: 340000,
+        engines: [
+          '1.6 CamPro Medium/High-Line Manuel (110 HP Benzin & LPG)',
+          '1.6 CamPro High-Line Otomatik (110 HP)'
+        ],
+        chronic: 'Lotus ayarlı arka süspansiyon çok kollu burçları ve CamPro motor rölanti valfi kontrol edilmelidir.'
+      },
+      {
+        name: 'Savvy',
+        interval: 10000,
+        baseVal: 280000,
+        engines: [
+          '1.2 Manuel / AMT Robotik (75 HP Renault D4F Motoru)'
+        ],
+        chronic: 'Renault bazlı 1.2 motorda boğaz kelebeği temizliği ve robotik vites aktüatör yağı kontrol edilmelidir.'
+      },
+      {
+        name: 'Persona',
+        interval: 10000,
+        baseVal: 360000,
+        engines: [
+          '1.6 CamPro Elegance (110 HP Manuel/Otomatik)'
+        ],
+        chronic: 'Eksantrik konum sensörü ve motor kulağı kauçuk durumu kontrol edilmelidir.'
+      },
+      {
+        name: 'Waja',
+        interval: 10000,
+        baseVal: 330000,
+        engines: [
+          '1.6 Mitsubishi 4G18 / CamPro (103/110 HP)'
+        ],
+        chronic: 'Mitsubishi bazlı motorda distribütör mili contası ve sübap iticileri incelenmelidir.'
+      }
+    ],
+    daihatsu: [
+      {
+        name: 'Terios',
+        interval: 10000,
+        baseVal: 520000,
+        engines: [
+          '1.5 SX / DX 4x4 Manuel (105 HP Benzin & LPG)',
+          '1.5 Gold 4x4 Otomatik (105 HP)',
+          '1.3 4x4 (86 HP)'
+        ],
+        chronic: 'Toyota bazlı 3SZ-VE zincirli motorda yağ seviyesi (5W-30) ve 4x4 orta diferansiyel kilit motoru kontrol edilmelidir.'
+      },
+      {
+        name: 'Sirion',
+        interval: 10000,
+        baseVal: 410000,
+        engines: [
+          '1.3 Sportif / D-Compact Manuel/Otomatik (87/91 HP Toyota Motoru)',
+          '1.0 D-Compact (69 HP)'
+        ],
+        chronic: 'VVT-i supap kontrol valfi filtresi ve ön viraj demir uç lastikleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Cuore',
+        interval: 10000,
+        baseVal: 310000,
+        engines: [
+          '1.0 Plus (58 HP Benzin)'
+        ],
+        chronic: 'Debriyaj balatası ve ön disk kalınlığı 50.000 km’de kontrol edilmelidir.'
+      },
+      {
+        name: 'Materia',
+        interval: 10000,
+        baseVal: 460000,
+        engines: [
+          '1.5 Gold Manuel / Otomatik (103 HP Toyota Motoru)'
+        ],
+        chronic: 'Otomatik şanzıman yağı (Toyota T-IV / WS) ve ön amortisör takozları kontrol edilmelidir.'
+      },
+      {
+        name: 'Copen',
+        interval: 10000,
+        baseVal: 650000,
+        engines: [
+          '1.3 16V K3-VE (87 HP Cabrio)'
+        ],
+        chronic: 'Elektro-hidrolik tavan mekanizması hidrolik yağı ve tavan fitilleri periyodik yağlanmalıdır.'
+      }
+    ],
+    geely: [
+      {
+        name: 'Emgrand EC7',
+        interval: 10000,
+        baseVal: 390000,
+        engines: [
+          '1.5 GSL Basic / Premium Manuel (106 HP Benzin & LPG)',
+          '1.8 GSL Otomatik (139 HP)'
+        ],
+        chronic: 'Ön alt takım salıncak burçları ve triger kayışı 60.000 km’de bir değiştirilmelidir.'
+      },
+      {
+        name: 'Echo',
+        interval: 10000,
+        baseVal: 230000,
+        engines: [
+          '1.3 Basic (86 HP Benzin & LPG)'
+        ],
+        chronic: 'Ateşleme buji kabloları ve şarj dinamosu konjektörü kontrol edilmelidir.'
+      },
+      {
+        name: 'Familia',
+        interval: 10000,
+        baseVal: 260000,
+        engines: [
+          '1.5 Comfort (94 HP Benzin & LPG)'
+        ],
+        chronic: 'Termostat açma sıcaklığı ve kalorifer peteği temizliği kontrol edilmelidir.'
+      },
+      {
+        name: 'Coolray',
+        interval: 15000,
+        baseVal: 1450000,
+        engines: [
+          '1.5 TD DCT (177 HP Volvo Ortaklığı Turbo Benzin)'
+        ],
+        chronic: '7 İleri ıslak DCT şanzıman yazılımı ve doğrudan enjeksiyon emme sübap kurumu takip edilmelidir.'
+      }
+    ],
+    saab: [
+      {
+        name: '9-3',
+        interval: 15000,
+        baseVal: 590000,
+        engines: [
+          '1.9 TiD Linear / Vector (150 HP Dizel Manuel/Otomatik)',
+          '1.9 TTiD Aero Çift Turbo (180 HP Dizel)',
+          '2.0 Turbo Aero (210 HP Benzin)'
+        ],
+        chronic: 'CIM (Direksiyon Kolon Entegre Modülü) kontak anahtarı okuyucusu ve 1.9 TiD emme manifoldu klepeleri incelenmelidir.'
+      },
+      {
+        name: '9-5',
+        interval: 10000,
+        baseVal: 680000,
+        engines: [
+          '2.0 Turbo Linear / Vector (150/185/220 HP)',
+          '2.3 Turbo Aero (250/260 HP)',
+          '3.0 TiD V6 (177 HP Dizel)'
+        ],
+        chronic: 'Karter içi yağ süzgeci (oil sludge tortusu) kontrolü ve DI ateşleme kaseti (kırmızı/siyah kaset) kontrol edilmelidir.'
+      }
+    ],
+    rover: [
+      {
+        name: '75',
+        interval: 10000,
+        baseVal: 380000,
+        engines: [
+          '2.0 CDT / CDTi Club/Connoisseur (116/131 HP BMW M47 Dizel Motoru)',
+          '2.0 V6 Club (150 HP Benzin & LPG)',
+          '2.5 V6 Connoisseur (177 HP Otomatik)'
+        ],
+        chronic: 'Debriyaj alt hidrolik merkezi, ECU su alma tahliyesi (plenum chamber) ve V6 VIS motorları incelenmelidir.'
+      },
+      {
+        name: '25',
+        interval: 10000,
+        baseVal: 240000,
+        engines: [
+          '1.4 16V (103 HP Benzin & LPG)',
+          '1.6 16V (109 HP)'
+        ],
+        chronic: 'Rover K-serisi motorlarda silindir kapak contası (çok katmanlı çelik MLS conta dönüşümü) ve termostat kontrol edilmelidir.'
+      },
+      {
+        name: '45',
+        interval: 10000,
+        baseVal: 260000,
+        engines: [
+          '1.6 16V (109 HP Benzin & LPG)',
+          '2.0 iDT (101 HP Dizel)'
+        ],
+        chronic: 'Silindir kapak contası ve soğutma sıvısı genleşme kabı seviyesi her hafta kontrol edilmelidir.'
+      },
+      {
+        name: 'Streetwise',
+        interval: 10000,
+        baseVal: 280000,
+        engines: [
+          '1.4 16V (103 HP Crossover Benzin & LPG)'
+        ],
+        chronic: 'Ön aks körükleri ve silindir kapağı tork kontrolü yapılmalıdır.'
+      }
+    ],
+    lancia: [
+      {
+        name: 'Delta',
+        interval: 15000,
+        baseVal: 540000,
+        engines: [
+          '1.6 MultiJet Platino/Oro Manuel (120 HP Dizel)',
+          '1.6 MultiJet Selectronic Robotik (120 HP Dizel)',
+          '1.4 T-Jet (150 HP Turbo Benzin)'
+        ],
+        chronic: 'Selectronic robotik debriyaj hidrolik yağı (Tutela CS Speed) ve MultiJet partikül filtresi takip edilmelidir.'
+      },
+      {
+        name: 'Ypsilon',
+        interval: 15000,
+        baseVal: 480000,
+        engines: [
+          '1.3 MultiJet (90/95 HP Dizel)',
+          '0.9 TwinAir Turbo (85 HP 2 Silindir)',
+          '1.2 8V Fire (69 HP Benzin & LPG)'
+        ],
+        chronic: 'TwinAir motorda Uniair elektro-hidrolik sübap aktüatörü yağı (0W-30 C2) hassasiyetle seçilmelidir.'
+      },
+      {
+        name: 'Thema',
+        interval: 15000,
+        baseVal: 1250000,
+        engines: [
+          '3.0 CRD Executive Otomatik (239 HP VM Motori Dizel ZF 8 İleri)'
+        ],
+        chronic: 'Yağ soğutucu gövde contaları ve ZF 8HP şanzıman yağı 80.000 km’de değişmelidir.'
+      }
+    ],
+    jaguar: [
+      {
+        name: 'XF',
+        interval: 15000,
+        baseVal: 2350000,
+        engines: [
+          '2.0 D R-Sport / Prestige AWD ZF 8 İleri (180/204 HP Ingenium Dizel)',
+          '2.0 Petrol Turbo (250/300 HP)',
+          '3.0 V6 Diesel (275/300 HP)'
+        ],
+        chronic: 'Ingenium 2.0D motorlarda eksantrik zincir sesi, turbo soğutma boruları ve DPF yağ seyreltmesi takip edilmelidir.'
+      },
+      {
+        name: 'XE',
+        interval: 15000,
+        baseVal: 1950000,
+        engines: [
+          '2.0 D R-Sport / Portfolio (180 HP ZF 8 İleri)',
+          '2.0 Petrol (200/250 HP)'
+        ],
+        chronic: 'Arka salıncak burçları ve Ingenium motor zamanlama zinciri gergisi kontrol edilmelidir.'
+      },
+      {
+        name: 'F-Pace',
+        interval: 15000,
+        baseVal: 3400000,
+        engines: [
+          '2.0 D AWD R-Sport / Chequered Flag (180/204 HP)',
+          '2.0 PHEV P400e (404 HP Plug-in Hybrid)',
+          '3.0 D V6 AWD (300 HP)'
+        ],
+        chronic: 'AdBlue dozaj valfi kristalleşmesi ve havalı arka süspansiyon kompresörü kontrol edilmelidir.'
+      },
+      {
+        name: 'E-Pace',
+        interval: 15000,
+        baseVal: 2450000,
+        engines: [
+          '2.0 D AWD (150/180 HP ZF 9 İleri)',
+          '1.5 PHEV P300e (309 HP Plug-in Hybrid)'
+        ],
+        chronic: 'ZF 9HP enine şanzıman yazılımı ve AWD diferansiyel kavraması kontrol edilmelidir.'
+      },
+      {
+        name: 'I-Pace',
+        interval: 30000,
+        baseVal: 2850000,
+        engines: [
+          'EV400 AWD SE / HSE (400 HP Elektrikli 90 kWh Batarya)'
+        ],
+        chronic: '12V destek aküsü durumu ve batarya soğutma devresi genleşme kabı kontrol edilmelidir.'
+      },
+      {
+        name: 'F-Type',
+        interval: 10000,
+        baseVal: 4800000,
+        engines: [
+          '2.0 Turbo (300 HP ZF 8 İleri)',
+          '3.0 V6 Supercharged S (340/380 HP)',
+          '5.0 V8 Supercharged R AWD (575 HP)'
+        ],
+        chronic: 'V6/V8 modellerde süperşarj yivli kayış gergi bilyası ve aktif egzoz kelebek motorları incelenmelidir.'
+      },
+      {
+        name: 'XJ',
+        interval: 15000,
+        baseVal: 2700000,
+        engines: [
+          '3.0 D V6 Premium Luxury ZF 8 İleri (275/300 HP)'
+        ],
+        chronic: 'Arka havalı körükler ve çift turbo aktüatör vakum hortumları kontrol edilmelidir.'
+      }
+    ],
+    maserati: [
+      {
+        name: 'Ghibli',
+        interval: 15000,
+        baseVal: 3600000,
+        engines: [
+          '3.0 V6 Diesel ZF 8 İleri (275 HP VM Motori)',
+          '2.0 GT MHEV Hibrit (330 HP)',
+          '3.0 V6 S Q4 Twin-Turbo (430 HP Ferrari Üretimi Motor)'
+        ],
+        chronic: '3.0 V6 dizel motorlarda yağ soğutucusu contası, krank kasnağı ve ZF 8HP şanzıman mekatroniği incelenmelidir.'
+      },
+      {
+        name: 'Levante',
+        interval: 15000,
+        baseVal: 4500000,
+        engines: [
+          '3.0 V6 Diesel AWD (275 HP)',
+          '2.0 GT Hybrid AWD (330 HP)',
+          '3.0 V6 Modena Q4 (430 HP Twin-Turbo)'
+        ],
+        chronic: 'Skyhook adaptif havalı süspansiyon valfleri ve ön viraj demir rotilleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Grecale',
+        interval: 15000,
+        baseVal: 5600000,
+        engines: [
+          '2.0 GT MHEV AWD (300 HP)',
+          '2.0 Modena AWD (330 HP)',
+          '3.0 V6 Trofeo Nettuno Çift Buji (530 HP)'
+        ],
+        chronic: 'Trofeo modelinde Nettuno ön yanma odalı buji değişim periyodu (20.000 km) takip edilmelidir.'
+      },
+      {
+        name: 'Quattroporte',
+        interval: 15000,
+        baseVal: 4200000,
+        engines: [
+          '3.0 V6 Diesel (275 HP)',
+          '3.0 V6 SQ4 (430 HP)',
+          '3.8 V8 GTS Twin-Turbo (530 HP Ferrari Motoru)'
+        ],
+        chronic: 'V8 modellerde turbo yağ besleme hatları ve arka diferansiyel kilitli kavrama yağı incelenmelidir.'
+      },
+      {
+        name: 'GranTurismo',
+        interval: 10000,
+        baseVal: 5900000,
+        engines: [
+          '4.7 V8 Sport / MC Stradale (460 HP Ferrari Üretimi V8)',
+          '3.0 V6 Nettuno Modena / Trofeo (490/550 HP)'
+        ],
+        chronic: 'V8 modellerde varyatör (eksantrik dişlisi) basma sesi ve Cambiocorsa/ZF şanzıman kavraması kontrol edilmelidir.'
+      },
+      {
+        name: 'MC20',
+        interval: 10000,
+        baseVal: 22000000,
+        engines: [
+          '3.0 V6 Nettuno Twin-Turbo DCT 8 İleri (630 HP)'
+        ],
+        chronic: 'Karbon seramik fren balata kalınlıkları ve kuru karter yağ seviyesi motor sıcakken ölçülmelidir.'
+      }
+    ],
+    astonmartin: [
+      {
+        name: 'DB11',
+        interval: 10000,
+        baseVal: 15500000,
+        engines: [
+          '4.0 V8 Twin-Turbo (510/535 HP AMG Üretimi Motor)',
+          '5.2 V12 Twin-Turbo (608/639 HP)'
+        ],
+        chronic: 'V8 modellerde AMG motor soğutma devresi termostatı ve ZF 8 ileri transaks şanzıman yağı kontrol edilmelidir.'
+      },
+      {
+        name: 'DB12',
+        interval: 10000,
+        baseVal: 24000000,
+        engines: [
+          '4.0 V8 Twin-Turbo ZF 8 İleri (680 HP)'
+        ],
+        chronic: 'E-diff elektronik diferansiyel yazılımı ve yeni nesil dokunmatik kokpit yazılımı kontrol edilmelidir.'
+      },
+      {
+        name: 'Vantage',
+        interval: 10000,
+        baseVal: 14500000,
+        engines: [
+          '4.0 V8 Twin-Turbo (510/665 HP ZF 8 İleri)'
+        ],
+        chronic: 'Aktif egzoz klape motorları ve arka transaks tork tüpü bilyaları incelenmelidir.'
+      },
+      {
+        name: 'DBX',
+        interval: 10000,
+        baseVal: 18500000,
+        engines: [
+          '4.0 V8 Twin-Turbo AWD (550 HP)',
+          'DBX 707 (707 HP 9 İleri Islak Debriyajlı MCT)'
+        ],
+        chronic: '48V aktif viraj denge çubuğu aktüatörleri ve 707 modelinde MCT kavrama kalibrasyonu kontrol edilmelidir.'
+      }
+    ],
+    bentley: [
+      {
+        name: 'Continental GT',
+        interval: 10000,
+        baseVal: 16500000,
+        engines: [
+          '4.0 V8 Twin-Turbo (528/550 HP 8 İleri PDK)',
+          '6.0 W12 Twin-Turbo Speed (635/659 HP)'
+        ],
+        chronic: 'W12 vakum tesisatı hortumları ve 3 odacıklı havalı süspansiyon hava körüğü kaçakları incelenmelidir.'
+      },
+      {
+        name: 'Flying Spur',
+        interval: 10000,
+        baseVal: 18500000,
+        engines: [
+          '4.0 V8 Twin-Turbo (550 HP)',
+          '2.9 V6 Plug-in Hybrid (544 HP)',
+          '6.0 W12 Twin-Turbo (635 HP)'
+        ],
+        chronic: 'Dört tekerlekten yönlendirme (AWS) arka rot başları ve hibrit batarya şarj modülü kontrol edilmelidir.'
+      },
+      {
+        name: 'Bentayga',
+        interval: 10000,
+        baseVal: 19500000,
+        engines: [
+          '4.0 V8 Twin-Turbo AWD (550 HP)',
+          '3.0 V6 Hybrid (449 HP)',
+          '6.0 W12 Speed (635 HP)',
+          '4.0 V8 Diesel Elektrikli Kompresörlü (435 HP)'
+        ],
+        chronic: '48V Bentley Dynamic Ride sistemi aküsü ve dizel modellerde elektrikli kompresör soğutması takip edilmelidir.'
+      }
+    ],
+    ferrari: [
+      {
+        name: '296 GTB',
+        interval: 10000,
+        baseVal: 26500000,
+        engines: [
+          '3.0 V6 120° Twin-Turbo Plug-in Hybrid (830 HP 8 İleri F1 DCT)'
+        ],
+        chronic: 'Hibrit yüksek voltaj batarya hücre dengesi ve karbon seramik disk yüzey aşınma katsayısı takip edilmelidir.'
+      },
+      {
+        name: 'Roma',
+        interval: 10000,
+        baseVal: 21000000,
+        engines: [
+          '3.9 V8 Twin-Turbo (620 HP 8 İleri DCT)'
+        ],
+        chronic: '8 İleri çift kavrama şanzıman yazılımı ve direksiyon üstü dokunmatik haptik buton kalibrasyonu kontrol edilmelidir.'
+      },
+      {
+        name: 'F8 Tributo',
+        interval: 10000,
+        baseVal: 27000000,
+        engines: [
+          '3.9 V8 Twin-Turbo 7 İleri F1 DCT (720 HP)'
+        ],
+        chronic: 'Titanium biyel kollu V8 motorda 10W-60 motor yağı ve turbo baypas valfleri incelenmelidir.'
+      },
+      {
+        name: 'SF90 Stradale',
+        interval: 10000,
+        baseVal: 42000000,
+        engines: [
+          '4.0 V8 Twin-Turbo + 3 Elektrik Motoru AWD (1000 HP 8 İleri DCT)'
+        ],
+        chronic: 'Ön aks çift RAC-e elektrik motoru soğutma sıvısı ve RAC-e invertör yazılımı yetkili serviste güncellenmelidir.'
+      },
+      {
+        name: '488 GTB',
+        interval: 10000,
+        baseVal: 19500000,
+        engines: [
+          '3.9 V8 Twin-Turbo (670 HP 7 İleri F1 DCT)'
+        ],
+        chronic: 'Karbon seramik fren balataları ve turbo kompresör çarkı boşluk toleransları incelenmelidir.'
+      },
+      {
+        name: '458 Italia',
+        interval: 10000,
+        baseVal: 17500000,
+        engines: [
+          '4.5 V8 Atmosferik 9000 RPM (570 HP 7 İleri DCT)'
+        ],
+        chronic: 'Getrag 7DCL750 şanzıman sensör kartı (hız/vites konum sensörü) ve emme manifoldu rezonans kelebekleri kontrol edilmelidir.'
+      },
+      {
+        name: 'California',
+        interval: 10000,
+        baseVal: 11500000,
+        engines: [
+          '4.3 V8 Atmosferik (460/490 HP)',
+          'California T 3.9 V8 Turbo (560 HP)'
+        ],
+        chronic: 'Elektro-hidrolik katlanır sert tavan mikro-switch sensörleri ve hidrolik pompa hortumları kontrol edilmelidir.'
+      },
+      {
+        name: 'Purosangue',
+        interval: 10000,
+        baseVal: 55000000,
+        engines: [
+          '6.5 V12 Atmosferik 4RM-S AWD (725 HP 8 İleri DCT)'
+        ],
+        chronic: 'Multimatic True Active Spool Valve (TASV) aktif 48V süspansiyon motorları ve V12 bujileri kontrol edilmelidir.'
+      }
+    ],
+    lamborghini: [
+      {
+        name: 'Urus',
+        interval: 10000,
+        baseVal: 25000000,
+        engines: [
+          '4.0 V8 Twin-Turbo AWD (650 HP ZF 8 İleri)',
+          'Urus Performante / S (666 HP)'
+        ],
+        chronic: '440 mm karbon seramik ön disk balataları ve 48V aktif elektromekanik viraj denge çubukları incelenmelidir.'
+      },
+      {
+        name: 'Huracán',
+        interval: 10000,
+        baseVal: 23500000,
+        engines: [
+          '5.2 V10 Atmosferik LP610-4 / LP580-2 (610/580 HP 7 İleri LDF DCT)',
+          'Huracán EVO / STO / Tecnica (640 HP)'
+        ],
+        chronic: 'LDF 7 ileri çift kavrama hidrolik yağı ve manyetoreolojik adaptif amortisör körükleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Revuelto',
+        interval: 10000,
+        baseVal: 52000000,
+        engines: [
+          '6.5 V12 Atmosferik + 3 Elektrik Motoru AWD (1015 HP 8 İleri Enine DCT)'
+        ],
+        chronic: 'Karbon fiber monokok şasi bağlantıları ve 3.8 kWh hafif lityum-iyon batarya soğutma sıvısı kontrol edilmelidir.'
+      },
+      {
+        name: 'Aventador',
+        interval: 10000,
+        baseVal: 28500000,
+        engines: [
+          '6.5 V12 Atmosferik LP700-4 / LP750-4 SV / SVJ (700/750/770 HP 7 İleri ISR)'
+        ],
+        chronic: 'Tek kavramalı bağımsız vites kolu (ISR) kavrama aşınma yüzdesi ve pushrod süspansiyon mafsalları incelenmelidir.'
+      },
+      {
+        name: 'Gallardo',
+        interval: 10000,
+        baseVal: 9500000,
+        engines: [
+          '5.0 V10 Atmosferik (500/520 HP E-Gear / Manuel)',
+          '5.2 V10 LP560-4 / Superleggera (560/570 HP)'
+        ],
+        chronic: 'E-Gear robotik hidrolik pompası, debriyaj aşınma yüzdesi ve ön aks kaldırma (lift) sistemi kontrol edilmelidir.'
+      }
+    ],
+    rollsroyce: [
+      {
+        name: 'Ghost',
+        interval: 10000,
+        baseVal: 34000000,
+        engines: [
+          '6.75 V12 Twin-Turbo AWD (571 HP ZF 8 İleri)',
+          'Black Badge V12 AWD (600 HP)'
+        ],
+        chronic: 'Planar süspansiyon üst salıncak amortisörü ve uydu destekli şanzıman (SAT) yazılımı kontrol edilmelidir.'
+      },
+      {
+        name: 'Phantom',
+        interval: 10000,
+        baseVal: 48000000,
+        engines: [
+          '6.75 V12 Twin-Turbo (571 HP ZF 8 İleri)'
+        ],
+        chronic: 'Magic Carpet Ride havalı süspansiyon kompresörü ve elektrikli vakumlu kapı kilit mekanizmaları incelenmelidir.'
+      },
+      {
+        name: 'Cullinan',
+        interval: 10000,
+        baseVal: 42000000,
+        engines: [
+          '6.75 V12 Twin-Turbo AWD (571 HP)',
+          'Black Badge V12 AWD (600 HP)'
+        ],
+        chronic: 'AWD transfer kutusu yağı ve 4 tekerlekten yönlendirme aktüatörleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Wraith',
+        interval: 10000,
+        baseVal: 26000000,
+        engines: [
+          '6.6 V12 Twin-Turbo (632 HP ZF 8 İleri)'
+        ],
+        chronic: 'V12 turbo şarj soğutma suyu pompaları ve pnomatik körük takozları incelenmelidir.'
+      },
+      {
+        name: 'Spectre',
+        interval: 30000,
+        baseVal: 44000000,
+        engines: [
+          'Çift Elektrik Motoru AWD (585 HP 102 kWh Batarya)'
+        ],
+        chronic: 'BMS batarya termal denge kontrolü ve sessiz kabin akustik yalıtım fitilleri kontrol edilmelidir.'
+      }
+    ],
+    mclaren: [
+      {
+        name: '720S',
+        interval: 10000,
+        baseVal: 21000000,
+        engines: [
+          '4.0 V8 Twin-Turbo M840T (720 HP 7 İleri SSG DCT)'
+        ],
+        chronic: 'Proactive Chassis Control II hidrolik süspansiyon akümülatörleri ve turbo aktüatör çubukları kontrol edilmelidir.'
+      },
+      {
+        name: '750S',
+        interval: 10000,
+        baseVal: 28000000,
+        engines: [
+          '4.0 V8 Twin-Turbo (750 HP 7 İleri SSG)'
+        ],
+        chronic: 'PCC III hidrolik basınç kontrolü ve aktif arka kanat hidrolik pistonları incelenmelidir.'
+      },
+      {
+        name: 'Artura',
+        interval: 10000,
+        baseVal: 19500000,
+        engines: [
+          '3.0 V6 120° Twin-Turbo Plug-in Hybrid (680 HP 8 İleri SSG)'
+        ],
+        chronic: 'Ethernet tabanlı elektrik mimarisi yazılım güncellemeleri ve hibrit batarya soket izolasyonu kontrol edilmelidir.'
+      },
+      {
+        name: 'GT',
+        interval: 10000,
+        baseVal: 16500000,
+        engines: [
+          '4.0 V8 Twin-Turbo (620 HP 7 İleri SSG)'
+        ],
+        chronic: 'Ön aks burun kaldırma (nose-lift) pompası ve motor üstü bagaj camı kilit sensörü kontrol edilmelidir.'
+      },
+      {
+        name: '570S',
+        interval: 10000,
+        baseVal: 13500000,
+        engines: [
+          '3.8 V8 Twin-Turbo M838TE (570 HP 7 İleri SSG)'
+        ],
+        chronic: 'Kelebek kapı gazlı pistonları ve soğutma suyu hortum kelepçeleri kontrol edilmelidir.'
+      }
+    ],
+    lotus: [
+      {
+        name: 'Emira',
+        interval: 10000,
+        baseVal: 7200000,
+        engines: [
+          '2.0 Turbo AMG M139 DCT 8 İleri (360 HP)',
+          '3.5 V6 Supercharged Toyota 2GR Manuel/Otomatik (400 HP)'
+        ],
+        chronic: 'V6 modellerde süperşarj tahrik kayışı ve hidrolik direksiyon yağ seviyesi kontrol edilmelidir.'
+      },
+      {
+        name: 'Eletre',
+        interval: 30000,
+        baseVal: 9800000,
+        engines: [
+          'Eletre S Çift Motor AWD (603 HP 112 kWh Batarya)',
+          'Eletre R 2 İleri Şanzıman AWD (905 HP 112 kWh)'
+        ],
+        chronic: 'LIDAR tavan sensör kalibrasyonu ve 800V batarya mimarisi soğutma sıvıları kontrol edilmelidir.'
+      },
+      {
+        name: 'Evora',
+        interval: 10000,
+        baseVal: 4500000,
+        engines: [
+          '3.5 V6 Supercharged S / 400 (350/400/416 HP Toyota Motoru)'
+        ],
+        chronic: 'Debriyaj merkez silindiri ve süperşarj intercooler su pompası kontrol edilmelidir.'
+      },
+      {
+        name: 'Elise',
+        interval: 10000,
+        baseVal: 3200000,
+        engines: [
+          '1.8 VVTL-i / SC (192/220 HP Toyota 2ZZ-GE Motoru)'
+        ],
+        chronic: 'Alüminyum şasi yapıştırma hatları ve Toyota 2ZZ motor eksantrik kam mili aşınması incelenmelidir.'
+      }
+    ],
+    alpine: [
+      {
+        name: 'A110',
+        interval: 15000,
+        baseVal: 4900000,
+        engines: [
+          '1.8 T Pure / Legende 7 İleri EDC (252 HP Turbo Benzin)',
+          '1.8 T S / GT 7 İleri EDC (300 HP)'
+        ],
+        chronic: 'Getrag 7 İleri ıslak EDC şanzıman yazılımı ve hafifletilmiş alüminyum salıncak burçları kontrol edilmelidir.'
+      }
+    ],
+    abarth: [
+      {
+        name: '595',
+        interval: 10000,
+        baseVal: 1450000,
+        engines: [
+          '1.4 T-Jet Turismo Manuel/MTA (165 HP)',
+          '1.4 T-Jet Competizione Garrett Turbo (180 HP Record Monza Egzoz)'
+        ],
+        chronic: 'Garrett turbo yağ besleme rekoru sızıntısı ve MTA robotik debriyaj kalibrasyonu kontrol edilmelidir.'
+      },
+      {
+        name: '695',
+        interval: 10000,
+        baseVal: 1850000,
+        engines: [
+          '1.4 T-Jet Esseesse / Tributo (180 HP Akrapovic Titanyum Egzoz)'
+        ],
+        chronic: 'Brembo 4 pistonlu ön kaliper balataları ve mekanik kilitli diferansiyel yağı incelenmelidir.'
+      },
+      {
+        name: '124 Spider',
+        interval: 10000,
+        baseVal: 1950000,
+        engines: [
+          '1.4 MultiAir Turbo Manuel/Otomatik (170 HP Arkadan İtiş)'
+        ],
+        chronic: 'MultiAir elektro-hidrolik aktüatör mikro-filtresi ve kilitli arka diferansiyel yağı kontrol edilmelidir.'
+      }
+    ],
+    genesis: [
+      {
+        name: 'G70',
+        interval: 15000,
+        baseVal: 2800000,
+        engines: [
+          '2.0 T AWD Otomatik (252 HP Turbo Benzin)',
+          '2.2 CRDi AWD Otomatik (202 HP Dizel)',
+          '3.3 V6 Twin-Turbo Sport AWD (370 HP)'
+        ],
+        chronic: 'AWD transfer kutusu yağı ve 8 ileri tork konvertörlü şanzıman yazılımı kontrol edilmelidir.'
+      },
+      {
+        name: 'G80',
+        interval: 15000,
+        baseVal: 4500000,
+        engines: [
+          '2.5 T AWD (304 HP 8 İleri)',
+          'Electrified G80 Çift Motor AWD (370 HP 87.2 kWh Batarya)'
+        ],
+        chronic: 'Ön kamera destekli elektronik kontrollü süspansiyon (ECS) ve elektrikli versiyonda solar tavan kontrol edilmelidir.'
+      },
+      {
+        name: 'GV70',
+        interval: 15000,
+        baseVal: 3900000,
+        engines: [
+          '2.5 T AWD (304 HP Turbo Benzin)',
+          'Electrified GV70 AWD (490 HP 77.4 kWh Batarya)'
+        ],
+        chronic: 'Elektrikli versiyonda batarya şartlandırma sistemi ve benzinli modelde çift enjeksiyon valfleri incelenmelidir.'
+      },
+      {
+        name: 'GV80',
+        interval: 15000,
+        baseVal: 5600000,
+        engines: [
+          '2.5 T AWD (304 HP)',
+          '3.0 D Sıralı 6 Silindir AWD (278 HP Dizel)',
+          '3.5 V6 Twin-Turbo AWD (380 HP)'
+        ],
+        chronic: '3.0D sıralı altı dizelde titreşim sönümleyici hidrolik motor takozları ve DPF rejenerasyonu kontrol edilmelidir.'
+      }
+    ],
+    infiniti: [
+      {
+        name: 'Q30',
+        interval: 15000,
+        baseVal: 1150000,
+        engines: [
+          '1.5 dCi Premium 7G-DCT (109 HP Dizel Mercedes Motoru)',
+          '1.6 T Premium 7G-DCT (156 HP Turbo Benzin)',
+          '2.0 T Sport AWD 7G-DCT (211 HP)'
+        ],
+        chronic: 'Mercedes-Benz bazlı 7G-DCT çift kavrama şanzıman mekatronik yağı ve termostat gövdesi kontrol edilmelidir.'
+      },
+      {
+        name: 'Q50',
+        interval: 15000,
+        baseVal: 1650000,
+        engines: [
+          '2.0 T Premium / Sport Otomatik (211 HP Mercedes Motoru)',
+          '2.2 d Premium (170 HP Dizel)',
+          '3.5 V6 Hybrid AWD (364 HP)'
+        ],
+        chronic: 'Direct Adaptive Steering (DAS) kablosuz direksiyon kontrol modülü ve hibrit inverteri kontrol edilmelidir.'
+      },
+      {
+        name: 'QX30',
+        interval: 15000,
+        baseVal: 1400000,
+        engines: [
+          '2.0 T AWD 7G-DCT (211 HP Benzin)',
+          '2.2 d AWD 7G-DCT (170 HP Dizel)'
+        ],
+        chronic: 'AWD diferansiyel pompa süzgeci ve 7G-DCT kavrama balatası kontrol edilmelidir.'
+      },
+      {
+        name: 'QX70',
+        interval: 10000,
+        baseVal: 1850000,
+        engines: [
+          '3.0d V6 GT / S Premium AWD (238 HP Dizel)',
+          '3.7 V6 S Premium AWD (320 HP Atmosferik Benzin)',
+          'FX35 3.5 V6 AWD (280/303 HP)'
+        ],
+        chronic: '3.0d V6 motorda turbo aktüatörü ve 3.7 V6 benzinlide galeri contası (oil gallery gasket) basıncı kontrol edilmelidir.'
+      }
+    ],
+    dodge: [
+      {
+        name: 'Challenger',
+        interval: 10000,
+        baseVal: 4800000,
+        engines: [
+          '3.6 V6 Pentastar ZF 8 İleri (305 HP)',
+          '5.7 V8 HEMI R/T (375 HP)',
+          '6.4 V8 HEMI Scat Pack (485 HP)',
+          '6.2 V8 Supercharged SRT Hellcat (717 HP)'
+        ],
+        chronic: 'Pentastar 3.6 motorda yağ soğutucu filtre yuvası çatlağı; HEMI V8 motorda MDS lifter (iticiler) ve eksantrik aşınması kontrol edilmelidir.'
+      },
+      {
+        name: 'Charger',
+        interval: 10000,
+        baseVal: 4400000,
+        engines: [
+          '3.6 V6 Pentastar (300 HP ZF 8 İleri)',
+          '5.7 V8 HEMI R/T (370 HP)',
+          '6.4 V8 SRT 392 (485 HP)',
+          '6.2 V8 SRT Hellcat (707 HP)'
+        ],
+        chronic: 'Arka diferansiyel keçesi ve HEMI motor buji değişim periyodu (16 adet buji) takip edilmelidir.'
+      },
+      {
+        name: 'Durango',
+        interval: 10000,
+        baseVal: 3900000,
+        engines: [
+          '3.6 V6 Pentastar AWD (295 HP)',
+          '5.7 V8 HEMI AWD (360 HP)',
+          '6.4 V8 SRT AWD (475 HP)'
+        ],
+        chronic: 'Su pompası yatağı sızıntısı ve arka LED stop lambası (racetrack) su alma contası kontrol edilmelidir.'
+      },
+      {
+        name: 'RAM 1500',
+        interval: 10000,
+        baseVal: 4600000,
+        engines: [
+          '5.7 V8 HEMI eTorque 4x4 (395 HP ZF 8 İleri)',
+          '3.0 EcoDiesel V6 4x4 (260 HP)'
+        ],
+        chronic: 'EcoDiesel modellerde yüksek basınç yakıt pompası (CP4) ve HEMI modellerde egzoz manifoldu saplama kırılması kontrol edilmelidir.'
+      },
+      {
+        name: 'Nitro',
+        interval: 10000,
+        baseVal: 650000,
+        engines: [
+          '2.8 CRD SXT 4x4 Otomatik (177 HP VM Motori Dizel)'
+        ],
+        chronic: 'Triger kayışı 80.000 km’de değişmeli, şanzıman tork konvertörü kilitlemesi ve ön porya bilyaları incelenmelidir.'
+      },
+      {
+        name: 'Caliber',
+        interval: 10000,
+        baseVal: 430000,
+        engines: [
+          '2.0 CRD Manuel (140 HP Volkswagen TDI Motoru)',
+          '1.8 / 2.0 Benzinli CVT (150/156 HP)'
+        ],
+        chronic: 'Jatco CVT şanzıman kayış aşınması ve VW bazlı 2.0 CRD motorda enjektör contaları kontrol edilmelidir.'
+      }
+    ],
+    chrysler: [
+      {
+        name: '300C',
+        interval: 10000,
+        baseVal: 950000,
+        engines: [
+          '3.0 CRD V6 Otomatik (218 HP Mercedes OM642 Dizel)',
+          '3.5 V6 (250 HP Benzin & LPG)',
+          '5.7 V8 HEMI (340 HP)'
+        ],
+        chronic: 'Mercedes bazlı 3.0 CRD motorda turbo altı girdap motoru (swirl motor) ve ön alt salıncak rotilleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Grand Voyager',
+        interval: 10000,
+        baseVal: 820000,
+        engines: [
+          '2.8 CRD Limited Otomatik (163/177 HP Dizel)'
+        ],
+        chronic: 'Stow\'n Go koltuk zemin mekanizması ve otomatik sürgülü kapı kablo demeti kontrol edilmelidir.'
+      },
+      {
+        name: 'PT Cruiser',
+        interval: 10000,
+        baseVal: 380000,
+        engines: [
+          '1.6 (115 HP Benzin & LPG)',
+          '2.0 (140 HP)',
+          '2.2 CRD (121/150 HP Mercedes Dizel)'
+        ],
+        chronic: 'Ön salıncak arka burçları ve debriyaj hidrolik merkezi periyodik kontrol edilmelidir.'
+      },
+      {
+        name: 'Sebring',
+        interval: 10000,
+        baseVal: 460000,
+        engines: [
+          '2.0 CRD (140 HP VW TDI Motoru)',
+          '2.7 V6 (188 HP Otomatik)'
+        ],
+        chronic: 'VW bazlı 2.0 CRD motorda turbo hortumları ve 2.7 V6 motorda su pompası sızıntısı kontrol edilmelidir.'
+      }
+    ],
+    cadillac: [
+      {
+        name: 'Escalade',
+        interval: 10000,
+        baseVal: 9800000,
+        engines: [
+          '6.2 V8 EcoTec3 AWD 10 İleri (420 HP)',
+          '3.0 Duramax Sıralı 6 Silindir Turbo Dizel (277 HP)'
+        ],
+        chronic: 'Magnetic Ride Control amortisör sertleşmesi ve 10 ileri otomatik şanzıman yağı kontrol edilmelidir.'
+      },
+      {
+        name: 'CTS',
+        interval: 15000,
+        baseVal: 1850000,
+        engines: [
+          '2.0 Turbo AWD (272 HP 8 İleri Otomatik)',
+          '3.6 V6 AWD (321 HP)'
+        ],
+        chronic: '2.0 Turbo motorda piston segman dayanımı ve CUE bilgi-eğlence ekranı dokunmatik katmanı incelenmelidir.'
+      },
+      {
+        name: 'SRX',
+        interval: 10000,
+        baseVal: 1450000,
+        engines: [
+          '3.0 V6 AWD (265 HP 6 İleri)',
+          '3.6 V6 AWD (308 HP)'
+        ],
+        chronic: 'Arka diferansiyel Haldex kavrama yağı ve sunroof su tahliye tahliye hortumları temizlenmelidir.'
+      }
+    ],
+    lincoln: [
+      {
+        name: 'Navigator',
+        interval: 10000,
+        baseVal: 10500000,
+        engines: [
+          '3.5 V6 EcoBoost Twin-Turbo 4x4 10 İleri (450 HP)'
+        ],
+        chronic: 'EcoBoost kam mili faz kaydırıcıları (cam phasers) ve adaptif havalı süspansiyon kompresörü kontrol edilmelidir.'
+      },
+      {
+        name: 'Aviator',
+        interval: 10000,
+        baseVal: 7200000,
+        engines: [
+          '3.0 V6 Twin-Turbo AWD (400 HP 10 İleri)'
+        ],
+        chronic: '10R80 şanzıman yazılım güncellemeleri ve elektrikli kapı mandalları kontrol edilmelidir.'
+      },
+      {
+        name: 'Continental',
+        interval: 10000,
+        baseVal: 3900000,
+        engines: [
+          '2.7 V6 EcoBoost AWD (335 HP)',
+          '3.0 V6 Twin-Turbo AWD (400 HP)'
+        ],
+        chronic: 'E-latch elektronik kapı kolları ve tork yönlendirmeli AWD arka diferansiyel yağı incelenmelidir.'
+      }
+    ],
+    gmc: [
+      {
+        name: 'Yukon',
+        interval: 10000,
+        baseVal: 8500000,
+        engines: [
+          '5.3 V8 EcoTec3 4x4 (355 HP 10 İleri)',
+          '6.2 V8 Denali 4x4 (420 HP 10 İleri)'
+        ],
+        chronic: 'Dinamik Yakıt Yönetimi (DFM) itici mekanizması ve havalı arka seviye sensörleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Sierra',
+        interval: 10000,
+        baseVal: 6900000,
+        engines: [
+          '5.3 V8 / 6.2 V8 Denali 4x4 (355/420 HP)',
+          '3.0 Duramax Dizel (277/305 HP 10 İleri)'
+        ],
+        chronic: 'MultiPro bagaj kapağı kilit mekanizması ve Duramax dizel yağ pompası kayışı takip edilmelidir.'
+      },
+      {
+        name: 'Terrain',
+        interval: 15000,
+        baseVal: 2200000,
+        engines: [
+          '1.5 Turbo AWD 9 İleri (170 HP)',
+          '2.0 Turbo AWD 9 İleri (252 HP)'
+        ],
+        chronic: '9T50 şanzıman yağı ve doğrudan enjeksiyon yakıt pompası basıncı incelenmelidir.'
+      }
+    ],
+    hummer: [
+      {
+        name: 'H2',
+        interval: 10000,
+        baseVal: 3500000,
+        engines: [
+          '6.0 V8 Vortec 4x4 (325 HP 4L65-E)',
+          '6.2 V8 Vortec 4x4 (393 HP 6L80-E)'
+        ],
+        chronic: '4L65-E şanzıman ısınması (harici soğutucu önerilir) ve ön rot başı mafsalları düzenli greslenmelidir.'
+      },
+      {
+        name: 'H3',
+        interval: 10000,
+        baseVal: 1950000,
+        engines: [
+          '3.5 / 3.7 Vortec Sıralı 5 Silindir (220/242 HP)',
+          '5.3 V8 Alpha 4x4 (300 HP)'
+        ],
+        chronic: '3.5/3.7 motorlarda silindir kapak sübap yuvası aşınması ve arazi transfer kutusu plastik çatalları kontrol edilmelidir.'
+      },
+      {
+        name: 'Hummer EV',
+        interval: 30000,
+        baseVal: 14500000,
+        engines: [
+          '3 Elektrik Motoru AWD Edition 1 (1000 HP 212 kWh Ultium Batarya)'
+        ],
+        chronic: 'CrabWalk 4 teker yönlendirme motorları ve Ultium batarya modül bağlantı contaları kontrol edilmelidir.'
+      }
+    ],
+    pontiac: [
+      {
+        name: 'Firebird',
+        interval: 10000,
+        baseVal: 1850000,
+        engines: [
+          '5.7 V8 LT1 / LS1 Trans Am (275/325 HP)',
+          '3.8 V6 3800 Series II (200 HP)'
+        ],
+        chronic: 'LT1 modellerde Optispark su pompası altı distribütör nem arızası ve far açma motoru dişlileri incelenmelidir.'
+      },
+      {
+        name: 'Solstice',
+        interval: 10000,
+        baseVal: 1450000,
+        engines: [
+          '2.4 Ecotec Manuel (177 HP)',
+          '2.0 Turbo GXP (260 HP Manuel/Otomatik)'
+        ],
+        chronic: 'Arka diferansiyel burç çatlağı ve Ecotec eksantrik selenoid valfleri kontrol edilmelidir.'
+      }
+    ],
+    buick: [
+      {
+        name: 'Enclave',
+        interval: 10000,
+        baseVal: 2300000,
+        engines: [
+          '3.6 V6 High Feature AWD (288/310 HP 9 İleri)'
+        ],
+        chronic: '3.6 V6 motorda eksantrik zincir uzaması ve şanzıman 3-5-R dalgalı segman kontrolü yapılmalıdır.'
+      },
+      {
+        name: 'Regal',
+        interval: 15000,
+        baseVal: 1650000,
+        engines: [
+          '2.0 Turbo AWD GS (250/259 HP Opel Insignia Kardeşi)'
+        ],
+        chronic: 'Haldex AWD kavrama hidrolik pompası filtresi ve turbo baypas valfi incelenmelidir.'
+      }
+    ],
+    jaecoo: [
+      {
+        name: 'Jaecoo 7',
+        interval: 15000,
+        baseVal: 1950000,
+        engines: [
+          '1.6 TGDI Revive 4x2 7DCT (145/186 HP Turbo Benzin)',
+          '1.6 TGDI Supreme 4x4 7DCT (145/186 HP)',
+          '1.5 TGDI PHEV Plug-in Hybrid (347 HP)'
+        ],
+        chronic: '7 İleri ıslak çift kavrama şanzıman kalkış kalibrasyonu ve ADAS ön radar sensör yazılımı takip edilmelidir.'
+      },
+      {
+        name: 'Jaecoo 8',
+        interval: 15000,
+        baseVal: 2750000,
+        engines: [
+          '2.0 TGDI AWD 8 İleri Otomatik (249 HP)'
+        ],
+        chronic: 'CDC manyetik adaptif süspansiyon valfleri ve tork vektörleme diferansiyel yağı incelenmelidir.'
+      }
+    ],
+    omoda: [
+      {
+        name: 'Omoda 5',
+        interval: 15000,
+        baseVal: 1650000,
+        engines: [
+          '1.6 TGDI Comfort 7DCT (183/186 HP Turbo Benzin)',
+          '1.6 TGDI Luxury 7DCT (183/186 HP)',
+          '1.6 TGDI Excellent 7DCT (183/186 HP)',
+          'Omoda 5 EV Elektrikli (204 HP 61 kWh Batarya)'
+        ],
+        chronic: 'Şerit takip destek sistemi kamera hassasiyeti ve merkezi dokunmatik ekran yazılım güncellemeleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Omoda 7',
+        interval: 15000,
+        baseVal: 2200000,
+        engines: [
+          '1.5 TGDI PHEV Süper Hibrit (340 HP)'
+        ],
+        chronic: 'DHT hibrit şanzıman yazılımı ve yüksek voltaj şarj soket mandalı kontrol edilmelidir.'
+      }
+    ],
+    leapmotor: [
+      {
+        name: 'T03',
+        interval: 20000,
+        baseVal: 950000,
+        engines: [
+          '70 kW Elektrikli (95 HP 41.3 kWh LFP Batarya)'
+        ],
+        chronic: 'LFP batarya hücre dengelemesi için ayda bir %100 AC şarj edilmeli ve 12V akü kutup başları kontrol edilmelidir.'
+      },
+      {
+        name: 'C10',
+        interval: 20000,
+        baseVal: 1850000,
+        engines: [
+          '160 kW Elektrikli RWD (218 HP 69.9 kWh LFP Batarya)',
+          '1.5 EREV Menzil Artırıcılı (218 HP 28.4 kWh Batarya)'
+        ],
+        chronic: 'CTC (Cell-to-Chassis) gövde altı koruma plakası ve ısı pompası soğutma devresi takip edilmelidir.'
+      },
+      {
+        name: 'C11',
+        interval: 20000,
+        baseVal: 2250000,
+        engines: [
+          'Tek Motor RWD (272 HP 78.5 kWh)',
+          'Çift Motor AWD Performance (544 HP 90 kWh Batarya)'
+        ],
+        chronic: 'Ön çift salıncaklı süspansiyon rot başları ve yüz tanıma kamerası kalibrasyonu kontrol edilmelidir.'
+      }
+    ],
+    voyah: [
+      {
+        name: 'Free',
+        interval: 20000,
+        baseVal: 3450000,
+        engines: [
+          'Çift Motor AWD Saf Elektrikli (489 HP 106 kWh Batarya)',
+          'Free EREV Menzil Artırıcılı AWD (489 HP 39 kWh Batarya + 1.5T Jeneratör)'
+        ],
+        chronic: '100 mm yükselip alçalabilen havalı süspansiyon valfleri ve yükselen ön kokpit mekanizması kontrol edilmelidir.'
+      },
+      {
+        name: 'Passion',
+        interval: 20000,
+        baseVal: 3650000,
+        engines: [
+          'Çift Motor AWD Long Range (510 HP 82/109 kWh Yarı Katı Batarya)'
+        ],
+        chronic: 'Yarı katı hal batarya yönetim sistemi yazılımı ve dört bölgeli klima kontrol valfleri incelenmelidir.'
+      },
+      {
+        name: 'Dream',
+        interval: 20000,
+        baseVal: 4800000,
+        engines: [
+          'Çift Motor AWD VIP Minivan (435 HP 108.7 kWh Batarya)'
+        ],
+        chronic: 'Elektrikli sürgülü VIP kapı rayları ve havalı süspansiyon yükseklik sensörleri kontrol edilmelidir.'
+      }
+    ],
+    skywell: [
+      {
+        name: 'ET5',
+        interval: 20000,
+        baseVal: 1750000,
+        engines: [
+          '150 kW Comfort (204 HP 72 kWh Ternary Lityum Batarya)',
+          '150 kW Premium Line / Exclusive (204 HP 86 kWh Batarya)'
+        ],
+        chronic: 'Klima kompresörü soğutma gazı devresi ve batarya termal yönetim sıvısı seviyesi periyodik kontrol edilmelidir.'
+      },
+      {
+        name: 'Q',
+        interval: 20000,
+        baseVal: 1550000,
+        engines: [
+          '150 kW Hatchback (204 HP 60 kWh LFP Batarya)'
+        ],
+        chronic: 'Fren rejenerasyon yazılımı ve 12V DC-DC dönüştürücü modülü incelenmelidir.'
+      }
+    ],
+    seres: [
+      {
+        name: 'Seres 3',
+        interval: 20000,
+        baseVal: 1450000,
+        engines: [
+          '120 kW Elektrikli (163 HP 53.6 kWh LFP Batarya)'
+        ],
+        chronic: 'LFP batarya hücre dengelemesi için ayda en az bir defa yavaş AC %100 dolum yapılmalı ve fren hidroliği kontrol edilmelidir.'
+      },
+      {
+        name: 'Seres 5',
+        interval: 20000,
+        baseVal: 2650000,
+        engines: [
+          'Çift Motor AWD Premium (585 HP 80 kWh LFP)',
+          'Çift Motor AWD Flagship (585 HP 90 kWh Yarı Katı Batarya)'
+        ],
+        chronic: 'Huawei DriveONE elektrik tahrik sistemi invertör yazılımı ve batarya soğutma pompası kontrol edilmelidir.'
+      },
+      {
+        name: 'Seres 7',
+        interval: 20000,
+        baseVal: 3200000,
+        engines: [
+          'EREV AWD 6 Kişilik (439 HP 40 kWh Batarya + 1.5T Jeneratör)'
+        ],
+        chronic: 'Sıfır yerçekimi koltuk mekanizması ve menzil artırıcı 1.5T motor yağı takip edilmelidir.'
+      }
+    ],
+    smart: [
+      {
+        name: 'Smart #1',
+        interval: 30000,
+        baseVal: 1850000,
+        engines: [
+          'Pro+ / Premium RWD (272 HP 66 kWh Batarya)',
+          'Brabus AWD Çift Motor (428 HP 66 kWh)'
+        ],
+        chronic: 'Geely-Mercedes SEA platformunda arka motor invertör yazılımı ve çerçevesiz kapı cam ayarları kontrol edilmelidir.'
+      },
+      {
+        name: 'Smart #3',
+        interval: 30000,
+        baseVal: 1980000,
+        engines: [
+          'Premium RWD Coupe (272 HP 66 kWh)',
+          'Brabus AWD Çift Motor (428 HP 66 kWh)'
+        ],
+        chronic: 'Brembo fren kaliper balata aşınması ve tavan cam perdesi motoru incelenmelidir.'
+      },
+      {
+        name: 'Fortwo',
+        interval: 15000,
+        baseVal: 780000,
+        engines: [
+          '0.9 Turbo Passion/Prime 6 İleri Twinamic DCT (90 HP Renault Motoru)',
+          '1.0 Atmosferik (71 HP)',
+          'EQ Fortwo Elektrikli (82 HP 17.6 kWh Batarya)'
+        ],
+        chronic: 'Twinamic çift kavrama şanzıman aktüatörü ve EQ modellerinde 22 kW dahili şarj cihazı (OBC) kontrol edilmelidir.'
+      },
+      {
+        name: 'Forfour',
+        interval: 15000,
+        baseVal: 820000,
+        engines: [
+          '0.9 Turbo Twinamic (90 HP)',
+          '1.0 Atmosferik (71 HP)',
+          'EQ Forfour Elektrikli (82 HP)'
+        ],
+        chronic: 'Arkadan motorlu yerleşim nedeniyle motor kapağı yalıtımı ve soğutma suyu havası alma prosedürü takip edilmelidir.'
+      }
+    ],
+    dfsk: [
+      {
+        name: 'Fengon 5',
+        interval: 10000,
+        baseVal: 1350000,
+        engines: [
+          '1.5 Turbo CVT (150 HP Benzin & LPG Coupe SUV)'
+        ],
+        chronic: 'Punch CVT şanzıman yağı 40.000 km’de bir değiştirilmeli ve turbo emiş hortumları kontrol edilmelidir.'
+      },
+      {
+        name: 'Fengon 500',
+        interval: 10000,
+        baseVal: 1150000,
+        engines: [
+          '1.5 Atmosferik CVT (115 HP Benzin & LPG)'
+        ],
+        chronic: 'CVT şanzıman solenoid valfleri ve ön salıncak burçları kontrol edilmelidir.'
+      },
+      {
+        name: 'EC35',
+        interval: 20000,
+        baseVal: 950000,
+        engines: [
+          '60 kW Elektrikli Panelvan (82 HP 38.7 kWh LFP Batarya)'
+        ],
+        chronic: 'Arka makas burçları ve şarj portu kilitleme pimi periyodik kontrol edilmelidir.'
+      }
+    ],
+    maxus: [
+      {
+        name: 'Mifa 9',
+        interval: 20000,
+        baseVal: 3250000,
+        engines: [
+          'Elektrikli Lüks VIP Minivan (245 HP 90 kWh CATL Batarya)'
+        ],
+        chronic: 'VIP koltuk elektrik motorları ve arka bağımsız süspansiyon burçları kontrol edilmelidir.'
+      },
+      {
+        name: 'Mifa 7',
+        interval: 20000,
+        baseVal: 2650000,
+        engines: [
+          'Elektrikli 7 Kişilik MPV (245 HP 90 kWh Batarya)'
+        ],
+        chronic: 'Kamera tabanlı sanal yan aynalar (CMS) kalibrasyonu ve batarya soğutma sıvısı incelenmelidir.'
+      },
+      {
+        name: 'eDeliver 3',
+        interval: 20000,
+        baseVal: 1350000,
+        engines: [
+          'Elektrikli Panelvan (122 HP 50.2 kWh LFP Batarya)'
+        ],
+        chronic: 'Rejeneratif frenleme balata ömrü ve şasi altı batarya koruma sacı kontrol edilmelidir.'
+      },
+      {
+        name: 'eDeliver 9',
+        interval: 20000,
+        baseVal: 2150000,
+        engines: [
+          'Elektrikli Büyük Panelvan (204 HP 88.5 kWh Batarya)'
+        ],
+        chronic: 'Yüksek voltaj kablo demeti ve vakum takviyeli elektrikli fren merkezi incelenmelidir.'
+      },
+      {
+        name: 'T90 EV',
+        interval: 20000,
+        baseVal: 1950000,
+        engines: [
+          'Elektrikli Çift Kabin Pick-up (177 HP 88.5 kWh Batarya)'
+        ],
+        chronic: 'Arka rijit aks elektrik motoru muhafazası ve ağır yükte yaprak makas gerginliği kontrol edilmelidir.'
+      }
+    ],
+    hongqi: [
+      {
+        name: 'E-HS9',
+        interval: 20000,
+        baseVal: 6800000,
+        engines: [
+          'Çift Motor AWD Comfort (435 HP 84 kWh)',
+          'Çift Motor AWD Exclusive / Executive (551 HP 99/120 kWh CATL Batarya)'
+        ],
+        chronic: 'Pnömatik havalı süspansiyon ve 4 ekranlı lüks kokpit yazılım güncellemeleri kontrol edilmelidir.'
+      },
+      {
+        name: 'H9',
+        interval: 15000,
+        baseVal: 4900000,
+        engines: [
+          '2.0 Turbo 48V MHEV 7DCT (252 HP)',
+          '3.0 V6 Supercharged 7DCT (283 HP)'
+        ],
+        chronic: 'Arkadan itişli çift kavramalı şanzıman yazılımı ve aktif gürültü engelleme sistemi kontrol edilmelidir.'
+      },
+      {
+        name: 'H5',
+        interval: 15000,
+        baseVal: 2600000,
+        engines: [
+          '1.5 Turbo 7DCT (169 HP)',
+          '2.0 Turbo 8 İleri Otomatik (224 HP)'
+        ],
+        chronic: 'Aisin 8 ileri şanzıman yağı ve ön MacPherson kule takozları kontrol edilmelidir.'
+      }
+    ],
+    lynkco: [
+      {
+        name: '01',
+        interval: 15000,
+        baseVal: 2350000,
+        engines: [
+          '1.5 Turbo Plug-in Hybrid FWD 7DCT (261 HP Volvo CMA Platformu)'
+        ],
+        chronic: 'Volvo bazlı 1.5T 3 silindirli motorda motor takozları, hibrit şarj soketi kilit mandalı ve 17.6 kWh batarya kontrol edilmelidir.'
+      },
+      {
+        name: '08',
+        interval: 20000,
+        baseVal: 2950000,
+        engines: [
+          '1.5 T EM-P Ultra Range AWD 3DHT (593 HP 39.8 kWh Batarya)'
+        ],
+        chronic: '3 İleri DHT hibrit şanzıman yağı ve Flyme Auto multimedya sistemi kontrol edilmelidir.'
+      }
+    ],
+    zeekr: [
+      {
+        name: '001',
+        interval: 20000,
+        baseVal: 3650000,
+        engines: [
+          'Tek Motor Long Range RWD (272/422 HP 100 kWh Batarya)',
+          'Çift Motor AWD Performance (544/789 HP 100 kWh)',
+          '001 FR 4 Elektrik Motoru (1265 HP)'
+        ],
+        chronic: 'Çift havalı süspansiyon yükseklik sensörleri ve 800V yüksek voltaj batarya termal devresi kontrol edilmelidir.'
+      },
+      {
+        name: '007',
+        interval: 20000,
+        baseVal: 2850000,
+        engines: [
+          'Tek Motor RWD (422 HP 75 kWh Altın Batarya LFP)',
+          'Çift Motor AWD (646 HP 100 kWh Qilin Batarya)'
+        ],
+        chronic: 'ZEEKR Stargate ön LED interaktif ızgara paneli ve 800V mimarisi şarj soketi kontrol edilmelidir.'
+      },
+      {
+        name: 'X',
+        interval: 20000,
+        baseVal: 2150000,
+        engines: [
+          'Tek Motor Long Range RWD (272 HP 66 kWh)',
+          'Çift Motor AWD Privilege (428 HP 66 kWh)'
+        ],
+        chronic: 'Çerçevesiz kapı cam fitilleri ve elektrikli açılır orta konsol rayı incelenmelidir.'
+      },
+      {
+        name: '009',
+        interval: 20000,
+        baseVal: 5400000,
+        engines: [
+          'Çift Motor AWD VIP Minivan (544/789 HP 116/140 kWh CATL Qilin Batarya)'
+        ],
+        chronic: 'Havalı süspansiyon kompresörü ve VIP arka koltuk masaj pnömatik motorları kontrol edilmelidir.'
+      }
+    ],
+    nio: [
+      {
+        name: 'ET5',
+        interval: 20000,
+        baseVal: 2950000,
+        engines: [
+          'Çift Motor AWD (490 HP 75 kWh Standart Batarya)',
+          'Çift Motor AWD (490 HP 100 kWh Uzun Menzil Batarya Değişimli)'
+        ],
+        chronic: 'Batarya değişim istasyonu (Power Swap) alt kilitleme mekanizması cıvataları periyodik kontrol edilmelidir.'
+      },
+      {
+        name: 'ET7',
+        interval: 20000,
+        baseVal: 4400000,
+        engines: [
+          'Çift Motor AWD (653 HP 100 kWh / 150 kWh Yarı Katı Batarya)'
+        ],
+        chronic: 'Brembo fren balataları ve tavan LIDAR sensörü temizleme fıskiyesi incelenmelidir.'
+      },
+      {
+        name: 'ES6',
+        interval: 20000,
+        baseVal: 3400000,
+        engines: [
+          'Çift Motor AWD (490 HP 75/100 kWh Batarya)'
+        ],
+        chronic: 'CDC sürekli amortisör kontrol valfleri ve şasi kule gergileri kontrol edilmelidir.'
+      },
+      {
+        name: 'ES8',
+        interval: 20000,
+        baseVal: 4800000,
+        engines: [
+          'Çift Motor AWD 6 Kişilik Lüks SUV (653 HP 100 kWh Batarya)'
+        ],
+        chronic: 'Çift odacıklı havalı süspansiyon ve elektrikli ayak basamağı mekanizması kontrol edilmelidir.'
+      }
+    ],
+    xpeng: [
+      {
+        name: 'G9',
+        interval: 20000,
+        baseVal: 3650000,
+        engines: [
+          'Tek Motor Standard Range RWD (313 HP 78 kWh)',
+          'Tek Motor Long Range RWD (313 HP 98 kWh)',
+          'Çift Motor AWD Performance (551 HP 98 kWh 800V Mimarisi)'
+        ],
+        chronic: '800V silisyum karbür (SiC) invertör ve çift havalı süspansiyon körük kaçakları takip edilmelidir.'
+      },
+      {
+        name: 'G6',
+        interval: 20000,
+        baseVal: 2450000,
+        engines: [
+          'Tek Motor RWD (258/286 HP 66 kWh LFP / 87.5 kWh)',
+          'Çift Motor AWD Performance (476 HP 87.5 kWh)'
+        ],
+        chronic: 'Entegre alüminyum döküm gövde alt şasi kontrolü ve ısı pompası vanaları kontrol edilmelidir.'
+      },
+      {
+        name: 'P7',
+        interval: 20000,
+        baseVal: 2750000,
+        engines: [
+          'Tek Motor Long Range RWD (276 HP 86 kWh)',
+          'Çift Motor AWD Performance / Wing Edition (473 HP Makas Kapı)'
+        ],
+        chronic: 'Makas kapı açma motoru dişlileri ve Brembo ön kaliper balataları incelenmelidir.'
+      }
+    ],
+    lucid: [
+      {
+        name: 'Air',
+        interval: 25000,
+        baseVal: 6800000,
+        engines: [
+          'Pure RWD/AWD (430/480 HP 88 kWh Batarya 900V)',
+          'Touring AWD (620 HP 92 kWh)',
+          'Grand Touring AWD (819 HP 112 kWh)',
+          'Sapphire 3 Motorlu AWD (1234 HP Karbon Rotor)'
+        ],
+        chronic: '900V Wunderbox çift yönlü şarj ünitesi ve minyatür entegre tahrik ünitesi diferansiyel yağı kontrol edilmelidir.'
+      },
+      {
+        name: 'Gravity',
+        interval: 25000,
+        baseVal: 7900000,
+        engines: [
+          'Çift Motor AWD 7 Kişilik Lüks SUV (800+ HP 118 kWh Batarya)'
+        ],
+        chronic: 'Arka tekerlekten yönlendirme açı sensörü ve geniş cam tavan yalıtım fitilleri kontrol edilmelidir.'
+      }
+    ],
+    rivian: [
+      {
+        name: 'R1T',
+        interval: 20000,
+        baseVal: 6500000,
+        engines: [
+          'Dual-Motor AWD (533/665 HP 105/135 kWh Batarya)',
+          'Quad-Motor AWD (835/1025 HP 135/149 kWh Max Pack)'
+        ],
+        chronic: 'Elektro-hidrolik viraj denge kontrol sistemi basıncı ve pnömatik havalı süspansiyon hortumları incelenmelidir.'
+      },
+      {
+        name: 'R1S',
+        interval: 20000,
+        baseVal: 6900000,
+        engines: [
+          'Dual-Motor AWD 7 Kişilik SUV (533/665 HP)',
+          'Quad-Motor AWD (835/1025 HP 135 kWh Batarya)'
+        ],
+        chronic: 'Dört bağımsız motor diferansiyel dişli yağları ve bagaj split-gate kilit mandalı kontrol edilmelidir.'
+      }
+    ],
+    fisker: [
+      {
+        name: 'Ocean',
+        interval: 20000,
+        baseVal: 2650000,
+        engines: [
+          'Sport FWD (275 HP 73 kWh LFP Batarya)',
+          'Ultra AWD (540 HP 113 kWh Hyper Range)',
+          'Extreme AWD / One (564 HP 113 kWh SolarSky Tavan)'
+        ],
+        chronic: 'California Mode tüm cam açma mekanizması ve su pompası soğutma yazılımı kontrol edilmelidir.'
+      }
+    ],
+    polestar: [
+      {
+        name: 'Polestar 2',
+        interval: 30000,
+        baseVal: 2850000,
+        engines: [
+          'Standard Range Single Motor RWD (272 HP 69 kWh)',
+          'Long Range Single Motor RWD (299 HP 82 kWh)',
+          'Long Range Dual Motor AWD Performance (421/476 HP Öhlins DFV Amortisörler)'
+        ],
+        chronic: 'Öhlins Dual Flow Valve manuel ayarlı amortisör tıklama ayarları ve TCAM telematik tavan anten modülü incelenmelidir.'
+      },
+      {
+        name: 'Polestar 3',
+        interval: 30000,
+        baseVal: 4800000,
+        engines: [
+          'Long Range Dual Motor AWD (489 HP 111 kWh Batarya)',
+          'Performance Pack AWD (517 HP 111 kWh)'
+        ],
+        chronic: 'Tork vektörlemeli arka çift kavrama yağı ve çift odacıklı havalı süspansiyon kontrol edilmelidir.'
+      },
+      {
+        name: 'Polestar 4',
+        interval: 30000,
+        baseVal: 3600000,
+        engines: [
+          'Long Range Single Motor RWD (272 HP 100 kWh)',
+          'Long Range Dual Motor AWD (544 HP 100 kWh Arka Camsız Coupe SUV)'
+        ],
+        chronic: 'Arka dijital dikiz aynası HD kamera lensi temizliği ve Brembo 4 pistonlu ön kaliper balataları kontrol edilmelidir.'
+      }
+    ],
+    forthing: [
+      {
+        name: 'T5 EVO',
+        interval: 15000,
+        baseVal: 1550000,
+        engines: [
+          '1.5 Turbo Mitsubishi 4A95TD 7DCT Magna (197 HP Turbo Benzin)'
+        ],
+        chronic: 'Magna 7 ileri ıslak çift kavrama şanzıman yağı ve doğrudan enjeksiyon yakıt pompası kontrol edilmelidir.'
+      },
+      {
+        name: 'Friday EV',
+        interval: 20000,
+        baseVal: 1750000,
+        engines: [
+          '150 kW Elektrikli (204 HP 85.9 kWh Batarya)'
+        ],
+        chronic: 'Batarya ısıtma ve soğutma devresi vanaları ve şarj kapağı mandalı kontrol edilmelidir.'
+      },
+      {
+        name: 'U-Tour',
+        interval: 15000,
+        baseVal: 1680000,
+        engines: [
+          '1.5 Turbo 7 Kişilik Lüks MPV 7DCT (197 HP)'
+        ],
+        chronic: 'Yatabilen kaptan koltuk elektrik motorları ve arka bağımsız süspansiyon rotilleri kontrol edilmelidir.'
+      }
+    ],
+    swm: [
+      {
+        name: 'G01',
+        interval: 15000,
+        baseVal: 1390000,
+        engines: [
+          '1.5 T Elite 7DCT (156 HP Turbo Benzin)',
+          '1.5 T Premium 7DCT (156 HP)',
+          'G01F Spor Paket 7DCT (156 HP)'
+        ],
+        chronic: 'Turbo emme manifoldu contası ve 7DCT şanzıman mekatronik yazılımı incelenmelidir.'
+      },
+      {
+        name: 'G03F',
+        interval: 10000,
+        baseVal: 1150000,
+        engines: [
+          '1.5 Atmosferik Deluxe Manuel 7 Kişilik (110 HP Benzin & LPG)'
+        ],
+        chronic: 'Arka yaprak makas burçları ve debriyaj baskı balatası 60.000 km’de kontrol edilmelidir.'
+      }
+    ],
+    iveco: [
+      {
+        name: 'Daily',
+        interval: 20000,
+        baseVal: 1650000,
+        engines: [
+          '35S14 2.3 HPI Manuel (136 HP Dizel)',
+          '35S16 / 35S18 3.0 HPI Hi-Matic 8 İleri (156/180 HP)',
+          '50C18 / 70C21 Çift Teker 3.0 HPI Hi-Matic (180/207 HP)'
+        ],
+        chronic: '3.0 HPI F1C motorda çift eksantrik zincir gergisi, ZF Hi-Matic 8 ileri şanzıman yağı ve AdBlue enjektörü kontrol edilmelidir.'
+      },
+      {
+        name: 'Eurocargo',
+        interval: 30000,
+        baseVal: 2800000,
+        engines: [
+          'Tector 4 3.9 Dizel (160/180 HP)',
+          'Tector 6 / Tector 7 6.7 Dizel (220/250/280 HP ZF Manuel/Otomatik)'
+        ],
+        chronic: 'Kurutucu filtre (APU) kartuşu her kış öncesi yenilenmeli ve FPT Tector motor supap ayarı kontrol edilmelidir.'
+      }
+    ],
+    bmc: [
+      {
+        name: 'Tuğra',
+        interval: 40000,
+        baseVal: 4800000,
+        engines: [
+          'TGR 1846 Çekici FPT Cursor 11 (460 HP ZF TraXon Otomatik)',
+          'TGR 1850 Cummins X12 (500 HP ZF TraXon)',
+          'TGR 4340 Damperli Kamyon 8x4 (400 HP)'
+        ],
+        chronic: 'ZF TraXon debriyaj aktüatörü kalibrasyonu ve FPT motor yağ separatörü filtresi takip edilmelidir.'
+      },
+      {
+        name: 'Megastar',
+        interval: 15000,
+        baseVal: 4200000,
+        engines: [
+          '2.8 D / 2.8 TD Panelvan / Kamyonet (100/125 HP Dizel)'
+        ],
+        chronic: 'Arka yaprak makas pimleri ve şaft ara askı rulmanı periyodik greslenmelidir.'
+      },
+      {
+        name: 'Pro',
+        interval: 20000,
+        baseVal: 1250000,
+        engines: [
+          'Pro 522 4x2 Kamyon (220 HP Cummins Motor)',
+          'Pro 624 / 827 Kamyon (240/270 HP Cummins B/C Serisi)'
+        ],
+        chronic: 'Cummins mekanik enjeksiyon avansı ve hava kompresörü unloader valfi kontrol edilmelidir.'
+      },
+      {
+        name: 'Neocity',
+        interval: 30000,
+        baseVal: 3500000,
+        engines: [
+          '8.5m / 9m / 10m Şehir İçi Otobüs Cummins ISB4.5 / ISB6.7 (210/280 HP Allison Otomatik)'
+        ],
+        chronic: 'Alçak taban yana yatma (kneeling) körük valfleri ve Allison tork konvertörlü şanzıman yağı incelenmelidir.'
+      }
+    ],
+    karsan: [
+      {
+        name: 'Jest',
+        interval: 20000,
+        baseVal: 1250000,
+        engines: [
+          'Jest+ 2.3 FPT Multijet Dizel Manuel (130/150 HP)',
+          'Jest Otomatik 2.3 FPT (150 HP 6 İleri)',
+          'e-Jest Elektrikli Minibüs (BMW i3 170 HP 88 kWh Batarya)'
+        ],
+        chronic: 'Alçak tabanlı arka torsiyon aksı burçları ve elektrikli yolcu biniş rampası sensörleri kontrol edilmelidir.'
+      },
+      {
+        name: 'Atak',
+        interval: 30000,
+        baseVal: 3200000,
+        engines: [
+          'Atak 4.5 FPT NEF4 Dizel Allison Otomatik (186 HP)',
+          'e-Atak Elektrikli Şehir İçi Otobüs (BMW 220 kW 220 kWh Batarya)'
+        ],
+        chronic: 'Hava süspansiyon yükseklik ventilleri ve ECAS elektronik süspansiyon beyni kontrol edilmelidir.'
+      }
+    ],
+    otokar: [
+      {
+        name: 'Sultan',
+        interval: 25000,
+        baseVal: 2850000,
+        engines: [
+          'Sultan Comfort / Maxi Cummins ISB4.5 (145/175 HP Dizel Eaton/Allison)',
+          'Sultan Mega 35+1 Kişilik Cummins (175 HP ZF Manuel/Allison)'
+        ],
+        chronic: 'APU hava kurutucu filtresi, Cummins enjektör geri dönüş hortumları ve retarder yağı takip edilmelidir.'
+      },
+      {
+        name: 'Navigo',
+        interval: 25000,
+        baseVal: 2650000,
+        engines: [
+          'Navigo T / C Turizm Midibüsü Cummins (145/180 HP)'
+        ],
+        chronic: 'Telma elektromanyetik retarder rotor boşluğu ve arka makas burçları kontrol edilmelidir.'
+      }
+    ],
+    gaz: [
+      {
+        name: 'GAZelle Next',
+        interval: 15000,
+        baseVal: 890000,
+        engines: [
+          '2.8 Cummins ISF Turbo Dizel (150 HP Manuel)',
+          '2.7 EvoTech Benzin & LPG (107 HP)'
+        ],
+        chronic: 'Cummins 2.8 mazot filtresi orijinal parça ile 15.000 km’de değişmeli, şaft askı yatağı kontrol edilmelidir.'
+      },
+      {
+        name: 'Sobol',
+        interval: 15000,
+        baseVal: 780000,
+        engines: [
+          'Sobol 4x4 / 4x2 2.8 Cummins ISF (150 HP Panelvan/Kamyonet)',
+          'Sobol 2.7 EvoTech Benzin & LPG (107 HP)'
+        ],
+        chronic: '4x4 modellerde ön aks mafsalları ve arazi redüksiyon kutusu yağı kontrol edilmelidir.'
+      },
+      {
+        name: 'GAZelle NN',
+        interval: 15000,
+        baseVal: 1150000,
+        engines: [
+          '2.8 Cummins ISF 6 İleri Manuel (150 HP)',
+          '2.5 Volkswagen TDI Motorlu (136 HP)'
+        ],
+        chronic: '6 İleri şanzıman senkromeçleri ve 4 teker disk fren balataları kontrol edilmelidir.'
+      }
+    ],
+    mahindra: [
+      {
+        name: 'Pik-Up',
+        interval: 10000,
+        baseVal: 750000,
+        engines: [
+          '2.2 mHawk 4x2 Çift Kabin (140 HP Dizel Manuel 6 İleri)',
+          '2.2 mHawk 4x4 Çift Kabin (140 HP BorgWarner Arazi Şanzımanı)'
+        ],
+        chronic: 'BorgWarner elektronik 4x4 transfer motoru ve mHawk motor eksantrik zincir gergi takozu kontrol edilmelidir.'
+      },
+      {
+        name: 'Goa',
+        interval: 10000,
+        baseVal: 520000,
+        engines: [
+          '2.2 mHawk 4x4 (120/140 HP Dizel)'
+        ],
+        chronic: 'Ön torsiyon çubuğu ayarı ve diferansiyel keçesi sızıntısı incelenmelidir.'
+      }
+    ],
+    piaggio: [
+      {
+        name: 'Porter',
+        interval: 10000,
+        baseVal: 480000,
+        engines: [
+          '1.3 16V Daihatsu Motoru (65 HP Benzin & LPG Kamyonet)',
+          'Porter NP6 1.5 EcoPower Benzin & LPG / CNG (102 HP)'
+        ],
+        chronic: 'Kompakt motor bölmesi nedeniyle radyatör petek temizliği ve soğutma suyu antifriz derecesi sık kontrol edilmelidir.'
+      },
+      {
+        name: 'Ape',
+        interval: 5000,
+        baseVal: 220000,
+        engines: [
+          'Ape 50 2 Zamanlı (3.5 HP Benzinli Üçteker)',
+          'Ape TM / Calessino 218cc 4 Zamanlı (10 HP)'
+        ],
+        chronic: '2 zamanlı modellerde yağ pompası ayarı, zincir tahrik gergisi ve arka tekerlek aks körüğü incelenmelidir.'
+      }
     ]
   };
 
   // --- MODEL FABRİKA ÇIKIŞ VE ÜRETİM YILLARI ARALIĞI ---
   const MODEL_YEAR_RANGES = {
+    // KLASİK & YERLİ
+    'şahin': { start: 1988, end: 2002 },
+    'sahin': { start: 1988, end: 2002 },
+    'doğan': { start: 1988, end: 2002 },
+    'dogan': { start: 1988, end: 2002 },
+    'kartal': { start: 1988, end: 2003 },
+    'serçe': { start: 1983, end: 1995 },
+    'serce': { start: 1983, end: 1995 },
+    'murat 131': { start: 1977, end: 1987 },
+    'a1': { start: 1966, end: 1975 },
+    'a2': { start: 1970, end: 1981 },
+    'sv 1600': { start: 1973, end: 1982 },
+    'samara': { start: 1988, end: 2004 },
+    'niva': { start: 1977, end: 2026 },
+    'cruze': { start: 2009, end: 2016 },
+    'aveo': { start: 2006, end: 2015 },
+    'captiva': { start: 2007, end: 2017 },
+    'lacetti': { start: 2004, end: 2011 },
+    'spark': { start: 2005, end: 2016 },
+    'jaecoo 7': { start: 2024, end: 2026 },
+    'jaecoo 8': { start: 2024, end: 2026 },
+    't03': { start: 2023, end: 2026 },
+    'c10': { start: 2024, end: 2026 },
+    'free': { start: 2023, end: 2026 },
+    'et5': { start: 2022, end: 2026 },
+    'seres 3': { start: 2021, end: 2026 },
+    'smart #1': { start: 2023, end: 2026 },
+    'smart #3': { start: 2023, end: 2026 },
+    '01': { start: 2022, end: 2026 },
+    '001': { start: 2022, end: 2026 },
+    '007': { start: 2024, end: 2026 },
+    'x': { start: 2023, end: 2026 },
     // TOGG
     't10x': { start: 2023, end: 2026 },
     't10f': { start: 2025, end: 2026 },
@@ -4382,6 +7299,166 @@
 
     // ISUZU
     'd-max': { default: 7.9, diesel: 7.9 },
+
+    // YERLİ & KLASİK
+    'şahin': { default: 8.4, lpg: 9.8, petrol: 8.2 },
+    'sahin': { default: 8.4, lpg: 9.8, petrol: 8.2 },
+    'doğan': { default: 8.5, lpg: 10.0, petrol: 8.3 },
+    'dogan': { default: 8.5, lpg: 10.0, petrol: 8.3 },
+    'kartal': { default: 8.8, lpg: 10.2, petrol: 8.5 },
+    'serçe': { default: 7.9, lpg: 9.2, petrol: 7.6 },
+    'serce': { default: 7.9, lpg: 9.2, petrol: 7.6 },
+    'murat 131': { default: 8.2, lpg: 9.5, petrol: 8.0 },
+    'a1': { default: 7.5, petrol: 7.5 },
+    'a2': { default: 7.8, petrol: 7.8 },
+    'sv 1600': { default: 8.1, petrol: 8.1 },
+
+    // CHEVROLET & LADA & DAEWOO & TATA & PROTON & DAIHATSU & GEELY & SAAB & ROVER & LANCIA
+    'cruze': { default: 7.2, petrol: 7.5, lpg: 8.8, diesel: 5.8 },
+    'aveo': { default: 5.6, diesel: 4.8, petrol: 6.2 },
+    'captiva': { default: 8.6, diesel: 8.6 },
+    'spark': { default: 5.1, petrol: 5.1 },
+    'lacetti': { default: 7.2, petrol: 7.2, lpg: 8.6 },
+    'trax': { default: 6.9, petrol: 6.9, diesel: 5.6 },
+    'camaro': { default: 11.8, petrol: 11.8 },
+    'samara': { default: 7.4, lpg: 8.6, petrol: 7.2 },
+    'vega': { default: 7.1, lpg: 8.4, petrol: 7.0 },
+    'niva': { default: 9.8, lpg: 11.5, petrol: 9.6 },
+    'kalina': { default: 6.8, petrol: 6.8 },
+    'granta': { default: 6.6, petrol: 6.6 },
+    'nexia': { default: 7.3, lpg: 8.5, petrol: 7.2 },
+    'matiz': { default: 5.2, petrol: 5.2 },
+    'lanos': { default: 7.1, lpg: 8.3, petrol: 7.0 },
+    'indica': { default: 5.6, diesel: 5.2, petrol: 6.4 },
+    'indigo': { default: 5.7, diesel: 5.3 },
+    'xenon': { default: 8.4, diesel: 8.4 },
+    'gen-2': { default: 7.2, petrol: 7.2, lpg: 8.6 },
+    'terios': { default: 7.6, petrol: 7.6, lpg: 9.0 },
+    'sirion': { default: 5.8, petrol: 5.8 },
+    'emgrand ec7': { default: 7.4, petrol: 7.4, lpg: 8.8 },
+    'coolray': { default: 6.4, petrol: 6.4 },
+    '9-3': { default: 6.2, diesel: 5.6, petrol: 8.1 },
+    '9-5': { default: 8.4, petrol: 8.9, diesel: 6.8 },
+    '75': { default: 6.8, diesel: 6.1, petrol: 9.4 },
+    '25': { default: 6.6, petrol: 6.6 },
+    'delta': { default: 5.4, diesel: 5.0, petrol: 6.8 },
+    'ypsilon': { default: 4.8, diesel: 4.2, petrol: 5.2 },
+
+    // LÜKS & SÜPER SPOR
+    'xf': { default: 6.2, diesel: 5.6, petrol: 7.8 },
+    'xe': { default: 5.8, diesel: 5.2, petrol: 7.4 },
+    'f-pace': { default: 6.9, diesel: 6.5, hybrid: 2.8 },
+    'i-pace': { default: 21.2 },
+    'f-type': { default: 9.4, petrol: 9.4 },
+    'ghibli': { default: 7.9, diesel: 6.9, petrol: 9.8, hybrid: 8.1 },
+    'levante': { default: 8.6, diesel: 7.9, petrol: 10.9, hybrid: 8.8 },
+    'grecale': { default: 8.7, petrol: 8.9, hybrid: 8.5 },
+    'db11': { default: 11.2, petrol: 11.2 },
+    'db12': { default: 11.5, petrol: 11.5 },
+    'vantage': { default: 11.4, petrol: 11.4 },
+    'dbx': { default: 13.5, petrol: 13.5 },
+    'continental gt': { default: 12.1, petrol: 12.1 },
+    'bentayga': { default: 12.8, petrol: 12.8, hybrid: 3.4 },
+    '296 gtb': { default: 6.4, hybrid: 6.4 },
+    'roma': { default: 11.2, petrol: 11.2 },
+    'f8 tributo': { default: 12.9, petrol: 12.9 },
+    'sf90 stradale': { default: 6.1, hybrid: 6.1 },
+    '488 gtb': { default: 11.4, petrol: 11.4 },
+    '458 italia': { default: 13.3, petrol: 13.3 },
+    'purosangue': { default: 17.3, petrol: 17.3 },
+    'urus': { default: 12.7, petrol: 12.7 },
+    'huracán': { default: 13.9, petrol: 13.9 },
+    'aventador': { default: 16.0, petrol: 16.0 },
+    'ghost': { default: 15.2, petrol: 15.2 },
+    'phantom': { default: 15.6, petrol: 15.6 },
+    'cullinan': { default: 16.1, petrol: 16.1 },
+    'spectre': { default: 22.2 },
+    '720s': { default: 10.7, petrol: 10.7 },
+    'artura': { default: 4.6, hybrid: 4.6 },
+    'emira': { default: 9.8, petrol: 9.8 },
+    'eletre': { default: 22.4 },
+    'a110': { default: 6.8, petrol: 6.8 },
+    '595': { default: 6.7, petrol: 6.7 },
+    '695': { default: 6.9, petrol: 6.9 },
+    '124 spider': { default: 6.6, petrol: 6.6 },
+    'g70': { default: 7.8, diesel: 6.5, petrol: 8.5 },
+    'g80': { default: 8.6, petrol: 8.6 },
+    'gv70': { default: 8.9, petrol: 8.9 },
+    'gv80': { default: 9.4, diesel: 8.6, petrol: 10.4 },
+    'q30': { default: 5.4, diesel: 4.7, petrol: 6.0 },
+    'q50': { default: 7.1, diesel: 5.6, petrol: 7.8 },
+    'qx30': { default: 6.2, diesel: 5.4, petrol: 6.9 },
+    'qx70': { default: 9.4, diesel: 8.6, petrol: 11.8 },
+    'challenger': { default: 11.8, petrol: 11.8 },
+    'charger': { default: 11.5, petrol: 11.5 },
+    'durango': { default: 12.2, petrol: 12.2 },
+    'ram 1500': { default: 13.5, petrol: 13.5, diesel: 9.8 },
+    'nitro': { default: 9.4, diesel: 9.4 },
+    '300c': { default: 8.4, diesel: 7.8, petrol: 11.2 },
+    'grand voyager': { default: 8.8, diesel: 8.8 },
+    'escalade': { default: 14.5, petrol: 14.5, diesel: 10.2 },
+    'cts': { default: 8.8, petrol: 8.8 },
+    'navigator': { default: 13.4, petrol: 13.4 },
+    'yukon': { default: 14.2, petrol: 14.2 },
+    'sierra': { default: 13.6, petrol: 13.6, diesel: 9.9 },
+    'h2': { default: 18.5, petrol: 18.5 },
+    'h3': { default: 14.2, petrol: 14.2 },
+    'hummer ev': { default: 36.5 },
+
+    // YENİ ELEKTRİKLİ & SUV
+    'jaecoo 7': { default: 7.5, petrol: 7.5, hybrid: 5.2 },
+    'jaecoo 8': { default: 8.2, petrol: 8.2 },
+    'omoda 7': { default: 5.8, hybrid: 5.8 },
+    't03': { default: 13.4 },
+    'c10': { default: 16.8 },
+    'c11': { default: 17.5 },
+    'free': { default: 19.8 },
+    'passion': { default: 17.2 },
+    'dream': { default: 21.5 },
+    'et5': { default: 18.2 },
+    'seres 3': { default: 17.8 },
+    'seres 5': { default: 19.4 },
+    'smart #1': { default: 16.8 },
+    'smart #3': { default: 16.3 },
+    'fortwo': { default: 5.2, petrol: 5.2 },
+    'fengon 5': { default: 7.8, petrol: 7.8, lpg: 9.4 },
+    'mifa 9': { default: 21.5 },
+    'e-hs9': { default: 23.5 },
+    '01': { default: 4.8, hybrid: 4.8 },
+    '08': { default: 5.5, hybrid: 5.5 },
+    '001': { default: 18.2 },
+    '007': { default: 16.2 },
+    'et7': { default: 17.8 },
+    'es6': { default: 18.9 },
+    'es8': { default: 20.8 },
+    'g9': { default: 19.4 },
+    'g6': { default: 17.2 },
+    'p7': { default: 16.8 },
+    'air': { default: 15.0 },
+    'r1t': { default: 26.5 },
+    'r1s': { default: 27.0 },
+    'ocean': { default: 18.1 },
+    'polestar 2': { default: 17.2 },
+    'polestar 3': { default: 20.5 },
+    'polestar 4': { default: 18.6 },
+    't5 evo': { default: 6.8, petrol: 6.8 },
+    'g01': { default: 7.4, petrol: 7.4 },
+
+    // TİCARİ
+    'daily': { default: 8.8, diesel: 8.8 },
+    'eurocargo': { default: 18.5, diesel: 18.5 },
+    'tuğra': { default: 28.5, diesel: 28.5 },
+    'megastar': { default: 9.6, diesel: 9.6 },
+    'pro': { default: 24.0, diesel: 24.0 },
+    'neocity': { default: 26.0, diesel: 26.0 },
+    'jest': { default: 8.4, diesel: 8.4 },
+    'atak': { default: 22.0, diesel: 22.0 },
+    'sultan': { default: 16.8, diesel: 16.8 },
+    'navigo': { default: 16.2, diesel: 16.2 },
+    'gazelle next': { default: 9.8, diesel: 9.8, lpg: 13.5 },
+    'pik-up': { default: 8.6, diesel: 8.6 },
+    'porter': { default: 7.4, petrol: 7.4, lpg: 9.0 },
+    'ape': { default: 3.5, petrol: 3.5 },
 
     // ELEKTRİKLİLER (KWH / 100 KM)
     't10x': { default: 17.2, ev: true },
@@ -8371,7 +11448,8 @@ ${ekspertizText}
     'Range Rover Evoque', 'Range Rover Velar', 'Range Rover Sport', 'Defender', 'Discovery Sport',
     'Macan', 'Cayenne', 'Countryman', 'Tonale', 'Stelvio', 'Junior',
     'CX-5', 'CX-3', 'ASX', 'Eclipse Cross', 'XV / Crosstrek', 'Forester', 'Outback',
-    'RX', 'NX', 'UX', 'DS 7', 'DS 4', 'DS 3', 'Torres', 'Korando', 'Tivoli', 'Tavascan'
+    'RX', 'NX', 'UX', 'DS 7', 'DS 4', 'DS 3', 'Torres', 'Korando', 'Tivoli', 'Tavascan',
+    'Captiva', 'Trax', 'Niva', 'Terios', 'Streetwise', 'Coolray', 'F-Pace', 'E-Pace', 'I-Pace', 'Levante', 'Grecale', 'DBX', 'Bentayga', 'Purosangue', 'Urus', 'Cullinan', 'Eletre', 'GV70', 'GV80', 'QX30', 'QX70', 'Durango', 'Nitro', 'Escalade', 'SRX', 'Navigator', 'Aviator', 'Yukon', 'Terrain', 'H2', 'H3', 'Hummer EV', 'Enclave', 'Jaecoo 7', 'Jaecoo 8', 'Omoda 7', 'C10', 'C11', 'Free', 'ET5', 'Q', 'Seres 3', 'Seres 5', 'Seres 7', 'Smart #1', 'Smart #3', 'Fengon 5', 'Fengon 500', 'E-HS9', '01', '08', 'X', 'ES6', 'ES8', 'G9', 'G6', 'Gravity', 'R1S', 'Ocean', 'Polestar 3', 'Polestar 4', 'T5 EVO', 'Friday EV', 'G01', 'G01F', 'G03F', 'Goa'
   ]);
 
   const TICARI_MODELS = new Set([
@@ -8379,7 +11457,8 @@ ${ekspertizText}
     'Doblo', 'Fiorino', 'Ducato', 'Tourneo Courier', 'Tourneo Connect', 'Transit Custom', 'Transit', 'Ranger',
     'Rifter', 'Partner', 'Boxer', 'Expert', 'Berlingo', 'Jumpy', 'Jumper', 'Hilux', 'Proace', 'Proace City',
     'Combo', 'Vivaro', 'Zafira Life', 'Vito', 'Sprinter', 'Dokker', 'Staria', 'H-100', 'Bongo', 'Navara',
-    'L200', 'Musso Grand', 'D-Max'
+    'L200', 'Musso Grand', 'D-Max',
+    'Xenon', 'Telcoline', 'RAM 1500', 'Sierra', 'R1T', 'EC35', 'eDeliver 3', 'eDeliver 9', 'T90 EV', 'Daily', 'Eurocargo', 'Tuğra', 'Megastar', 'Pro', 'Neocity', 'Jest', 'Atak', 'Sultan', 'Navigo', 'GAZelle Next', 'Sobol', 'GAZelle NN', 'Pik-Up', 'Porter', 'Ape'
   ]);
 
   function getModelBodyType(modelName) {
