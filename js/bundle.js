@@ -3510,8 +3510,8 @@ ${ekspertizText}
 
     const navTabs = [
       { id: 'garajim', label: 'Garajım', icon: 'car' },
-      { id: 'bakim', label: 'Bakım & Lastik', icon: 'wrench' },
-      { id: 'piyasa', label: 'Piyasa & Kronik', icon: 'trendingUp' },
+      { id: 'bakim', label: 'Bakım', icon: 'wrench' },
+      { id: 'piyasa', label: 'Piyasa', icon: 'trendingUp' },
       { id: 'profil', label: 'Profil', icon: 'user' }
     ];
 
@@ -3546,33 +3546,63 @@ ${ekspertizText}
               }).join('')}
             </nav>
 
-            <!-- Sağ Butonlar -->
-            <div class="flex items-center gap-1.5 sm:gap-2.5">
-              <!-- Tema Seçimi (Gündüz / Gece Kokpit Modu Butonu) -->
-              <button id="btn-toggle-theme" class="flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 px-2.5 sm:px-3 py-2 rounded-xl border border-slate-200 transition active:scale-95 cursor-pointer" title="${currentTheme === 'dark' ? 'Açık Temaya (Gündüz Modu) Geç' : 'Koyu Temaya (Gece / Kokpit Modu) Geç'}">
-                ${currentTheme === 'dark' ? `${Icons.sun('w-4 h-4 text-amber-500')} <span class="hidden xl:inline text-[11px]">Açık Tema</span>` : `${Icons.moon('w-4 h-4 text-indigo-600')} <span class="hidden xl:inline text-[11px]">Koyu Tema</span>`}
+            <!-- Sağ Aksiyon Grubu (Ferah ve Sadeleştirilmiş) -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+              
+              <!-- Tema Değiştirici (Zarif Kompakt İkon Buton) -->
+              <button id="btn-toggle-theme" class="w-10 h-10 rounded-2xl border border-slate-200/90 bg-slate-100/80 hover:bg-slate-200 flex items-center justify-center text-slate-700 transition active:scale-95 cursor-pointer shadow-2xs" title="${currentTheme === 'dark' ? 'Açık Temaya (Gündüz Modu) Geç' : 'Koyu Temaya (Gece / Kokpit Modu) Geç'}">
+                ${currentTheme === 'dark' ? Icons.sun('w-5 h-5 text-amber-400') : Icons.moon('w-5 h-5 text-indigo-600')}
               </button>
 
-              <!-- İkaz Lambaları Rehberi -->
-              <button id="btn-open-lights-modal" class="flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-amber-50 hover:text-amber-800 hover:border-amber-300 px-2.5 sm:px-3 py-2 rounded-xl border border-slate-200 transition active:scale-95 cursor-pointer" title="Gösterge İkaz Lambaları">
-                <span class="text-sm">⚠️</span>
-                <span class="hidden lg:inline">İkaz Rehberi</span>
-              </button>
+              <!-- Hızlı Asistan & Araçlar Açılır Menüsü (Dropdown) -->
+              <div class="relative" id="dropdown-tools-wrapper">
+                <button type="button" id="btn-toggle-tools-menu" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100/90 hover:bg-slate-200 px-3.5 py-2.5 rounded-2xl border border-slate-200/90 transition active:scale-95 cursor-pointer shadow-2xs">
+                  <span class="text-sm">⚡</span>
+                  <span class="hidden sm:inline">Hızlı Araçlar</span>
+                  <svg class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200" id="tools-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
 
-              <!-- Acil Yardım & Kaza Asistanı -->
-              <button id="btn-open-emergency-modal" class="flex items-center gap-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 px-2.5 sm:px-3 py-2 rounded-xl border border-rose-200 transition active:scale-95 cursor-pointer shadow-2xs" title="Acil Yardım & Kaza Rehberi">
-                <span class="text-sm">🆘</span>
-                <span class="hidden sm:inline">Acil Asistan</span>
-              </button>
+                <!-- Açılır Menü İçeriği -->
+                <div id="tools-dropdown-menu" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-2xl border border-slate-200/90 shadow-2xl p-2 z-50 animate-slide-up text-slate-900">
+                  
+                  <!-- İkaz Rehberi -->
+                  <button type="button" id="menu-item-lights" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50/70 transition text-left cursor-pointer group">
+                    <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 text-base shadow-2xs">
+                      ⚠️
+                    </div>
+                    <div>
+                      <div class="text-xs font-black text-slate-900 group-hover:text-amber-900">İkaz Lambaları Rehberi</div>
+                      <div class="text-[11px] text-slate-500">10 araç kümesi ve semboller</div>
+                    </div>
+                  </button>
 
-              <!-- Telefona Yükle / Mobil Uygulama Butonu -->
-              <button id="btn-open-pwa-guide" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 px-3 py-2 rounded-xl border border-slate-200 transition active:scale-95 cursor-pointer" title="Telefona Uygulama Olarak Ekle">
-                <span class="text-sm">📲</span>
-                <span class="hidden sm:inline">Telefona Yükle</span>
-              </button>
+                  <!-- Acil Asistan -->
+                  <button type="button" id="menu-item-emergency" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-rose-50/70 transition text-left cursor-pointer group">
+                    <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center shrink-0 text-base shadow-2xs">
+                      🆘
+                    </div>
+                    <div>
+                      <div class="text-xs font-black text-slate-900 group-hover:text-rose-900">Acil Yardım & Kaza Asistanı</div>
+                      <div class="text-[11px] text-slate-500">112, kaza tutanağı & acil adımlar</div>
+                    </div>
+                  </button>
+
+                  <!-- Telefona Yükle -->
+                  <button type="button" id="menu-item-pwa" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-emerald-50/70 transition text-left cursor-pointer group">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 text-base shadow-2xs">
+                      📲
+                    </div>
+                    <div>
+                      <div class="text-xs font-black text-slate-900 group-hover:text-emerald-900">Telefona Uygulama Olarak Ekle</div>
+                      <div class="text-[11px] text-slate-500">Ana ekrana mobil kurulum</div>
+                    </div>
+                  </button>
+
+                </div>
+              </div>
 
               <!-- Yeni Araç Ekle Butonu -->
-              <button id="btn-top-add-vehicle" class="flex items-center gap-1.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 px-3.5 py-2 rounded-xl shadow-sm shadow-emerald-600/25 active:scale-95 transition">
+              <button id="btn-top-add-vehicle" class="flex items-center gap-1.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 px-3.5 sm:px-4 py-2.5 rounded-2xl shadow-sm shadow-emerald-600/25 active:scale-95 transition cursor-pointer">
                 ${Icons.plus('w-4 h-4')}
                 <span class="hidden sm:inline">Yeni Araç</span>
               </button>
@@ -3591,14 +3621,58 @@ ${ekspertizText}
     const btnAdd = document.getElementById('btn-top-add-vehicle');
     if (btnAdd) btnAdd.onclick = () => store.setAddVehicleModalOpen(true);
 
-    const btnPwa = document.getElementById('btn-open-pwa-guide');
-    if (btnPwa) btnPwa.onclick = () => store.setPwaModalOpen(true);
+    // Hızlı Araçlar Açılır Menüsü (Dropdown) Olayları
+    const btnTools = document.getElementById('btn-toggle-tools-menu');
+    const menuTools = document.getElementById('tools-dropdown-menu');
+    const chevronTools = document.getElementById('tools-chevron');
 
-    const btnLights = document.getElementById('btn-open-lights-modal');
-    if (btnLights) btnLights.onclick = () => store.setLightsModalOpen(true);
+    if (btnTools && menuTools) {
+      btnTools.onclick = (e) => {
+        e.stopPropagation();
+        const isHidden = menuTools.classList.contains('hidden');
+        if (isHidden) {
+          menuTools.classList.remove('hidden');
+          if (chevronTools) chevronTools.classList.add('rotate-180');
+        } else {
+          menuTools.classList.add('hidden');
+          if (chevronTools) chevronTools.classList.remove('rotate-180');
+        }
+      };
 
-    const btnEmerg = document.getElementById('btn-open-emergency-modal');
-    if (btnEmerg) btnEmerg.onclick = () => store.setEmergencyModalOpen(true);
+      document.addEventListener('click', (e) => {
+        if (!menuTools.contains(e.target) && !btnTools.contains(e.target)) {
+          menuTools.classList.add('hidden');
+          if (chevronTools) chevronTools.classList.remove('rotate-180');
+        }
+      });
+    }
+
+    const itemLights = document.getElementById('menu-item-lights');
+    if (itemLights) {
+      itemLights.onclick = () => {
+        if (menuTools) menuTools.classList.add('hidden');
+        if (chevronTools) chevronTools.classList.remove('rotate-180');
+        store.setLightsModalOpen(true);
+      };
+    }
+
+    const itemEmerg = document.getElementById('menu-item-emergency');
+    if (itemEmerg) {
+      itemEmerg.onclick = () => {
+        if (menuTools) menuTools.classList.add('hidden');
+        if (chevronTools) chevronTools.classList.remove('rotate-180');
+        store.setEmergencyModalOpen(true);
+      };
+    }
+
+    const itemPwa = document.getElementById('menu-item-pwa');
+    if (itemPwa) {
+      itemPwa.onclick = () => {
+        if (menuTools) menuTools.classList.add('hidden');
+        if (chevronTools) chevronTools.classList.remove('rotate-180');
+        store.setPwaModalOpen(true);
+      };
+    }
 
     document.querySelectorAll('.btn-desktop-nav').forEach(btn => {
       btn.onclick = () => {
