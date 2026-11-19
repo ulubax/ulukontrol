@@ -1,0 +1,304 @@
+/* UluKontrol - Modern, Temiz ve Duyarlı (Responsive) Web & Mobil Tasarım Sistemi */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-primary: #F8FAFC; /* Slate 50 ultra temiz zemin */
+  --bg-card: #FFFFFF; /* Bembeyaz kartlar */
+  --bg-subtle: #F1F5F9; /* Slate 100 yumuşak panel */
+  --accent-emerald: #10B981; /* Canlı Zümrüt Yeşili */
+  --accent-emerald-dark: #059669; /* Koyu Zümrüt */
+  --accent-mint: #34D399; /* Açık Nane Yeşili */
+  --accent-amber: #F59E0B; /* Kehribar Uyarısı */
+  --accent-rose: #EF4444; /* Kritik Alarm */
+  --text-main: #0F172A; /* Slate 900 Derin Okunabilir Metin */
+  --text-muted: #64748B; /* Slate 500 İkincil Metin */
+  --border-subtle: #E2E8F0; /* Slate 200 Zarif Kenarlık */
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input, select, textarea {
+  user-select: text;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar Zarifleştirme & Gizleme */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Dokunmatik & Buton Tepkisi */
+button, .btn-touch {
+  transition: transform 0.12s ease, background-color 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:active, .btn-touch:active {
+  transform: scale(0.97);
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes modalScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-scale {
+  animation: modalScale 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Kart Gölgeleri */
+.card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+}
+
+.card-shadow-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-shadow-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
+.emerald-glow {
+  box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.25);
+}
+
+/* Safe Area Inset Desteği */
+body {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* --- DARK TEMA (GECE / KOKPİT MODU) STİLLERİ --- */
+html.dark {
+  --bg-primary: #090D16;
+  --bg-card: #111827;
+  --bg-subtle: #1F2937;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --border-subtle: #2D3748;
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #090D16 !important;
+  color: #F8FAFC !important;
+}
+
+/* Koyu Mod Zeminleri ve Kartları */
+html.dark .bg-slate-50 {
+  background-color: #0B0F19 !important;
+}
+
+html.dark .bg-white {
+  background-color: #111827 !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .bg-slate-100,
+html.dark .bg-slate-100\/90 {
+  background-color: #1F2937 !important;
+}
+
+/* Koyu Mod Kenarlıkları */
+html.dark .border-slate-200,
+html.dark .border-slate-200\/90,
+html.dark .border-slate-200\/80 {
+  border-color: #2D3748 !important;
+}
+
+html.dark .border-slate-100 {
+  border-color: #1F2937 !important;
+}
+
+html.dark .border-slate-300 {
+  border-color: #4B5563 !important;
+}
+
+/* Koyu Mod Metinleri */
+html.dark .text-slate-900 {
+  color: #F8FAFC !important;
+}
+
+html.dark .text-slate-800 {
+  color: #F1F5F9 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #E2E8F0 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #CBD5E1 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #94A3B8 !important;
+}
+
+html.dark .text-slate-400 {
+  color: #64748B !important;
+}
+
+/* Form Elemanları (Input, Select, Textarea) */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #1F2937 !important;
+  color: #F8FAFC !important;
+  border-color: #374151 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748B !important;
+}
+
+/* Modallar */
+html.dark #km-modal-backdrop,
+html.dark #wizard-modal-backdrop,
+html.dark #dates-modal-backdrop,
+html.dark #tire-modal-backdrop,
+html.dark #expertise-modal-backdrop,
+html.dark #fuel-modal-backdrop,
+html.dark #ad-modal-backdrop,
+html.dark #lights-modal-backdrop,
+html.dark #emergency-modal-backdrop,
+html.dark #pwa-modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Header & Bottom Nav */
+html.dark header {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+  border-color: #2D3748 !important;
+}
+
+html.dark nav.fixed {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+  border-color: #2D3748 !important;
+}
+
+/* Koyu Mod Kart Gölgeleri */
+html.dark .card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Renkli Uyarı ve İpuçları Kutuları */
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-50\/70,
+html.dark .bg-emerald-50\/25 {
+  background-color: rgba(6, 78, 59, 0.3) !important;
+}
+
+html.dark .border-emerald-200,
+html.dark .border-emerald-200\/90 {
+  border-color: rgba(16, 185, 129, 0.35) !important;
+}
+
+html.dark .text-emerald-950,
+html.dark .text-emerald-900,
+html.dark .text-emerald-800 {
+  color: #6EE7B7 !important;
+}
+
+html.dark .bg-amber-50,
+html.dark .bg-amber-50\/70,
+html.dark .bg-amber-50\/20 {
+  background-color: rgba(120, 53, 15, 0.3) !important;
+}
+
+html.dark .border-amber-200,
+html.dark .border-amber-200\/90,
+html.dark .border-amber-300\/80 {
+  border-color: rgba(245, 158, 11, 0.35) !important;
+}
+
+html.dark .text-amber-950,
+html.dark .text-amber-900,
+html.dark .text-amber-800 {
+  color: #FCD34D !important;
+}
+
+html.dark .bg-rose-50,
+html.dark .bg-rose-50\/70,
+html.dark .bg-rose-50\/20 {
+  background-color: rgba(136, 19, 55, 0.3) !important;
+}
+
+html.dark .border-rose-200,
+html.dark .border-rose-200\/90 {
+  border-color: rgba(239, 68, 68, 0.35) !important;
+}
+
+html.dark .text-rose-950,
+html.dark .text-rose-900,
+html.dark .text-rose-700 {
+  color: #FDA4AF !important;
+}
+
+html.dark .bg-indigo-50,
+html.dark .bg-indigo-50\/70 {
+  background-color: rgba(49, 46, 129, 0.3) !important;
+}
+
+html.dark .border-indigo-200 {
+  border-color: rgba(99, 102, 241, 0.35) !important;
+}
+
+html.dark .text-indigo-950,
+html.dark .text-indigo-900,
+html.dark .text-indigo-800 {
+  color: #A5B4FC !important;
+}
+
+html.dark .bg-blue-50,
+html.dark .bg-blue-50\/70 {
+  background-color: rgba(30, 58, 138, 0.3) !important;
+}
+
+html.dark .border-blue-200 {
+  border-color: rgba(59, 130, 246, 0.35) !important;
+}
+
+html.dark .text-blue-950,
+html.dark .text-blue-900,
+html.dark .text-blue-800 {
+  color: #93C5FD !important;
+}

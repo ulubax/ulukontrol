@@ -1,0 +1,32 @@
+{
+  "name": "UluKontrol - Mobil Kokpit Asistanı",
+  "short_name": "UluKontrol",
+  "description": "Akıllı Araç ve Garaj Yönetim Sistemi, Periyodik Bakım ve Piyasa Değerleme Takibi",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "categories": ["utilities", "automotive", "productivity"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

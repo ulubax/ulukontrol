@@ -1,0 +1,21 @@
+# Bağımlılıklar
+node_modules/
+
+# Derleme çıktıları
+dist/
+dist-ssr/
+
+# Geçici ve ortam dosyaları
+.env
+.env.local
+.env.*.local
+*.log
+
+# Vercel
+.vercel/
+
+# Sistem ve Editör dosyaları
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

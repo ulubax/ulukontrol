@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Arka Plan Yuvarlak Kare (Squircle) -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
+  <rect x="8" y="8" width="496" height="496" rx="120" stroke="#334155" stroke-width="6"/>
+
+  <!-- Kokpit Gösterge Çemberi -->
+  <path d="M 120 360 A 160 160 0 1 1 392 360" stroke="#334155" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <path d="M 120 360 A 160 160 0 1 1 340 180" stroke="url(#blueGlow)" stroke-width="24" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+
+  <!-- Gösterge İbresi / İbre Çizgisi -->
+  <line x1="256" y1="256" x2="330" y2="190" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="28" fill="#0F172A" stroke="url(#blueGlow)" stroke-width="8"/>
+  <circle cx="256" cy="256" r="10" fill="#60A5FA"/>
+
+  <!-- Araç Silueti / Logo 'U' Formu -->
+  <path d="M 176 390 L 196 420 L 316 420 L 336 390 Z" fill="#3B82F6" opacity="0.8"/>
+  <circle cx="206" cy="425" r="14" fill="#64748B"/>
+  <circle cx="306" cy="425" r="14" fill="#64748B"/>
+</svg>
