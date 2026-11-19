@@ -1,5 +1,5 @@
 // UluKontrol PWA Service Worker (Faz 2)
-const CACHE_NAME = 'ulukontrol-cache-v7';
+const CACHE_NAME = 'ulukontrol-cache-v8';
 
 const ASSETS_TO_CACHE = [
   './',
