@@ -7835,7 +7835,11 @@
     if (!v) return '';
     const exp = getVehicleExpertise(v);
     const summary = calculateExpertiseSummary(exp);
-    const nextKm = v.lastServiceKm + v.serviceIntervalKm;
+    const curKm = (typeof v.currentKm === 'number' && !isNaN(v.currentKm)) ? v.currentKm : (parseInt(v.currentKm, 10) || 0);
+    const lastKm = (typeof v.lastServiceKm === 'number' && !isNaN(v.lastServiceKm)) ? v.lastServiceKm : (parseInt(v.lastServiceKm, 10) || 0);
+    const intervalKm = (typeof v.serviceIntervalKm === 'number' && !isNaN(v.serviceIntervalKm)) ? v.serviceIntervalKm : (parseInt(v.serviceIntervalKm, 10) || 15000);
+    const nextKm = lastKm + intervalKm;
+    const remKm = Math.max(0, nextKm - curKm);
 
     let ekspertizText = '';
     if (summary.isHatasiz) {
@@ -7866,18 +7870,18 @@
 • Ağır Hasar / Pert Kaydı: ${exp.heavyDamage ? 'AĞIR HASAR KAYITLIDIR' : 'KESİNLİKLE YOKTUR'}`;
     }
 
-    return `Sahibinden ${v.year} Model ${v.brand} ${v.model} ${v.enginePackage}
+    return `Sahibinden ${v.year || ''} Model ${v.brand || ''} ${v.model || ''} ${v.enginePackage || ''}
 
 🚗 GENEL ARAÇ BİLGİLERİ:
-• Model Yılı: ${v.year}
-• Güncel Kilometre: ${v.currentKm.toLocaleString('tr-TR')} KM (Orijinal)
-• Yakıt Tipi: ${v.fuel}
-• Vites Tipi: ${v.transmission}
-• Plaka: ${v.plate}
+• Model Yılı: ${v.year || 'Belirtilmedi'}
+• Güncel Kilometre: ${curKm.toLocaleString('tr-TR')} KM (Orijinal)
+• Yakıt Tipi: ${v.fuel || 'Benzin / Dizel'}
+• Vites Tipi: ${v.transmission || 'Manuel / Otomatik'}
+• Plaka: ${v.plate || ''}
 
 🛠️ BAKIM VE TEKNİK DURUM:
 • Tüm periyodik bakımları zamanında eksiksiz yapılmıştır.
-• Son bakım ${v.lastServiceKm.toLocaleString('tr-TR')} KM'de yapılmış olup sonraki bakıma ${Math.max(0, nextKm - v.currentKm).toLocaleString('tr-TR')} KM vardır.
+• Son bakım ${lastKm.toLocaleString('tr-TR')} KM'de yapılmış olup sonraki bakıma ${remKm.toLocaleString('tr-TR')} KM vardır.
 • Motoru, şanzımanı, yürüyen aksamı kusursuz durumdadır; yağ yakma, duman atma veya üfleme yoktur.
 • Lastikler: ${v.tires?.season || '4 Mevsim'} (${v.tires?.size || 'Orijinal Ebat'}), diş derinliği %${v.tires?.lifePercentage || 85} seviyesindedir.
 ${v.inspectionDate ? `• TÜVTÜRK Muayene Geçerlilik Tarihi: ${v.inspectionDate}` : ''}
@@ -11120,7 +11124,84 @@ ${ekspertizText}
     const state = store.getState();
     if (!state.isAdModalOpen) return '';
     const v = store.getActiveVehicle();
-    if (!v) return '';
+
+    if (!v) {
+      const sampleAdText = `Sahibinden 2022 Model Volkswagen Golf 1.5 eTSI R-Line DSG
+
+🚗 GENEL ARAÇ BİLGİLERİ:
+• Model Yılı: 2022
+• Güncel Kilometre: 48.500 KM (Orijinal)
+• Yakıt Tipi: Hibrit / Benzin (eTSI)
+• Vites Tipi: Otomatik (DSG)
+• Plaka: 34 *** *** (Gizlenmiştir)
+
+🛠️ BAKIM VE TEKNİK DURUM:
+• Tüm periyodik bakımları yetkili serviste zamanında eksiksiz yapılmıştır.
+• Son periyodik bakımı yapılmış olup masrafsızdır.
+• Motoru, şanzımanı, yürüyen aksamı kusursuz durumdadır; yağ yakma veya duman atma yoktur.
+• Lastikler: 4 Mevsim (Michelin), diş derinliği %85 seviyesindedir.
+
+✅ EKSPERTİZ VE KAPORTA DURUMU:
+• ARACIMIZ HATASIZ, BOYASIZ VE DEĞİŞENSİZDİR.
+• ŞASİ, PODYE, DİREKLER VE AIRBAGLER FABRİKASYON ORİJİNALDİR.
+• TRAMER HASAR KAYDI KESİNLİKLE YOKTUR (0 ₺).
+• AĞIR HASAR / PERT KAYDI KESİNLİKLE YOKTUR.
+
+💡 EKSTRA AÇIKLAMA:
+• Aracın yedek anahtarı ve kitapçıkları mevcuttur.
+• İç döşemelerinde yanık, yırtık veya deformasyon bulunmamaktadır.
+• Dilediğiniz yetkili servise veya kurumsal ekspertiz merkezine gösterebilirsiniz.
+• Ciddi alıcılarla araç başında cüzi miktarda pazarlık payı vardır. Alıcısına şimdiden hayırlı olsun.`;
+
+      return `
+        <div id="ad-modal-backdrop" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 overflow-y-auto animate-fade-in">
+          <div class="bg-white border border-slate-200 rounded-3xl w-full max-w-3xl shadow-2xl p-6 sm:p-8 space-y-5 animate-modal-scale text-slate-900 max-h-[92vh] overflow-y-auto">
+            
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center text-xl shrink-0 shadow-2xs font-bold">
+                  📋
+                </div>
+                <div>
+                  <h3 class="font-black text-lg text-slate-900 leading-tight">Sahibinden Profesyonel İlan Metni</h3>
+                  <p class="text-xs text-slate-500">Otomatik İlan Sihirbazı (Örnek Önizleme)</p>
+                </div>
+              </div>
+              <button id="btn-close-ad-modal" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition">${Icons.close('w-5 h-5')}</button>
+            </div>
+
+            <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-amber-950 font-medium">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">💡</span>
+                <span>Garajınızda henüz araç bulunmuyor. Aşağıda örnek bir ilan taslağı önizlenmektedir. Kendi aracınızın bilgileriyle ilan üretmek için lütfen aracınızı ekleyin.</span>
+              </div>
+              <button type="button" id="btn-ad-add-vehicle" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shrink-0 shadow-xs transition active:scale-95 cursor-pointer">
+                + Hemen Araç Ekle
+              </button>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-slate-700">Örnek İlan Açıklama Metni (Dilediğiniz gibi düzenleyip kopyalayabilirsiniz)</label>
+                <span class="text-[11px] font-mono text-slate-400">Karakter: ${sampleAdText.length}</span>
+              </div>
+              <textarea id="ad-text-content" rows="12" class="w-full p-4 text-xs font-mono bg-slate-900 text-slate-100 rounded-2xl border border-slate-700 outline-none leading-relaxed resize-y selection:bg-amber-500 selection:text-slate-950 focus:border-amber-500">${sampleAdText}</textarea>
+            </div>
+
+            <div class="flex items-center justify-between flex-wrap gap-3 pt-2 border-t border-slate-100">
+              <button type="button" id="btn-cancel-ad-modal" class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-xs transition active:scale-95 cursor-pointer">
+                Kapat
+              </button>
+              <button type="button" id="btn-copy-ad-clipboard" class="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs shadow-md shadow-amber-500/25 active:scale-95 transition flex items-center gap-2 cursor-pointer">
+                ${Icons.copy('w-4 h-4 text-slate-950')}
+                <span>Örnek Metni Kopyala</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      `;
+    }
 
     const adText = generateSahibindenAdText(v);
 
@@ -11178,6 +11259,14 @@ ${ekspertizText}
     const bCancel = document.getElementById('btn-cancel-ad-modal');
     if (bCancel) bCancel.onclick = close;
 
+    const btnAddVeh = document.getElementById('btn-ad-add-vehicle');
+    if (btnAddVeh) {
+      btnAddVeh.onclick = () => {
+        store.setAdModalOpen(false);
+        store.setVehicleWizardOpen(true);
+      };
+    }
+
     const backdrop = document.getElementById('ad-modal-backdrop');
     if (backdrop) {
       backdrop.onclick = (e) => {
@@ -11208,6 +11297,7 @@ ${ekspertizText}
       };
     }
   }
+
 
   // --- 17.10 GÖSTERGE PANELİ ARIZA & İKAZ LAMBALARI REHBERİ MODALI ---
   function renderDashboardLightsModal() {
