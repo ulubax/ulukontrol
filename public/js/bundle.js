@@ -8357,7 +8357,7 @@ ${ekspertizText}
         }
 
         const activeVehicleId = savedActive || (vehicles.length > 0 ? vehicles[0].id : null);
-        const activeTab = savedTab || 'garajim';
+        const activeTab = (savedTab === 'profil' ? 'araclar' : savedTab) || 'garajim';
 
         return {
           user,
@@ -8736,6 +8736,7 @@ ${ekspertizText}
     alertTriangle: (cls = 'w-5 h-5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
     plus: (cls = 'w-5 h-5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
     user: (cls = 'w-5 h-5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+    grid: (cls = 'w-5 h-5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>`,
     close: (cls = 'w-5 h-5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
     check: (cls = 'w-5 h-5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
     refresh: (cls = 'w-5 h-5') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>`,
@@ -8793,7 +8794,7 @@ ${ekspertizText}
       { id: 'garajim', label: 'Garajım', icon: 'car' },
       { id: 'bakim', label: 'Bakım', icon: 'wrench' },
       { id: 'piyasa', label: 'Piyasa', icon: 'trendingUp' },
-      { id: 'profil', label: 'Profil', icon: 'user' }
+      { id: 'araclar', label: 'Araçlar', icon: 'grid' }
     ];
 
     return `
@@ -8978,7 +8979,7 @@ ${ekspertizText}
       { id: 'garajim', label: 'Garajım', icon: 'car' },
       { id: 'bakim', label: 'Bakım', icon: 'wrench' },
       { id: 'piyasa', label: 'Piyasa', icon: 'trendingUp' },
-      { id: 'profil', label: 'Profil', icon: 'user' }
+      { id: 'araclar', label: 'Araçlar', icon: 'grid' }
     ];
 
     return `
@@ -10139,27 +10140,85 @@ ${ekspertizText}
     });
   }
 
-  // --- 16. PROFİL EKRANI ---
-  function renderProfileScreen() {
+  // --- 16. ARAÇLAR & SÜRÜCÜ ASİSTANI EKRANI ---
+  function renderToolsScreen() {
     const state = store.getState();
-    const user = state.user;
-    const vehicles = state.vehicles;
     const currentTheme = state.theme || 'light';
 
     return `
       <div class="space-y-6 max-w-4xl mx-auto pb-6">
-        <div class="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 card-shadow">
-          <div class="flex items-center gap-4 sm:gap-6">
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 text-white font-black text-2xl flex items-center justify-center shadow-md">
-              ${user.avatarText}
-            </div>
-            <div>
-              <h2 class="text-lg sm:text-xl font-black text-slate-900">Kişisel Profilim & Ayarlar</h2>
-              <p class="text-xs text-slate-500 mt-0.5">Kayıtlı Araç Sayısı: ${vehicles.length}</p>
-              <div class="flex items-center gap-2 mt-2">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">● Çevrimiçi Bulut Senkronizasyonu</span>
+        <!-- Başlık Kartı (Üyeliksiz, Gizlilik Odaklı) -->
+        <div class="rounded-3xl bg-gradient-to-br from-white via-slate-50 to-emerald-50/40 border border-slate-200/90 p-6 sm:p-8 card-shadow">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center shadow-md shadow-emerald-600/20">
+                ${Icons.grid('w-7 h-7')}
+              </div>
+              <div>
+                <h2 class="text-lg sm:text-xl font-black text-slate-900">Sürücü Araçları & Ayarlar</h2>
+                <p class="text-xs text-slate-500 mt-0.5">Yol yardım, arıza rehberi, ilan sihirbazı ve cihaz tercihleri</p>
               </div>
             </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-bold">
+              <span>🔒 %100 Cihazınızda Güvende</span>
+              <span class="text-emerald-400">•</span>
+              <span class="text-emerald-700 font-semibold">Üyelik Gerekmez</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pratik Sürücü Asistanı Kartları (Grid) -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between px-1">
+            <h3 class="text-xs font-black uppercase tracking-wider text-slate-600">Pratik Sürücü Araçları</h3>
+            <span class="text-[11px] text-slate-500">3 Hızlı Araç</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- 1. İkaz Lambaları Rehberi -->
+            <button type="button" id="btn-tools-lights" class="p-5 rounded-3xl bg-white border border-slate-200/90 hover:border-amber-300 card-shadow hover:shadow-md transition text-left flex flex-col justify-between group cursor-pointer active:scale-98">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center text-xl mb-3 group-hover:scale-105 transition-transform">
+                  ⚠️
+                </div>
+                <h4 class="text-sm font-black text-slate-900 group-hover:text-amber-800 transition-colors">Gösterge İkaz Lambaları</h4>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed">Arıza ve uyarı ışıklarının renkleri, motor arıza, akü ve kritik ikaz anlamları.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-amber-700">
+                <span>Rehberi Aç</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </button>
+
+            <!-- 2. Kaza & Acil Asistanı -->
+            <button type="button" id="btn-tools-emergency" class="p-5 rounded-3xl bg-white border border-slate-200/90 hover:border-rose-300 card-shadow hover:shadow-md transition text-left flex flex-col justify-between group cursor-pointer active:scale-98">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center text-xl mb-3 group-hover:scale-105 transition-transform">
+                  🆘
+                </div>
+                <h4 class="text-sm font-black text-slate-900 group-hover:text-rose-800 transition-colors">Kaza & Yol Yardım</h4>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed">Kaza tutanağı adımları, 112 Acil, çekici, polis ve sigorta çağrı rehberi.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-rose-700">
+                <span>Asistanı Başlat</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </button>
+
+            <!-- 3. İlan Metni Sihirbazı -->
+            <button type="button" id="btn-tools-ad" class="p-5 rounded-3xl bg-white border border-slate-200/90 hover:border-emerald-300 card-shadow hover:shadow-md transition text-left flex flex-col justify-between group cursor-pointer active:scale-98">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center text-xl mb-3 group-hover:scale-105 transition-transform">
+                  📋
+                </div>
+                <h4 class="text-sm font-black text-slate-900 group-hover:text-emerald-800 transition-colors">İlan Metni Oluşturucu</h4>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed">Sahibinden ve ilan siteleri için donanım ve ekspertizli profesyonel satış yazısı.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-700">
+                <span>İlan Metni Üret</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </button>
           </div>
         </div>
 
@@ -10229,9 +10288,9 @@ ${ekspertizText}
           </div>
         </div>
 
-        <!-- Garajı Sıfırla Butonu -->
+        <!-- Garajı Sıfırla / Veri Temizleme Kartı -->
         <div class="pt-2">
-          <button type="button" id="btn-clear-garage" class="w-full py-4 rounded-2xl bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-700 font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2 border border-slate-200 hover:border-rose-200">
+          <button type="button" id="btn-clear-garage" class="w-full py-4 rounded-2xl bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-700 font-bold text-xs transition active:scale-95 flex items-center justify-center gap-2 border border-slate-200 hover:border-rose-200 cursor-pointer">
             ${Icons.trash('w-4 h-4')} Garajı Sıfırla / Tüm Araçları Sil
           </button>
         </div>
@@ -10239,7 +10298,20 @@ ${ekspertizText}
     `;
   }
 
-  function attachProfileScreenEvents() {
+  function renderProfileScreen() {
+    return renderToolsScreen();
+  }
+
+  function attachToolsScreenEvents() {
+    const btnLights = document.getElementById('btn-tools-lights');
+    if (btnLights) btnLights.onclick = () => store.setLightsModalOpen(true);
+
+    const btnEmergency = document.getElementById('btn-tools-emergency');
+    if (btnEmergency) btnEmergency.onclick = () => store.setEmergencyModalOpen(true);
+
+    const btnAd = document.getElementById('btn-tools-ad');
+    if (btnAd) btnAd.onclick = () => store.setAdModalOpen(true);
+
     const btnClear = document.getElementById('btn-clear-garage');
     if (btnClear) btnClear.onclick = () => {
       if (confirm('Garajınızdaki tüm araçları silmek ve sıfırdan başlamak istiyor musunuz?')) {
@@ -10256,6 +10328,10 @@ ${ekspertizText}
         store.setTheme(theme);
       };
     });
+  }
+
+  function attachProfileScreenEvents() {
+    attachToolsScreenEvents();
   }
 
   // --- 17. HIZLI KM GÜNCELLEME MODALI ---
@@ -12227,8 +12303,9 @@ ${ekspertizText}
       case 'piyasa':
         mainContent = renderMarketScreen();
         break;
+      case 'araclar':
       case 'profil':
-        mainContent = renderProfileScreen();
+        mainContent = renderToolsScreen();
         break;
       default:
         mainContent = renderEmptyGarageHero();
@@ -12272,8 +12349,8 @@ ${ekspertizText}
       attachCockpitWidgetEvents();
     } else if (state.activeTab === 'bakim') {
       attachMaintenanceScreenEvents();
-    } else if (state.activeTab === 'profil') {
-      attachProfileScreenEvents();
+    } else if (state.activeTab === 'araclar' || state.activeTab === 'profil') {
+      attachToolsScreenEvents();
     } else if (state.activeTab === 'piyasa') {
       attachMarketScreenEvents();
     }
